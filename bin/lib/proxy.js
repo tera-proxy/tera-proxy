@@ -1,3 +1,9 @@
+if(process.versions.node === '11.0.0') {
+	console.error(`Error: Node.JS 11.0.0 contains a critical bug preventing timers from working.
+Please install a newer version (if available) or revert to 10.12.0.`)
+	process.exit()
+}
+
 const SlsProxy = require('tera-proxy-sls'),
 	{ Connection, RealClient } = require('tera-proxy-game'),
 	{ protocol } = require('tera-data-parser'),

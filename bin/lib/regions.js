@@ -35,18 +35,13 @@ module.exports = {
 		address: '103.80.216.189',
 		tag: '[Proxy]'
 	},
-	SEA: {
-		index: 6,
-		url: 'http://terasls.playwithsea.com/list.xml',
-		tag: '[Proxy]'
-	},
 	KR: {
-		index: 7,
+		index: 6,
 		url: 'http://tera.nexon.com/launcher/sls/servers/list.xml',
 		tag: '[프록시]'
 	},
 	'KR-TEST': {
-		index: 8,
+		index: 7,
 		url: 'http://tera.nexon.com/launcherOpenTest/sls/servers/list.xml',
 		tag: '[프록시]'
 	}

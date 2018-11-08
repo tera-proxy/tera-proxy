@@ -35,13 +35,19 @@ module.exports = {
 		address: '103.80.216.189',
 		tag: '[Proxy]'
 	},
-	KR: {
+	NA: {
 		index: 6,
+		url: 'http://sls.service.enmasse.com:8080/servers/list.en',
+		address: '208.67.49.148',
+		tag: '[Proxy]'
+	},
+	KR: {
+		index: 7,
 		url: 'http://tera.nexon.com/launcher/sls/servers/list.xml',
 		tag: '[프록시]'
 	},
 	'KR-TEST': {
-		index: 7,
+		index: 8,
 		url: 'http://tera.nexon.com/launcherOpenTest/sls/servers/list.xml',
 		tag: '[프록시]'
 	}

@@ -130,7 +130,7 @@ const servers = new Map()
 dns.setServers(['8.8.8.8', '8.8.4.4'])
 
 async function init() {
-	console.log(`[proxy] initializing, game region: ${REGION}`)
+	console.log(`[proxy] initializing. node version: ${process.versions.node}, game region: ${REGION}`)
 
 	// Retrieve server list
 	const serverList = await sls.fetch()

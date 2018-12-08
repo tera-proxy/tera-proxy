@@ -1,6 +1,6 @@
-if(['11.0.0', '11.1.0'].includes(process.versions.node)) {
+if(['11.0.0', '11.1.0', '11.2.0', '11.3.0'].includes(process.versions.node)) {
 	console.error(`Error: Node.JS ${process.versions.node} contains a critical bug preventing timers from working.
-Please install a newer version (if available) or revert to 10.13.0.`)
+Please install a newer version (if available) or revert to 10.14.1 LTS.`)
 	process.exit()
 }
 

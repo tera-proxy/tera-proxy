@@ -1,5 +1,5 @@
-@ECHO off
-TITLE TERA Proxy Config
-CD /d "%~dp0"
+@echo off
+title TERA Proxy Config
+cd /d "%~dp0"
 
 node --use-strict bin/configurator

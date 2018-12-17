@@ -15,7 +15,7 @@ module.exports = {
 	},
 	RU: {
 		index: 2,
-		url: 'http://launcher.tera-online.ru/launcher/sls/',
+		url: 'http://launcher./launcher/sls/',
 		address: '91.225.237.3',
 		tag: '[Прокси]'
 	},

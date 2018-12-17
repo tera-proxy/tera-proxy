@@ -2,17 +2,9 @@
 title TERA Proxy
 cd /d "%~dp0"
 
-where node > NUL 2> NUL
+node -e "" 2> NUL
 if %errorlevel% NEQ 0 (
 	echo Node.JS not found.
-	echo Please install the latest Current from https://nodejs.org/
-	pause
-	exit
-)
-
-node --harmony-bigint -e "" 2> NUL
-if %errorlevel% NEQ 0 (
-	echo Your version of Node.JS is outdated.
 	echo Please install the latest Current from https://nodejs.org/
 	pause
 	exit
@@ -24,5 +16,5 @@ if not exist ./bin/config.json (
 	cls
 )
 
-node --harmony-bigint .
+node --use-strict .
 pause

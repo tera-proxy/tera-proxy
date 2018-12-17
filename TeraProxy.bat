@@ -10,9 +10,8 @@ if %errorlevel% NEQ 0 (
 	exit
 )
 
-if not exist ./bin/config.json (
-	echo Please select your gameserver region in the prompt and press OK.
-	start /wait server-select
+if not exist ./settings/_tera-proxy_.json (
+	node --use-strict bin/configurator
 	cls
 )
 

@@ -70,7 +70,7 @@ function setRegion(region) {
 	region = region.toUpperCase()
 	for(let r of regions)
 		if(r.name.includes(region)) {
-			config.region = region
+			config.region = r.name[0]
 			return true
 		}
 	return false

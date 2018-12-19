@@ -48,8 +48,8 @@ class ModWrapper {
 				rootFolder: info._path,
 
 				manager: {
-					get(name) { return this.dispatch.loadedMods.get(name) },
-					isLoaded(name) { return this.isLoaded(name) }
+					get: name => this.dispatch.loadedMods.get(name),
+					isLoaded: name => this.isLoaded(name)
 				},
 
 				// Timers

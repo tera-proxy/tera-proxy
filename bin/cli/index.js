@@ -65,14 +65,14 @@ async function init() {
 			case 'EACCES':
 				log.error(`Hosts file is set to read-only.
 
-	* Make sure no anti-virus software is running.
-	* Locate "${e.path}", right click the file, click 'Properties', uncheck 'Read-only' then click 'OK'.`)
+* Make sure no anti-virus software is running.
+* Locate "${e.path}", right click the file, click 'Properties', uncheck 'Read-only' then click 'OK'.`)
 				break
 			case 'EPERM':
 				log.error(`Insufficient permission to modify hosts file.
 
-	* Make sure no anti-virus software is running.
-	* Right click TeraProxy.bat and select 'Run as administrator'.`)
+* Make sure no anti-virus software is running.
+* Right click TeraProxy.bat and select 'Run as administrator'.`)
 				break
 			default:
 				throw e

@@ -4,7 +4,8 @@ const fs = require('fs'),
 	path = require('path'),
 	readline = require('readline')
 
-const configDir = path.join(__dirname, '../settings/_tera-proxy_.json'),
+const configDir = path.join(__dirname, '../settings')
+	configFile = path.join(__dirname, '_tera-proxy_.json'),
 	regions = [{
 		name: ['EU'],
 		publisher: 'Gameforge'
@@ -42,9 +43,11 @@ let config = {
 }
 
 try {
-	config = JSON.parse(fs.readFileSync(configDir))
+	config = JSON.parse(fs.readFileSync(configFile))
 }
-catch(e) {}
+catch(e) {
+	if(!fs.existsSync(configDir)) fs.mkdirSync(configDir)
+}
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 function question(q) { return new Promise(resolve => { rl.question(q, resolve) }) }
@@ -66,7 +69,7 @@ function question(q) { return new Promise(resolve => { rl.question(q, resolve) }
 		config.autoUpdateMods = parseBool(await question(`Automatically update mods? (${config.autoUpdateMods ? 'Y/n' : 'y/N'}): `),
 			config.autoUpdateMods)
 
-	fs.writeFileSync(configDir, JSON.stringify(config))
+	fs.writeFileSync(configFile, JSON.stringify(config))
 	rl.close()
 })()
 

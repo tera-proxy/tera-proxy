@@ -1,0 +1,3 @@
+array items
+- uint32 id # Client repeats this to the server when claiming an item, otherwise it has no use
+- int32  item

@@ -1,0 +1,8 @@
+count  items
+offset items
+
+uint64 owner
+array  items
+- offset text
+- int32  item
+- string text

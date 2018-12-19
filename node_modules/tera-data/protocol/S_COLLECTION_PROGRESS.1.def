@@ -1,0 +1,2 @@
+int32  progress # negative numbers fill the bar with transparent (unintentional?)
+uint64 unk      # gameId of something most likely - random numbers cause no progress (0 for normal gathering)

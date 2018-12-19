@@ -1,0 +1,23 @@
+uint32 contractId
+uint64 sourceUniqueId
+uint32 sourceItemId
+uint32 resultItemId
+uint32 resultEnchantLevel
+byte unk1
+uint32 unk2
+uint32 sourceEnchantLevel
+uint64 itemEXP
+uint64 itemEXPMax
+uint32 sourceItemLevel
+uint32 sourceItemLevelMax
+uint32 resultItemLevel
+uint32 resultItemLevelMax
+uint64 price
+
+array materials
+- uint32 id
+- uint32 amount
+
+array successChances
+- uint32 unk
+- float chance

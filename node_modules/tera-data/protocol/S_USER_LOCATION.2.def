@@ -1,0 +1,12 @@
+uint64 gameId
+float  x
+float  y
+float  z
+int16  w
+int16  unk
+int16  speed
+float  toX
+float  toY
+float  toZ
+int32  type # see C_PLAYER_LOCATION.type
+bool   unk2

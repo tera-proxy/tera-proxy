@@ -1,0 +1,14 @@
+# majorPatchVersion >= 74
+
+uint64 gameId
+int32  templateId
+int32 unk1 # 0? (new)
+uint64 id
+uint32 skill
+int32 unk2 # 0? (new)
+vec3   loc
+vec3   dest
+float  speed
+float  distance
+bool   curve
+float  projectileSpeed # (same as S_ACTION_STAGE's)

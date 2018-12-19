@@ -1,0 +1,18 @@
+float x
+float y
+float z
+int16 w
+int16 unk2
+float toX
+float toY
+float toZ
+
+# 0 = running, 1 = walking, 2 = falling, 5 = jumping,
+# # 7 = stop moving, though landing
+# 8 = swimming, 9 = stop swimming, 10 = falling after jumping
+# 6 = jump intersection and end when something is blocking the path and the player can't travel in the X and Y axis(it will then wait and resume if possible)
+int32 type
+
+int16 speed
+byte  unk # always 0?
+int32 time

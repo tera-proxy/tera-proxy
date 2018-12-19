@@ -1,0 +1,4 @@
+uint64 gameId
+uint32 id # see DynamicGeoData
+vec3 loc
+angle w

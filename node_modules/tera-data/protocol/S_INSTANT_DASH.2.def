@@ -1,0 +1,7 @@
+uint64 source
+uint64 target
+uint32 unk # always 0?
+float x
+float y
+float z
+int16 w

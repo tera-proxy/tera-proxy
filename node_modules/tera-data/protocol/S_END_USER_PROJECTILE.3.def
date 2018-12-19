@@ -1,0 +1,4 @@
+uint64 id
+bool   unk1 # true = projectile expired?
+bool   unk2 # true = projectile expired or hit a target?
+uint64 target

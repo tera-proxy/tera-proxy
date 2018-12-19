@@ -1,0 +1,2 @@
+int64 cid
+int32 buff # 37 = HP, 38 = MP, 39 = HP+MP

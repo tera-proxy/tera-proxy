@@ -1,0 +1,3 @@
+uint64 gameId
+int32 status # 0 = normal, 1 = in combat, 2 = campfire, 3 = on pegasus
+bool unk # read but ignored by the client

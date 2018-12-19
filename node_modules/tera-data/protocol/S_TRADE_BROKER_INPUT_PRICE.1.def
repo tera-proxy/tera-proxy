@@ -1,0 +1,5 @@
+uint64 minPrice
+uint64 avgPrice # Average Brokered Sale
+uint64 unk1
+uint64 unk2
+uint64 unk3

@@ -1,0 +1,12 @@
+uint64 gainedTotalEXP
+uint64 totalEXP
+uint64 levelEXP
+uint64 nextLevelEXP
+uint64 killedMob
+uint32 unk1
+uint32 gainedRestedEXP
+uint32 restedEXP
+uint32 maxRestedEXP
+float unk2
+uint32 unk3
+uint32 unk4

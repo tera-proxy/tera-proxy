@@ -1,0 +1,6 @@
+uint64 source
+uint64 target
+int32 unk
+uint32 skill
+vec3 loc
+bool success #always true?

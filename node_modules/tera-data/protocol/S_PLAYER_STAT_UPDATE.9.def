@@ -1,0 +1,63 @@
+int64  hp
+int64  mp
+int32  unk1
+int64  maxHp
+int32  maxMp
+int32  power
+int32  endurance
+int32  impactFactor
+int32  balanceFactor
+int16  runSpeed
+int16  walkSpeed
+int16  attackSpeed
+float  critRate
+float  critResist
+float  critPower
+int32  attack
+int32  attack2
+int32  defense
+int32  impact
+int32  balance
+float  resistWeakening
+float  resistPeriodic
+float  resistStun
+int32  powerBonus
+int32  enduranceBonus
+int32  impactFactorBonus
+int32  balanceFactorBonus
+int16  runSpeedBonus
+int16  walkSpeedBonus
+int16  attackSpeedBonus
+float  critRateBonus
+float  critResistBonus
+float  critPowerBonus
+int32  attackBonus
+int32  attack2Bonus
+int32  defenseBonus
+int32  impactBonus
+int32  balanceBonus
+float  resistWeakeningBonus
+float  resistPeriodicBonus
+float  resistStunBonus
+uint16 level1
+bool   inCombat
+uint32 unk5 # flags?
+int32  hpBonus
+int32  mpBonus
+int32  condition # Stamina in English version
+int32  contitionMax
+int32  stamina # Resolve, Chi, Willpower, etc.
+int32  staminaMax
+int32  staminaBonus
+int32  infamy
+int32  itemLevelInventory
+int32  itemLevel
+int32  edge
+uint16 unk7 # 0?
+uint16 unk8 # flags?
+int32  unk9  # 0x1F40 = 8000
+int32  unk10 # 3
+int32  level2
+float  flightEnergy
+uint32 unk13 # 0?
+float  unk14 # 1

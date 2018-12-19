@@ -1,0 +1,2 @@
+uint64 gameId # shuttle gameId
+vec3 loc # normal world location

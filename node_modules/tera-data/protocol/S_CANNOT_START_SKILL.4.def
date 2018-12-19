@@ -1,0 +1,3 @@
+# MajorPatchVersion >= 74 
+
+skillid skill # requires type: 0, npc: false (implies huntingZoneId: 0), and reserved: 0

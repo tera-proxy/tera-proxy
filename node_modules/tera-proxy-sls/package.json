@@ -1,0 +1,12 @@
+{
+	"name": "tera-proxy-sls",
+	"version": "0.1.0",
+	"dependencies": {
+		"http-proxy": "^1.15.1",
+		"xmldom": "^0.1.22",
+		"log": "github:pinkipi/log"
+	},
+	"description": "Injects custom servers to the TERA server list.",
+	"license": "ISC",
+	"author": "Pinkie Pie"
+}

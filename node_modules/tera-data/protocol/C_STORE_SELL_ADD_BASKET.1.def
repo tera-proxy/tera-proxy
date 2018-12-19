@@ -1,0 +1,5 @@
+uint64 cid
+uint32 npc
+uint32 item
+uint32 quantity
+uint32 slot #inventory slot

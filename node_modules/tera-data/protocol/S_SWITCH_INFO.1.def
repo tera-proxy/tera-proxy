@@ -1,0 +1,5 @@
+# this is sent for stance switches. for example, for
+# warrior dstance, onSkill = 90400 & offSkill = 90450.
+uint32 onSkill
+uint32 offSkill
+bool enabled

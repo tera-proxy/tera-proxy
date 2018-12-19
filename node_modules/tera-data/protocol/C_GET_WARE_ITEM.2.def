@@ -1,0 +1,9 @@
+int64 gameId
+int32 type # 1 = bank, 12 = costume
+int32 page
+int64 money
+int32 bankPos
+int64 uid
+int32 dbid
+int32 amount
+int32 invenPos

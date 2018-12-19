@@ -1,0 +1,6 @@
+# this is used for stuff like the perma rep boost from elite/tera club
+uint32 unk1 # 0, could be an array?
+uint32 id # e.g. 2000006
+uint32 duration
+uint32 unk2 # 0?
+uint32 unk3 # 1?

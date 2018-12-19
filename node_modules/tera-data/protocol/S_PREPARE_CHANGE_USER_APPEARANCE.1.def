@@ -1,0 +1,2 @@
+int32 type # 1 = race, 2 = gender, 3 = appearance
+int32 time

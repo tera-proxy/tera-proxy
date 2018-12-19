@@ -1,0 +1,78 @@
+# MajorPatchVersion >= 67
+
+uint32 templateId # For players the convention is 1XXYY (X = 1 + race*2 + gender, Y = 1 + class). See C_CREATE_USER
+uint64 gameId # globally-unique identifier for this session
+uint32 serverId
+uint32 playerId
+int32  actionMode # ?
+bool   alive
+int32  status
+int32  walkSpeed
+int32  runSpeed
+uint64 appearance
+bool   unk1
+bool   unk2
+uint16 level
+uint32 awakeningLevel
+uint16 gatherEnergy
+uint16 gatherBug # unreleased content
+uint16 gatherHerb
+uint16 gatherMineral
+int16  unk3
+int32  unk4
+int32  playerKills
+uint64 totalXp
+uint64 levelXp
+uint64 nextLevelXp
+int32  unk5
+int32  unk6
+int32  unk7
+int32  unk8
+uint32 restedCurrent
+uint32 restedMax
+float  unk9
+float  unk10
+uint32 weapon
+uint32 body
+uint32 hand
+uint32 feet
+uint32 underwear
+uint32 head
+uint32 face
+int64  ingameTime
+byte   unk11
+int64  chatBanUntil
+uint32 title # achievement id
+uint32 weaponModel
+uint32 bodyModel
+uint32 handModel
+uint32 feetModel
+uint32 weaponDye # ignored
+uint32 bodyDye
+uint32 handDye
+uint32 feetDye
+uint32 underwearDye
+uint32 styleBackDye
+uint32 styleHeadDye
+uint32 styleFaceDye
+uint32 weaponEnchant
+bool   newbie
+int32  infamy
+bool   showFace
+uint32 styleHead
+uint32 styleFace
+uint32 styleBack
+uint32 styleWeapon
+uint32 styleBody
+uint32 styleFootprint
+uint32 styleBodyDye
+bool   showStyle
+int32  unk13
+int32  unk14
+int32  appearance2 # unknown, but client ignores shape if this is invalid
+float  scale
+int32  unk15
+byte   unk16
+string name
+bytes  details
+bytes  shape

@@ -1,0 +1,9 @@
+uint64 source
+uint64 target
+uint32 contract
+int32 sourceLock
+int64 sourceGold
+int32 targetLock
+int64 targetGold
+bytes sourceItems
+bytes targetItems

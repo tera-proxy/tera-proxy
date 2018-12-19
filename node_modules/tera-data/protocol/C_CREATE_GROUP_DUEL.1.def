@@ -1,0 +1,3 @@
+int32 kills # 0 = Kill All, 1 = Kill 1, ... , 7 = Kill 7
+byte open # 0 = closed, 1 = open
+string advertisement

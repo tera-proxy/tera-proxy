@@ -1,0 +1,5 @@
+#Used for Speech bubbles on npcs/some event notifications
+offset message
+
+uint64 source
+string message #@monsterBehavior:messageId, targetname-used if message contains a name

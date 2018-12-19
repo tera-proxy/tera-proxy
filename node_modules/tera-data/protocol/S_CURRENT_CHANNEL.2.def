@@ -1,0 +1,4 @@
+int32 zone    # If changed, triggers the "Moving to channel X." message
+int32 channel # ^ See above
+int32 density # 0 = Low, 1 = Medium, 2 = High
+int32 type    # 1 = Multiple channels with density, 2 = Cannot change channel, 3 = Hidden (single channel)

@@ -1,0 +1,17 @@
+count  friends
+offset friends
+array  friends
+- offset name
+- uint32 id
+- int32  level
+- int32  race
+- int32  class
+- int32  gender
+- int32  status
+- uint32 location1
+- uint32 location2
+- uint32 location3
+- byte   unk4
+- int16  unk5
+- int64  lastOnline
+- string name

@@ -1,0 +1,2 @@
+uint64 target
+byte   status # always 0?

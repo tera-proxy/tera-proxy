@@ -1,0 +1,8 @@
+bool   success
+bool   loginQueue
+uint32 status
+uint32 unk # ignored by client
+uint32 language # must match C_LOGIN_ARBITER.language
+bool   pvpDisabled
+uint16 unk1 # checked against 0
+uint16 unk2 # checked against level

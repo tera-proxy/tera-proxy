@@ -1,0 +1,2 @@
+uint32 maxTime # in seconds
+uint32 time # in seconds

@@ -1,0 +1,3 @@
+int32 invType # 0 = inventory, 1 = bank, 12 = costume bank
+int32 slot1
+int32 slot2

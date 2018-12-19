@@ -1,0 +1,4 @@
+int32 accountType # 1 = P2P (active subscription), 2 = P2P (no active subscription),
+                  # 3 = F2P (free-play event), 4 = F2P (legacy restriction),
+                  # 5 = Premium, 6 = Basic
+int32 minutesLeft

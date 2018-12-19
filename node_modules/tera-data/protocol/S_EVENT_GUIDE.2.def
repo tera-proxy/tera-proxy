@@ -1,0 +1,17 @@
+uint32 unk
+
+array weeks
+- uint32 id
+- uint32 unk # 0
+- array days
+- - bool  available
+- - bool  claimed
+- - int32 item
+- - int32 amount
+
+array events
+- uint32 id
+- int64  start  # Unix time
+- int64  end    # Unix time
+- string caption
+- string description

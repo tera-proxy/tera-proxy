@@ -1,0 +1,4 @@
+bool visible
+int32 id # 1 = inner gate, 2 = North Gate, 3 = South Gate
+uint64 hp
+uint64 maxHp

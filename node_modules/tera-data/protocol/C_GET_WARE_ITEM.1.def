@@ -1,0 +1,10 @@
+int64 source
+int32 invType # 1 = bank, 12 = costume bank
+int32 unk1
+int32 money
+int32 unk2
+int32 bankPos
+int64 uid
+int32 item
+int32 numbers
+int32 invenPos

@@ -1,0 +1,6 @@
+uint64 source
+uint64 target
+uint32 contract
+int32 invenSlot # Item in inven slot
+int32 amount
+uint64 gold

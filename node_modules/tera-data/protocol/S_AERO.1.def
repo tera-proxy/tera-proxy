@@ -1,0 +1,4 @@
+offset aeroSet
+bool enabled
+float blendTime
+string aeroSet

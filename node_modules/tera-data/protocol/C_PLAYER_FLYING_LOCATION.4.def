@@ -1,0 +1,7 @@
+int32  type      # 0 = Hover, 1 = Forward (unused?), 2 = Forward, 3 = Backward, 4 = Boost Forward, 5 = Take Off,
+                 # 6 = Ascend, 7 = Descend, 8 = Land
+vec3   loc
+vec3   dest
+uint32 time      # Operating System uptime (ms)
+vec3   control   # Normalized control facing direction (ignored?)
+vec3   direction # Normalized destination facing direction

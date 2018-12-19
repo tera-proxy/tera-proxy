@@ -1,0 +1,6 @@
+uint64 gameId
+int32 item # Workobject ID from dc
+vec3 loc
+int16 unk1 # 0 
+int16 unk2 # Something to do with the state of the object, eg if it has been used
+int16 unk3 # 0

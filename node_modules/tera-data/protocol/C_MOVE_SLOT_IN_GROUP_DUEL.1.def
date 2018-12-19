@@ -1,0 +1,4 @@
+byte fromteam # 0 = Team A, 1 = Team B
+int32 fromslot # 0-9
+byte toteam # 0 = Team A, 1 = Team B
+int32 toslot # 0-9

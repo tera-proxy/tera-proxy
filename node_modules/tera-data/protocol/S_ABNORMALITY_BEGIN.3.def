@@ -1,0 +1,10 @@
+# majorPatchVersion >= 75
+
+uint64 target
+uint64 source
+uint32 id
+int32 duration
+int32 unk
+int32 stacks
+int32 unk2
+int32 unk3 # 0? new

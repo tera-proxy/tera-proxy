@@ -1,0 +1,4 @@
+bool isFirstVisit
+uint32 mapId
+uint32 guardId
+uint32 sectionId

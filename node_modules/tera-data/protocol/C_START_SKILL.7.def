@@ -1,0 +1,12 @@
+# MajorPatchVersion >= 74
+
+skillid skill
+angle   w
+vec3    loc
+vec3    dest
+bool    unk # Always true?
+bool    moving
+bool    continue # true if the previous skill should not trigger S_ACTION_END for the previous skill
+                 # (ex. charging skills, Ninja's Impact Bomb interrupting another skill)
+uint64  target
+bool    unk2

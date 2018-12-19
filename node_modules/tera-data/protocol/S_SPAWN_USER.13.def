@@ -1,0 +1,90 @@
+uint32 serverId
+uint32 playerId
+uint64 gameId
+vec3   loc
+angle  w
+int32  relation
+uint32 templateId
+int16  unk1 # always 0?
+int16  unk2
+int16  unk3
+int16  unk4 # always 0?
+int16  unk5 # 0-4?
+bool   visible
+bool   alive
+uint64 appearance
+uint32 weapon
+uint32 body
+uint32 hand
+uint32 feet
+uint32 underwear
+uint32 head
+uint32 face
+int32  spawnFx # 0 = Enter area, 1 = None
+int32  mount
+int32  pose # See C_PLAYER_LOCATION.type / C_PLAYER_FLYING_LOCATION.type
+int32  title
+int64  shuttleId
+int32  guildEmblemId
+bool   exarch
+bool   gm
+bool   gmInvisible
+uint32 weaponModel
+uint32 bodyModel
+uint32 handModel
+uint32 feetModel
+uint32 weaponDye # ignored
+uint32 bodyDye
+uint32 handDye
+uint32 feetDye
+uint32 underwearDye
+uint32 styleBackDye
+uint32 styleHeadDye
+uint32 styleFaceDye
+uint32 weaponEnchant
+bool   newbie
+bool   pkEnabled
+int32  level
+uint64 vehicleEx
+bool   showFace
+uint32 styleHead
+uint32 styleFace
+uint32 styleBack
+uint32 styleWeapon
+uint32 styleBody
+uint32 styleFootprint
+float  styleHeadScale
+vec3fa styleHeadRotation
+vec3   styleHeadTranslation
+vec3   styleHeadTranslationDebug
+float  styleFaceScale
+vec3fa styleFaceRotation
+vec3   styleFaceTranslation
+vec3   styleFaceTranslationDebug
+float  styleBackScale
+vec3fa styleBackRotation
+vec3   styleBackTranslation
+vec3   styleBackTranslationDebug
+bool   accessoryTransformUnk
+uint32 styleBodyDye
+int32  partyServer
+int32  partyId
+bool   unk6
+bool   showStyle
+int32  unk7
+int32  unk8 # always 0?
+int32  appearance2
+float  scale
+
+array  icons
+- int32 icon
+
+array  accountBenefits
+- int32 packageId
+
+string name
+string guild
+string guildRank
+bytes  details
+string guildEmblem
+bytes  shape

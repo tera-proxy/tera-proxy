@@ -1,0 +1,8 @@
+uint64 source
+uint32 unk1 # always 0?
+uint32 unk2 # always 0?
+uint32 unk3 # always 0?
+float x
+float y
+float z
+int16 w

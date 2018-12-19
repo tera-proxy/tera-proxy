@@ -1,0 +1,7 @@
+{
+	"name": "command",
+	"update": "github:tera-mods/command",
+	"title": "Command",
+	"author": "Pinkie Pie",
+	"description": "Add ingame chat commands to your mod."
+}

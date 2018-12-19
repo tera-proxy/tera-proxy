@@ -1,0 +1,41 @@
+uint64 gameId
+uint64 target
+vec3   loc
+angle  w
+int32  relation
+uint32 templateId
+uint16 huntingZoneId
+int32  unk1
+int16  walkSpeed
+int16  runSpeed
+int16  unk5  # 0-4?
+int16  unk6  # boolean?
+int32  unk7  # 0-5?
+bool   visible
+bool   villager
+int32  spawnType
+uint64 unk11
+uint16 unk12
+int16  unk13
+int32  unk14 # always 0?
+byte   unk15 # boolean?
+uint64 owner
+int32  unk16
+int32  unk17
+uint64 unk18
+byte   unk19
+int32  unk20
+int32  unk25
+
+array  unk22
+- int32  unk1
+- uint64 unk2
+- float  unk3
+- int32  unk4
+- int32  unk5
+- int32  unk6
+- int32  unk7
+
+array  unk24
+
+string npcName # in korean (why???)

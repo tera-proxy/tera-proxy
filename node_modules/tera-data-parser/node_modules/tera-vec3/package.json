@@ -1,0 +1,33 @@
+{
+  "_from": "github:tera-proxy/tera-vec3",
+  "_id": "tera-vec3@1.1.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/tera-vec3",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "tera-vec3@github:tera-proxy/tera-vec3",
+    "name": "tera-vec3",
+    "escapedName": "tera-vec3",
+    "rawSpec": "github:tera-proxy/tera-vec3",
+    "saveSpec": "github:tera-proxy/tera-vec3",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "github:tera-proxy/tera-vec3#123ce43ffb1e65ab958a0a9831a2eca8b47215f1",
+  "_spec": "tera-vec3@github:tera-proxy/tera-vec3",
+  "_where": "Z:\\tera-data-parser",
+  "author": {
+    "name": "Pinkie Pie"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "3D vector math library optimized for TERA.",
+  "license": "CC0-1.0",
+  "name": "tera-vec3",
+  "version": "1.1.0"
+}

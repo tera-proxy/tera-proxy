@@ -1,0 +1,22 @@
+int32 page
+int32 pageCount
+array listings
+- int32 auction
+- uint64 dbid
+- int32 id
+- int32 amount
+- int32 enchant
+- bool masterwork
+- uint32 enigma
+- uint32 ownerId
+- bool buyNow
+- int64 time
+- int64 price
+- int32 itemLevel
+- int32 tier
+- int32 unk1
+- int32 unk2
+- uint8 unk3
+- bool awakened
+- in32 unk4
+- string name

@@ -1,0 +1,24 @@
+uint32 questRewardItr # too lazy to add...
+uint64 npc
+uint32 dialogType
+uint32 key1
+uint32 key2
+uint32 unk1
+uint32 text
+uint32 id
+byte unk2
+uint32 unk3
+byte unk3
+bool unspecifiedReward
+bool additionalReward
+byte unk4
+uint32 unk5
+uint32 unk6
+int32 unk7
+bool additionalRewardEvent
+
+array buttons
+- uint32 id
+- uint32 index
+- uint32 type
+- string text

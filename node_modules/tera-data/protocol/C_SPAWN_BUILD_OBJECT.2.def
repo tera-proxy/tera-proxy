@@ -1,0 +1,4 @@
+offset message
+uint32 itemId #sign of the day, half day etc
+angle w
+string message

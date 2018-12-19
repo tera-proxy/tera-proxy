@@ -1,0 +1,5 @@
+int32 set
+int32 slot
+int32 type
+int32 skill
+int32 item

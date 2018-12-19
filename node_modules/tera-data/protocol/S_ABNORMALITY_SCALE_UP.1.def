@@ -1,0 +1,5 @@
+# Sets entity scale multiplier from abnormalities
+
+uint64 gameId
+float  scale
+uint32 unk # Client ignores this packet if non-zero?

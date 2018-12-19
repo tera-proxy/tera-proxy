@@ -1,0 +1,18 @@
+count  targets
+offset targets
+count  locs
+offset locs
+
+uint64 source
+int32  model
+int32  skill
+int32  unk
+
+array  targets
+- int32  unk
+- uint64 target
+
+array  locs
+- float x
+- float y
+- float z

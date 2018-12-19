@@ -1,0 +1,15 @@
+count  members
+offset members
+string info
+
+array  members
+- offset name
+- uint64 pID
+- int32  level
+- int32  class
+- byte   status
+- uint64 cID
+- int32  order
+- byte   canInvite
+- int32  unk
+- string name

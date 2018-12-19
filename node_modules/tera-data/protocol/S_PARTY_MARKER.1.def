@@ -1,0 +1,6 @@
+count  markers
+offset markers
+
+array  markers
+- uint16  color   # 0 = red, 1 = yellow, 2 = blue
+- uint64  target  # entity id

@@ -1,0 +1,11 @@
+count npcs
+offset npcs
+
+array npcs
+- int32 unk1
+- int32 template
+- int32 huntingZone
+- float x
+- float y
+- float z
+- int32 zone

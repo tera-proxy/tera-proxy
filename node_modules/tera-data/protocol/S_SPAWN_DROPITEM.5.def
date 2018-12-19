@@ -1,0 +1,17 @@
+count  owners
+offset owners
+
+uint64 id
+float  x
+float  y
+float  z
+uint32 item
+uint32 amount
+int32  expiry
+bool justDropped
+bool masterwork
+uint32 enchant
+uint64 mob
+byte   enableDebugMode
+array  owners
+- uint32 playerId

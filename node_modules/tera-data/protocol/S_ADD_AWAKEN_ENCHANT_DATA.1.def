@@ -1,0 +1,8 @@
+array costs
+- uint32 id # just seems to be a unique id for each array entry
+- uint32 enchantLevel
+- uint32 tier
+- uint32 type # 1 = weapon, 2 = ??? (not seen), 3 = chest, 4/5 = gloves/boots (could be switched)
+- uint32 alkahestItemId
+- uint32 alkahestAmount
+- uint32 feedstockAmount

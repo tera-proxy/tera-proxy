@@ -1,0 +1,4 @@
+uint32 serverId
+uint32 playerId
+int32 unk1 # Always FFFFFFFF ?
+string name

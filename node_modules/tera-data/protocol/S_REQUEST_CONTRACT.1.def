@@ -1,0 +1,33 @@
+uint64 senderId
+uint64 recipientId
+int32  type # 3 = Trade Request, 4 = Party Invite, 9 = Merchant/Shop Open,
+            # 8 = Mailbox, 11 = Duel, 14 = Map,
+            # 15 = Teleport (Dungeon Teleport + City Teleport as examples),
+            # 16 = Unstuck, 17 = Continent Map Teleporter,
+            # 18 = Deathmatch Invite, 20 = Medal Shop, 25 = Deathmatch Bet,
+            # 26 = Open Bank, 27 = Learn Skill Merchant, 31 = Craft Item,
+            # 32 = Soulbind, 33 = Merge Items, 35 = Waiting for buyer response,
+            # 36 = Negotiating with buyer, 37 = Inventory Expansion,
+            # 39 = Egg Incubator, 40 = Gear Remodel,
+            # 41 = Restore Gear Appearance, 42 = Dye Item,
+            # 43 = Opening Box no UI or EVENT_SEED, 48 = Vanguard Credit Shop,
+            # 49 = Battleground Merchant,
+            # 50 = response to C_ENTER_TELEPORTTERRITORY
+            #      sends C_REPLY_TELEPORT_WALK_THROUGH,
+            # 51 = Gear rolls, 52 = Opening Box with UI (Gacha + Other),
+            # 53 = Village Atlas, 54 = Travel Journal, 56 = Friend Summon,
+            # 61 = Shape Change, 62 = Old Tera Store, 66 = Bamarama Wager,
+            # 69 = Crystal Fusion, 70 = Awakening, 74 = Liberate Item,
+            # 75 = Enchantment Scrolls
+            # 76 = Dressing Room, 77 = EP/Talents (Disabled/Korea only),
+            # 79 = Dungeon Ace Shop, 80 = Emporium Shop,
+            # 83 = Guild Gold Distribution, 84 = Convert Item,
+            # 85 = Activate Gear Dual Set, 86 = Dual Gear Set Switch,
+            # 87 = Enchant, 88 = Upgrade, 89 = Dismantle,
+            # 90 = Restyle Accessories, 91 = New Hair UI
+int32  id
+int32  unk3
+int32  time
+string senderName
+string recipientName
+bytes  data

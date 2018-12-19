@@ -1,0 +1,4 @@
+uint64 cid
+uint32 npc
+uint32 item
+uint32 quantity

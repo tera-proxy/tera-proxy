@@ -1,0 +1,6 @@
+uint64 gameId
+int32 id
+vec3 loc
+angle w
+int32 status
+int32 spawnType

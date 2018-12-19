@@ -1,0 +1,12 @@
+uint64 target # can be yourself or an npc
+uint32 runemarksRemoved
+uint32 runemarksAdded
+
+# 0 = simply remove/add runemark
+# 1 = detonate runemarks (runeburst/shining crescent)
+# 2 = expired
+# 3 = reclaimed (if you use reclamation, or the target dies)
+uint32 type
+
+# if type = 2 or type = 3 due to target dying, this is zero
+uint32 skill

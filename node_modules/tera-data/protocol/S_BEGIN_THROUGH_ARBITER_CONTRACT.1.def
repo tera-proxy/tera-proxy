@@ -1,0 +1,5 @@
+uint16 unk1
+int32  type # see S_REQUEST_CONTRACT.1
+uint64 id
+string sender
+string recipient

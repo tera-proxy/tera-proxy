@@ -1,0 +1,16 @@
+# Region : KR, since near Elin Gunner patch possibly Arsenal patch
+
+uint32 serverId
+uint32 playerId
+int64  curHp
+int32  curMp
+int64  maxHp
+int32  maxMp
+int16  level
+int16  inCombat
+int16  vitality
+byte   alive # ?
+int32  stamina # 120
+int32  curRe
+int32  maxRe
+int32  unk2

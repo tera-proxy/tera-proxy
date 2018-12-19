@@ -1,0 +1,4 @@
+# used to set the camera distance
+bool enabled
+uint32 default
+uint32 max

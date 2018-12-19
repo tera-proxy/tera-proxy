@@ -1,0 +1,5 @@
+offset name
+
+uint32 serverId
+uint32 playerId
+string name

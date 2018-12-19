@@ -1,0 +1,2 @@
+uint32 type # 0 = safe haven, 1 = resurrect from healer, 2 = Battleground
+uint32 id

@@ -1,0 +1,5 @@
+# majorPatchVersion >= 74
+
+array skills
+- uint64 id
+- bool active

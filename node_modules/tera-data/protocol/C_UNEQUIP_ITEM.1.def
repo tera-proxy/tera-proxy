@@ -1,0 +1,4 @@
+uint64 cid
+int32 slot
+int32 unk
+int32 item

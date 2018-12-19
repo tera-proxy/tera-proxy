@@ -1,0 +1,3 @@
+﻿uint64 target
+uint64 creature
+int32  emotion

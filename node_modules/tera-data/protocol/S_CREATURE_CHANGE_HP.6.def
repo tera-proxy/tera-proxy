@@ -1,0 +1,10 @@
+# Protocol version 319256 or later
+
+uint64  curHp
+uint64  maxHp
+int64  diff
+uint32  type
+uint64 target
+uint64 source
+byte   crit
+uint32 abnormId

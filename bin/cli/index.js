@@ -1,6 +1,3 @@
-// TODO: Load this from settings/_tera-proxy.json
-require('log').level = 'dwarn'
-
 const log = require('log')('proxy')
 
 if(['11.0.0', '11.1.0', '11.2.0', '11.3.0'].includes(process.versions.node)) {

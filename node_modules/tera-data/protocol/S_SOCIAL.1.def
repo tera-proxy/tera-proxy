@@ -1,0 +1,4 @@
+int64 target
+int32 animation
+int32 unk1
+byte  unk2

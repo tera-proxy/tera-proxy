@@ -1,0 +1,12 @@
+uint64 gameId
+int32  id
+uint64 dbid
+uint64 target
+int32  amount
+vec3   dest
+vec3   loc
+angle  w
+uint32 unk1
+uint32 unk2
+uint32 unk3
+bool   unk4  # true?

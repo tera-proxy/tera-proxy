@@ -1,0 +1,5 @@
+# majorPatchVersion >= 77
+
+uint64 user
+uint64 collection
+int64 duration # milliseconds

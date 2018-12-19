@@ -1,0 +1,4 @@
+uint32 points
+uint32 maxPoints
+int32 claimed # Starts from -1 dunno why
+int32 cleared # Number of guardian quests cleared between last reset and next

@@ -1,0 +1,3 @@
+# These are sent to the launcher prior to closing the game
+int32 category
+int32 code

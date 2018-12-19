@@ -1,0 +1,15 @@
+count skillList
+offset skillList
+
+array skillList
+- count requiredSkills
+- offset requiredSkills
+- uint32 unk1
+- uint32 skill
+- byte type # 0 = passive, 1 = active
+- uint32 price # price in copper
+- uint32 level # required level
+- byte learned
+- array requiredSkills
+- - uint32 skill
+- - byte type # 0 = passive, 1 = active

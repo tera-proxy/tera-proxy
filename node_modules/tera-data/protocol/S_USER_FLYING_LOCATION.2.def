@@ -1,0 +1,10 @@
+# See C_PLAYER_FLYING_LOCATION for documentation
+
+uint64 gameId
+int32  type
+vec3   loc
+vec3   dest
+vec3   control
+vec3   direction
+float  speed
+float  rotateSpeed

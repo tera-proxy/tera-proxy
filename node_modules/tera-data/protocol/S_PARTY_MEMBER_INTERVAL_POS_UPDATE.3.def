@@ -1,0 +1,5 @@
+uint32 serverId
+uint32 playerId
+vec3   loc
+uint32 zone
+int32  unk

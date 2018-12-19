@@ -1,0 +1,4 @@
+uint64 target # player or other user
+uint64 source # npc
+int32 circle # 2 = main aggro cicle, 3 = secondary aggro cicle
+int32 operation # 1 = apply circle to target, 2 = remove circle from target

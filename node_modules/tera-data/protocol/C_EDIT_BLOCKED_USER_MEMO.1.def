@@ -1,0 +1,3 @@
+offset memo
+uint32 id
+string memo

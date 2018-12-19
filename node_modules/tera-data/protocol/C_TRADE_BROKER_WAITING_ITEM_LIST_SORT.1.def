@@ -1,0 +1,5 @@
+int32 sort
+# by name = 0, by rarity = 1, number = 2, level required = 3, buy now = 4, buying unity price = 5
+# item level = 6, enchantable = 7, tier = 8, masterwork = 9, enigmatic = 10
+# from = 11 , asking price = 14, per unity asking price = 15
+bool order

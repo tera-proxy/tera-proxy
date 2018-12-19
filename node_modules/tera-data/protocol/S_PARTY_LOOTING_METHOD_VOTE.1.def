@@ -1,0 +1,10 @@
+# See C_PARTY_LOOTING_METHOD
+
+int32 methodLoot
+int32 rareGrade
+int32 methodRare
+bool  rareEquipment
+bool  rareClass
+int32 methodBound
+bool  noCombat
+bool  isLeader

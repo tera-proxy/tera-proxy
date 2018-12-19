@@ -1,0 +1,2 @@
+uint64 gameId
+uint32 stage # 1 -> 2 -> 3

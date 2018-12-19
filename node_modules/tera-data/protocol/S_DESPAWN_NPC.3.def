@@ -1,0 +1,4 @@
+uint64 gameId
+vec3 loc
+uint32 type # 1 = out of view, 5 = dead
+int32  unk # always 0?

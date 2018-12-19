@@ -1,0 +1,3 @@
+int32 zone
+int32 channel
+int32 density

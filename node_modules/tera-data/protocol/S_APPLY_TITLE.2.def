@@ -1,0 +1,4 @@
+uint64 gameId
+int32  title
+int32  unk1
+int32  unk2

@@ -1,0 +1,4 @@
+uint32 unk1 # 0F 00 00 0F
+uint32 unk2 # 0E 00 00 00
+uint32 unk3 # 00 00 00 00
+byte unk4   # 00

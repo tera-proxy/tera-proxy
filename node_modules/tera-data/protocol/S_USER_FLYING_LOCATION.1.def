@@ -1,0 +1,19 @@
+uint64 target
+
+# see C_PLAYER_FLYING_LOCATION for these fields
+uint32 type
+float posX
+float posY
+float posZ
+float destX
+float destY
+float destZ
+float controlsX
+float controlsY
+float controlsZ
+float directionX
+float directionY
+float directionZ
+
+uint32 unk1 # 0x438c0000, 0x43910000, 0x43870000, 0x437a0000
+uint32 unk2 # 0x42700000

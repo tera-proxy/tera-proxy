@@ -1,0 +1,3 @@
+uint64 id
+int32  field # 0xA = chest, 0xB = height, 0xC = thighs
+int32  value # 1 = -3, 4 = +0, 7 = +3

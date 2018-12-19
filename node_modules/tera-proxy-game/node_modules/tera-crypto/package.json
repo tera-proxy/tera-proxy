@@ -1,0 +1,7 @@
+{
+	"name": "tera-crypto",
+	"version": "0.1.0",
+	"description": "Node.JS C++ addon for fast encryption and decryption of TERA protocol streams.",
+	"license": "ISC",
+	"author": "Pinkie Pie"
+}

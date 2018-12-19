@@ -1,0 +1,4 @@
+uint32 index
+uint32 id
+uint64 duration
+uint32 stacks

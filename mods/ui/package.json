@@ -1,0 +1,7 @@
+{
+	"name": "ui",
+	"version": "0.1.0",
+	"dependencies": {
+		"express": "^4.16.3"
+	}
+}

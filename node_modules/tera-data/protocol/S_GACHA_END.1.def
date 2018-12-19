@@ -1,0 +1,6 @@
+int32 item1
+int32 item1Amount
+int32 item2
+int32 item2Amount
+int32 item3       # ?
+int32 item3Amount # ?

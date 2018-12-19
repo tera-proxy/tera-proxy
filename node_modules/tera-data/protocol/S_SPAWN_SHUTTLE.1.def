@@ -1,0 +1,6 @@
+uint64 uid
+int32 shuttle #shuttle Id, found in DynamicGeoData
+float x
+float y
+float z
+uint16 unk1

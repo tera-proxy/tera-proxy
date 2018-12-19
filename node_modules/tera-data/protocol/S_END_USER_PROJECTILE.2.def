@@ -1,0 +1,7 @@
+# Protocol version 319256 or later
+
+uint64 projectileId
+byte   unk
+uint32 unk2
+byte   unk3
+uint32 unk4

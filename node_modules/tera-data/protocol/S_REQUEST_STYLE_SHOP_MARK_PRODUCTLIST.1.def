@@ -1,0 +1,10 @@
+array list
+- int32  type # 0-3
+- int32  id   # item, mount, etc.?
+- uint32 unk1 # unk4 ? 0x5c49f618 : 0x598bb010
+- int32  unk2 # always 0
+- int32  unk3 # type == 0 ? 0 : (0, 3000, 5000, 7000, 10000, 15000, 20000, 30000, or 45000)
+- bool   unk4 # type == 0 && unk6 == 1 ? (false or true) : false
+- int32  unk5 # type == 3 ? 30 : 0
+- int32  unk6 # type == 0 ? (1 or 2) : 0
+- string unk7 # unk4 ? '판매불가' (Not Available) : ''

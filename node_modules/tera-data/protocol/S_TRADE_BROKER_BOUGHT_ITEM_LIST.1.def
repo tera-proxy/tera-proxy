@@ -1,0 +1,31 @@
+count purchases
+offset purchases
+
+array purchases
+- offset name
+- int32 purchase
+- int32 unk1
+- int32 unk2
+- int32 unk3
+- int32 item
+- int32 quantity
+- int32 enchantlevel
+- int32 unk4
+- int32 unk5
+- int16 unk6
+- int16 unk7
+- int16 unk8
+- int16 unk9
+- int16 unk10
+- int16 unk11
+- int16 unk12
+- int16 unk13
+- int16 unk14
+- int64 time
+- int64 price
+- int32 unk15
+- int32 unk16
+- int32 unk17
+- int32 unk18
+- int32 unk19
+- string name

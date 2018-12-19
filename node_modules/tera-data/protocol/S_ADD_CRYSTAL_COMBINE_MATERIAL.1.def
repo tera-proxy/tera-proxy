@@ -1,0 +1,4 @@
+uint32 type # 0 = Crystal, 1 = Structure
+uint64 id
+uint32 dbid
+uint32 slot # middle = 0, top = 1, bottom left = 2, bottom right = 3

@@ -1,0 +1,5 @@
+uint64 gameId
+uint64 target
+uint32 unk # always 0?
+vec3   loc
+angle  w

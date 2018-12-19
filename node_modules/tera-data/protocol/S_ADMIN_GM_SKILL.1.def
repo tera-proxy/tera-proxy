@@ -1,0 +1,2 @@
+int32 skill # See C_ADMIN_GM_SKILL
+bool enabled

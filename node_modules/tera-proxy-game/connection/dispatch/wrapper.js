@@ -95,33 +95,36 @@ class ModWrapper {
 		this.instance = new modConstructor(this)
 	}
 
-	destroy(unload) {
+	destroy(multiPass) {
 		// Clear all timers
 		for(let t of this[kTimers]) this.clearTimeout(t)
 
 		try {
 			// Call mod-defined destructor
-			if(this.instance.destructor) {
-				this.instance.destructor(unload)
-				return true
-			}
+			if(multiPass !== 2)
+				if(this.instance.destructor) {
+					this.instance.destructor()
+					return true
+				}
 		}
 		finally {
 			// Attempt to dereference as much as possible, hopefully crashing any memory leaked functions
-			const instanceUnloadedProto = (() => {
-				const modName = this.name,
-					error = (obj, key) => { throw Error(`Attempting to access property "${key}" of unloaded mod "${modName}"`) }
-				return new Proxy(Object.create(null), { get: error, set: error })
-			})()
+			if(multiPass !== 1) {
+				const instanceUnloadedProto = (() => {
+					const modName = this.name,
+						error = (obj, key) => { throw Error(`Attempting to access property "${key}" of unloaded mod "${modName}"`) }
+					return new Proxy(Object.create(null), { get: error, set: error })
+				})()
 
-			Object.setPrototypeOf(this.instance, instanceUnloadedProto)
-			Object.setPrototypeOf(this, UNLOADED_PROTO)
+				Object.setPrototypeOf(this.instance, instanceUnloadedProto)
+				Object.setPrototypeOf(this, UNLOADED_PROTO)
 
-			for(let obj of [this.instance, this]) {
-				if(typeof obj === 'function') obj.prototype = undefined
-				for(let key of Object.getOwnPropertyNames(obj)) try { delete obj[key] } catch(e) {}
-				for(let key of Object.getOwnPropertySymbols(obj)) try { delete obj[key] } catch(e) {}
-				Object.freeze(obj)
+				for(let obj of [this.instance, this]) {
+					if(typeof obj === 'function') obj.prototype = undefined
+					for(let key of Object.getOwnPropertyNames(obj)) try { delete obj[key] } catch(e) {}
+					for(let key of Object.getOwnPropertySymbols(obj)) try { delete obj[key] } catch(e) {}
+					Object.freeze(obj)
+				}
 			}
 		}
 		return false

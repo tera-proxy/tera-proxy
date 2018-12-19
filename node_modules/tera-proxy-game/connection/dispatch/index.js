@@ -125,7 +125,8 @@ class Dispatch extends EventEmitter {
 	}
 
 	reset() {
-		for(const name of this.loadedMods.keys()) this.unload(name, true)
+		for(const name of this.loadedMods.keys()) this.unload(name, 1) // Run instance destructors
+		for(const name of this.loadedMods.keys()) this.unload(name, 2) // Run mod destructors
 
 		this.hooks.clear() // Clean up any broken hooks - TODO: Properly check these and generate warnings
 	}
@@ -173,21 +174,21 @@ class Dispatch extends EventEmitter {
 		}
 	}
 
-	unload(name, force = false) {
+	unload(name, multiPass) {
 		const mod = this.loadedMods.get(name)
-		if(!mod || !mod.instance.destructor && !force) return false
+		if(!mod || !mod.instance.destructor && !multiPass) return false
 
 		this.unhookAll(name)
 
 		try {
-			mod.destroy()
+			mod.destroy(multiPass)
 		}
 		catch(e) {
 			log.error(`Error running destructor for mod "${name}"`)
 			log.error(e)
 		}
 
-		this.loadedMods.delete(name)
+		if(multiPass !== 1) this.loadedMods.delete(name)
 		return true
 	}
 

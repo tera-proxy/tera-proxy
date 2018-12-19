@@ -15,6 +15,8 @@ async function init() {
 	const path = require('path'),
 		settings = require('../../settings/_tera-proxy_.json')
 
+	log.info(`Node version: ${process.versions.node}, game region: ${settings.region}`)
+
 	if(settings.devWarnings) require('log').level = 'dwarn'
 
 	if(settings.autoUpdate) {
@@ -29,6 +31,7 @@ async function init() {
 				log.info('TERA Proxy has been updated. Please restart it to apply changes.')
 				return
 			}
+			log.info('Proxy is up to date')
 		}
 		catch(e) {
 			log.error('Error checking for updates:')
@@ -85,8 +88,6 @@ async function init() {
 	dns.setServers(['8.8.8.8', '8.8.4.4'])
 
 	// Init
-	log.info(`Initializing. Node version: ${process.versions.node}, game region: ${settings.region}`)
-
 	const modManager = new ModManager({
 		modsDir: path.join(__dirname, '..', '..', 'mods'),
 		settingsDir: path.join(__dirname, '..', '..', 'settings'),

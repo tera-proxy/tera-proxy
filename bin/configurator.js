@@ -69,7 +69,7 @@ function question(q) { return new Promise(resolve => { rl.question(q, resolve) }
 		config.autoUpdateMods = parseBool(await question(`Automatically update mods? (${config.autoUpdateMods ? 'Y/n' : 'y/N'}): `),
 			config.autoUpdateMods)
 
-	fs.writeFileSync(configFile, JSON.stringify(config))
+	fs.writeFileSync(configFile, JSON.stringify(config, null, '\t'))
 	rl.close()
 })()
 

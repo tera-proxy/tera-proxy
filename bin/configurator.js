@@ -5,7 +5,7 @@ const fs = require('fs'),
 	readline = require('readline')
 
 const configDir = path.join(__dirname, '../settings'),
-	configFile = path.join(__dirname, '_tera-proxy_.json'),
+	configFile = path.join(configDir, '_tera-proxy_.json'),
 	regions = [{
 		name: ['EU'],
 		publisher: 'Gameforge'

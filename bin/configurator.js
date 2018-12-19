@@ -36,7 +36,9 @@ const configDir = path.join(__dirname, '../settings/_tera-proxy_.json'),
 
 let config = {
 	region: '',
-	autoUpdateMods: true
+	autoUpdate: true,
+	autoUpdateMods: true,
+	devWarnings: false
 }
 
 try {
@@ -57,8 +59,12 @@ function question(q) { return new Promise(resolve => { rl.question(q, resolve) }
 	while(!setRegion(await question(`Game region${config.region ? ` (current = ${config.region})` : ''}: `)))
 		console.log('Invalid region')
 
-	config.autoUpdateMods = parseBool(await question(`Automatically update mods? (${config.autoUpdateMods ? 'Y/n' : 'y/N'}): `),
-		config.autoUpdateMods)
+	config.autoUpdate = config.autoUpdateMods = parseBool(await question(`Automatically update proxy? (${config.autoUpdate ? 'Y/n' : 'y/N'}): `),
+		config.autoUpdate)
+
+	if(config.autoUpdate)
+		config.autoUpdateMods = parseBool(await question(`Automatically update mods? (${config.autoUpdateMods ? 'Y/n' : 'y/N'}): `),
+			config.autoUpdateMods)
 
 	fs.writeFileSync(configDir, JSON.stringify(config))
 	rl.close()

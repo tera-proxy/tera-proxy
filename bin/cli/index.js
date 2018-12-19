@@ -11,56 +11,81 @@ Please install the latest Current from https://nodejs.org/`)
 	process.exit()
 }
 
-const SlsProxy = require('tera-proxy-sls'),
-	{ ModManager, Dispatch, Connection, RealClient } = require('tera-proxy-game'),
-	{ protocol } = require('tera-data-parser'),
-	settings = require('../../settings/_tera-proxy_.json'),
-	regions = require('./regions'),
-	currentRegion = regions[settings.region]
+async function init() {
+	const path = require('path'),
+		settings = require('../../settings/_tera-proxy_.json')
 
-if(!currentRegion) {
-	log.error('Unsupported region: ' + settings.region)
-	return
-}
+	if(settings.devWarnings) require('log').level = 'dwarn'
 
-const fs = require('fs'),
-	net = require('net'),
-	path = require('path'),
-	dns = require('dns'),
-	url = require('url'),
-	hosts = require('./hosts')
+	if(settings.autoUpdate) {
+		log.info('Checking for updates')
 
-const sls = new SlsProxy(currentRegion),
-	slsProxyIp = '127.0.0.' + (10 + currentRegion.index)
-
-// Test if we're allowed to modify the hosts file
-try { hosts.remove() }
-catch(e) {
-	switch(e.code) {
-		case 'EACCES':
-			log.error(`Hosts file is set to read-only.
-
-* Make sure no anti-virus software is running.
-* Locate "${e.path}", right click the file, click 'Properties', uncheck 'Read-only' then click 'OK'.`)
-			break
-		case 'EPERM':
-			log.error(`Insufficient permission to modify hosts file.
-
-* Make sure no anti-virus software is running.
-* Right click TeraProxy.bat and select 'Run as administrator'.`)
-			break
-		default:
-			throw e
+		try {
+			if(await require('updater').update({
+				dir: path.join(__dirname, '../..'),
+				manifestUrl: 'https://raw.githubusercontent.com/tera-proxy/tera-proxy/cli/manifest.json',
+				defaultUrl: 'https://raw.githubusercontent.com/tera-proxy/tera-proxy/cli/',
+			}) {
+				log.info('TERA Proxy has been updated. Please restart it to apply changes.')
+				return
+			}
+		}
+		catch(e) {
+			log.error('Error checking for updates:')
+			if(e.request) log.error(e.message)
+			else log.error(e)
+		}
 	}
 
-	process.exit(1)
-}
+	const SlsProxy = require('tera-proxy-sls'),
+		{ ModManager, Dispatch, Connection, RealClient } = require('tera-proxy-game'),
+		{ protocol } = require('tera-data-parser'),
+		regions = require('./regions'),
+		currentRegion = regions[settings.region]
 
-const servers = new Map()
+	if(!currentRegion) {
+		log.error('Unsupported region: ' + settings.region)
+		return
+	}
 
-dns.setServers(['8.8.8.8', '8.8.4.4'])
+	const fs = require('fs'),
+		net = require('net'),
+		path = require('path'),
+		dns = require('dns'),
+		url = require('url'),
+		hosts = require('./hosts')
 
-async function init() {
+	const sls = new SlsProxy(currentRegion),
+		slsProxyIp = '127.0.0.' + (10 + currentRegion.index)
+
+	// Test if we're allowed to modify the hosts file
+	try { hosts.remove() }
+	catch(e) {
+		switch(e.code) {
+			case 'EACCES':
+				log.error(`Hosts file is set to read-only.
+
+	* Make sure no anti-virus software is running.
+	* Locate "${e.path}", right click the file, click 'Properties', uncheck 'Read-only' then click 'OK'.`)
+				break
+			case 'EPERM':
+				log.error(`Insufficient permission to modify hosts file.
+
+	* Make sure no anti-virus software is running.
+	* Right click TeraProxy.bat and select 'Run as administrator'.`)
+				break
+			default:
+				throw e
+		}
+
+		process.exit(1)
+	}
+
+	const servers = new Map()
+
+	dns.setServers(['8.8.8.8', '8.8.4.4'])
+
+	// Init
 	log.info(`Initializing. Node version: ${process.versions.node}, game region: ${settings.region}`)
 
 	const modManager = new ModManager({
@@ -178,22 +203,23 @@ If this does not work:
 	hosts.set(slsProxyIp, sls.host)
 	log.info('Added hosts file entry')
 	log.info('OK')
+
+	// Exit
+	function cleanExit() {
+		log.info('terminating...')
+
+		try { hosts.remove(sls.host) }
+		catch(_) {}
+
+		sls.close()
+		for(let server of servers.values()) server.close()
+
+		process.exit()
+	}
+
+	process.on('SIGHUP', cleanExit)
+	process.on('SIGINT', cleanExit)
+	process.on('SIGTERM', cleanExit)
 }
 
 init()
-
-function cleanExit() {
-	log.info('terminating...')
-
-	try { hosts.remove(sls.host) }
-	catch(_) {}
-
-	sls.close()
-	for(let server of servers.values()) server.close()
-
-	process.exit()
-}
-
-process.on('SIGHUP', cleanExit)
-process.on('SIGINT', cleanExit)
-process.on('SIGTERM', cleanExit)

@@ -1,0 +1,7 @@
+{
+	"name": "updater",
+	"author": "Pinkie Pie",
+	"dependencies": {
+		"log": "github:pinkipi/log"
+	}
+}

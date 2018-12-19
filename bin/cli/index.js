@@ -25,7 +25,7 @@ async function init() {
 				dir: path.join(__dirname, '../..'),
 				manifestUrl: 'https://raw.githubusercontent.com/tera-proxy/tera-proxy/cli/manifest.json',
 				defaultUrl: 'https://raw.githubusercontent.com/tera-proxy/tera-proxy/cli/',
-			}) {
+			})) {
 				log.info('TERA Proxy has been updated. Please restart it to apply changes.')
 				return
 			}

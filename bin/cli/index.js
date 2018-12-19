@@ -50,7 +50,6 @@ async function init() {
 
 	const fs = require('fs'),
 		net = require('net'),
-		path = require('path'),
 		dns = require('dns'),
 		url = require('url'),
 		hosts = require('./hosts')

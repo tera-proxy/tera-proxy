@@ -4,7 +4,7 @@ const fs = require('fs'),
 	path = require('path'),
 	readline = require('readline')
 
-const configDir = path.join(__dirname, '../settings')
+const configDir = path.join(__dirname, '../settings'),
 	configFile = path.join(__dirname, '_tera-proxy_.json'),
 	regions = [{
 		name: ['EU'],

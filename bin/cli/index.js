@@ -21,7 +21,7 @@ async function init() {
 		log.info('Checking for updates')
 
 		try {
-			if(await (new require('updater')).update({
+			if(await (new (require('updater'))).update({
 				dir: path.join(__dirname, '../..'),
 				manifestUrl: 'https://raw.githubusercontent.com/tera-proxy/tera-proxy/cli/manifest.json',
 				defaultUrl: 'https://raw.githubusercontent.com/tera-proxy/tera-proxy/cli/',

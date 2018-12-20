@@ -2,6 +2,47 @@ const SAVE_INTERVAL = 10000
 
 const fs = require('fs')
 
+function autoMigrate(settings, defaults, version) {
+	const old = Object.assign({}, settings)
+
+	for(let key in settings) delete settings[key]
+
+	if(version !== undefined) settings._version = version
+
+	for(let key in defaults) {
+		const oldValue = old[key],
+			defValue = defaults[key]
+
+		settings[key] = oldValue === undefined ? defValue : 
+			typeof defValue === 'object' && defValue !== null && Object.keys(defValue).length
+				? autoMigrate(oldValue, defValue) : oldValue
+	}
+
+	return settings
+}
+
+class SettingsRoot {
+	$init(opts) {
+		if(opts.version == null) throw TypeError('Must specify version')
+		if(opts.defaults == null) throw TypeError('Must specify defaults')
+
+		if(this._version !== opts.version) {
+			if(this._version == null)
+				for(let key in this) delete this[key]
+			else if(opts.migrate)
+				try {
+					opts.migrate.call(this, this._version)
+				}
+				catch(e) {
+					console.log('Error in migrate() - Using default settings')
+					console.log(e)
+				}
+
+			autoMigrate(this, opts.defaults, opts.version)
+		}
+	}
+}
+
 class Settings {
 	constructor(path, modName) {
 		this.path = path
@@ -15,7 +56,7 @@ class Settings {
 	}
 
 	loadRoot(obj) {
-		this.root = this.createProxy()
+		this.root = this.createProxy(new SettingsRoot)
 		Object.assign(this.root, obj)
 	}
 

@@ -277,11 +277,6 @@ class ModManager {
 			return false
 		}
 
-		if(pkg.update !== undefined && !parseGithubUrl(pkg.update)) {
-			log.warn(`(${baseName}/mod.json) only GitHub URLs are supported ("${pkg.update}")`)
-			pkg.update = undefined
-		}
-
 		this.packages.set(pkg.name, pkg)
 		return true
 	}

@@ -1,6 +1,7 @@
 {
 	"name": "bugfix",
 	"update": "github:tera-mods/bugfix",
+	"conflicts": ["chat-sanitizer", "swim-fix"],
 	"title": "Bugfix",
 	"author": "Pinkie Pie",
 	"description": "Fixes some of the most severe client bugs in TERA."

@@ -255,11 +255,22 @@ class ModManager {
 			description: strOrUndef(pkg.description)
 		}
 
-		for(let name of [pkg.name, ...pkg.conflicts])
-			if(this.packages.has(name)) {
-				log.error(`"${baseName}" conflicts with "${path.basename(this.packages.get(name)._path)}"`)
-				return false
-			}
+		let conflictPkg
+		checkConflict: {
+			for(let name of [pkg.name, ...pkg.conflicts])
+				if(conflictPkg = this.packages.get(name))
+					break checkConflict
+
+			for(let pkg2 of this.packages.values())
+				if(pkg2.conflicts.includes(pkg.name) && (conflictPkg = pkg2))
+					break checkConflict
+		}
+
+		if(conflictPkg)
+		{
+			log.error(`"${baseName}" conflicts with "${path.basename(conflictPkg._path)}"`)
+			return false
+		}
 
 		if(pkg.main && pkg.main.split(/[\/\\]/).some(p => p === '..')) {
 			log.error(`(${baseName}/mod.json) main cannot contain '..' ("${pkg.main}")`)

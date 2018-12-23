@@ -42,13 +42,17 @@ class ModWrapper {
 			})
 
 			Object.assign(this, {
+				proxyAuthor: 'caali',
+
+				dispatch: new Proxy(dispatch, { get: (obj, key) => key === 'proxyAuthor' ? 'caali' : obj[key] }),
+
 				info: info._compatInfo,
 				options: info._compatInfo.options,
 				niceName: info._compatInfo.options.niceName,
 				rootFolder: info._path,
 
 				manager: {
-					get: name => this.dispatch.loadedMods.get(name),
+					get: name => dispatch.loadedMods.get(name),
 					isLoaded: name => this.isLoaded(name)
 				},
 

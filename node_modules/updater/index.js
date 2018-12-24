@@ -1,13 +1,15 @@
 const log = require('log')('updater'),
 	fs = require('fs'),
 	path = require('path'),
+	http = require('http'),
 	https = require('https'),
 	crypto = require('crypto'),
 	zlib = require('zlib')
 
 class Updater {
 	constructor(maxSockets = 10) {
-		this.agent = https.Agent({keepAlive: true, maxSockets})
+		this.httpAgent = http.Agent({keepAlive: true, maxSockets})
+		this.httpsAgent = https.Agent({keepAlive: true, maxSockets})
 	}
 
 	// opts: { dir, manifestUrl, defaultUrl, compat }
@@ -36,9 +38,12 @@ class Updater {
 
 		let res
 		try {
-			const getOpts = { agent: this.agent, headers: { 'accept-encoding': 'gzip' } }
-			if(fromManifest.etag) getOpts.headers['if-none-match'] = fromManifest.etag
-			res = await httpAsync(https, 'get', opts.manifestUrl, getOpts)
+			res = await this._httpAsync(opts.manifestUrl, fromManifest.etag ? {
+				headers: {
+					'if-none-match': fromManifest.etag,
+					'accept-encoding': 'gzip'
+				}
+			} : null)
 		}
 		catch(e) {
 			if(e.statusCode === 304) return false
@@ -80,8 +85,7 @@ class Updater {
 	}
 
 	async downloadFiles(manifest, files) {
-		const getOpts = { agent: this.agent, headers: { 'accept-encoding': 'gzip' } },
-			promises = new Set(),
+		const promises = new Set(),
 			activeRequests = new Set(),
 			downloaded = new Map()
 
@@ -91,7 +95,7 @@ class Updater {
 				let url = new URL(manifest.url)
 				url.pathname = url.pathname + file
 
-				const p = httpAsync(https, 'get', url.toString(), getOpts)
+				const p = this._httpAsync(url.toString())
 				activeRequests.add(p.request)
 
 				const data = await getBody(await p)
@@ -114,7 +118,43 @@ class Updater {
 
 	// Must call this after call(s) to update() or else connections will be left hanging
 	done() {
-		this.agent.destroy() // Actually resets the agent instead of destroying it
+		// Actually resets the agent instead of destroying it
+		this.httpAgent.destroy()
+		this.httpsAgent.destroy()
+	}
+
+	_httpAsync(url, opts) {
+		const isHttps = new URL(url).protocol === 'https:'
+
+		let request
+		const p = new Promise((resolve, reject) => {
+			request = (!isHttps ? http : https).get(url, Object.assign({
+				agent: this[!isHttps ? 'httpAgent' : 'httpsAgent'],
+				headers: { 'accept-encoding': 'gzip' }
+			}, opts), res => {
+				if(res.statusCode !== 200) {
+					res.resume() // We only care about the status code
+
+					const err = Error(`${res.statusCode} ${res.statusMessage}: https://${request.getHeader('host')}${request.path}`)
+					err.request = request
+					err.statusCode = res.statusCode
+					reject(err)
+					return
+				}
+				resolve(res)
+			})
+			.setTimeout(10000)
+			.on('timeout', () => {
+				request.abort()
+
+				const err = Error(`Request timed out: https://${request.getHeader('host')}${request.path}`)
+				err.request = request
+				reject(err)
+			})
+			.on('error', reject)
+		})
+		p.request = request
+		return p
 	}
 }
 
@@ -161,35 +201,6 @@ async function ensureDirs(base, files) {
 				created.add(dir)
 			}
 	}
-}
-
-function httpAsync(lib, func, ...args) {
-	let request
-	const p = new Promise((resolve, reject) => {
-		request = lib[func](...args, res => {
-			if(res.statusCode !== 200) {
-				res.resume() // We only care about the status code
-
-				const err = Error(`${res.statusCode} ${res.statusMessage}: https://${request.getHeader('host')}${request.path}`)
-				err.request = request
-				err.statusCode = res.statusCode
-				reject(err)
-				return
-			}
-			resolve(res)
-		})
-		.setTimeout(10000)
-		.on('timeout', () => {
-			request.abort()
-
-			const err = Error(`Request timed out: https://${request.getHeader('host')}${request.path}`)
-			err.request = request
-			reject(err)
-		})
-		.on('error', reject)
-	})
-	p.request = request
-	return p
 }
 
 async function getBody(res) {

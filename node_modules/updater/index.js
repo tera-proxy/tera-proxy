@@ -135,7 +135,7 @@ class Updater {
 				if(res.statusCode !== 200) {
 					res.resume() // We only care about the status code
 
-					const err = Error(`${res.statusCode} ${res.statusMessage}: https://${request.getHeader('host')}${request.path}`)
+					const err = Error(`${res.statusCode} ${res.statusMessage}: ${url}`)
 					err.request = request
 					err.statusCode = res.statusCode
 					reject(err)
@@ -147,7 +147,7 @@ class Updater {
 			.on('timeout', () => {
 				request.abort()
 
-				const err = Error(`Request timed out: https://${request.getHeader('host')}${request.path}`)
+				const err = Error(`Request timed out: ${url}`)
 				err.request = request
 				reject(err)
 			})

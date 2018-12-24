@@ -42,10 +42,6 @@ class ModWrapper {
 			})
 
 			Object.assign(this, {
-				proxyAuthor: 'caali',
-
-				dispatch: new Proxy(dispatch, { get: (obj, key) => key === 'proxyAuthor' ? 'caali' : obj[key] }),
-
 				info: info._compatInfo,
 				options: info._compatInfo.options,
 				niceName: info._compatInfo.options.niceName,
@@ -93,6 +89,13 @@ class ModWrapper {
  			if(this.name !== 'tera-game-state')
 				this.hook('S_RETURN_TO_LOBBY', 'raw', () => {
 					for(let t of this[kTimers]) this.clearTimeout(t)
+				})
+
+			// Workaround improper usage in NextGenSP
+			if(this.name === 'skill-prediction' || this.options.niceName === 'SP')
+				Object.assign(this, {
+					proxyAuthor: 'caali',
+					dispatch: new Proxy(dispatch, { get: (obj, key) => key === 'proxyAuthor' ? 'caali' : obj[key] }),
 				})
 		}
 

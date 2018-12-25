@@ -1,3 +1,5 @@
+# majorPatchVersion < 77
+
 uint32 templateId
 uint64 gameId
 uint32 serverId # playerId if same server?

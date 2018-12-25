@@ -115,7 +115,7 @@ class Writeable {
 	uint16(n = 0) { this.position = this.buffer.writeUInt16LE(n & 0xffff, this.position) }
 	uint32(n = 0) { this.position = this.buffer.writeUInt32LE(n >>> 0, this.position) }
 	uint64(n = 0n) {
-		if(typeof n === 'number') n = BigInt(n)
+		if(typeof n !== 'bigint') n = BigInt(n)
 		this.uint32(Number(n & 0xffffffffn))
 		this.uint32(Number(n >> 32n & 0xffffffffn))
 	}

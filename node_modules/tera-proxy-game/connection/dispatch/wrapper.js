@@ -1,6 +1,7 @@
 const logger = require('log'),
 	path = require('path'),
-	Settings = require('./settings')
+	Settings = require('./settings'),
+	Hotswap = require('./hotswap')
 
 const kTimers = Symbol(),
 	kSettings = Symbol()
@@ -11,7 +12,7 @@ const UNLOADED_PROTO = (() => {
 })()
 
 class ModWrapper {
-	constructor(modConstructor, info, dispatch) {
+	constructor(modConstructor, info, dispatch, hotswapProxy) {
 		const log = logger(info.name)
 
 		Object.assign(this, {
@@ -99,7 +100,19 @@ class ModWrapper {
 				})
 		}
 
-		this.instance = new modConstructor(this)
+		if(info.reloadable) {
+			if(hotswapProxy) {
+				const instance = new modConstructor(this)
+
+				if(typeof instance !== typeof hotswapProxy)
+					throw TypeError(`Cannot hotswap to different type: ${typeof instance} (expected ${typeof hotswapProxy})`)
+
+				this.instance = hotswapProxy
+				this.instance.__target__ = instance
+			}
+			else this.instance = Hotswap(new modConstructor(this))
+		}
+		else this.instance = new modConstructor(this)
 	}
 
 	destroy(multiPass) {
@@ -130,8 +143,9 @@ class ModWrapper {
 					if(typeof obj === 'function') obj.prototype = undefined
 					for(let key of Object.getOwnPropertyNames(obj)) try { delete obj[key] } catch(e) {}
 					for(let key of Object.getOwnPropertySymbols(obj)) try { delete obj[key] } catch(e) {}
-					Object.freeze(obj)
 				}
+
+				Object.freeze(this)
 			}
 		}
 		return false
@@ -147,6 +161,8 @@ class ModWrapper {
 		}
 		catch(e) { return false }
 	}
+
+	reload(name) { return this.dispatch.reload(name) }
 
 	get settings() { return this[kSettings].root }
 	set settings(obj) {

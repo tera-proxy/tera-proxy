@@ -143,7 +143,7 @@ class Dispatch extends EventEmitter {
 		}`)
 	}
 
-	load(name) {
+	load(name, hotswapProxy) {
 		let mod = this.loadedMods.get(name)
 		if(mod !== undefined) return mod.instance
 
@@ -161,7 +161,7 @@ class Dispatch extends EventEmitter {
 		})()}`)
 
 		try {
-			const mod = new Wrapper(require(this.modManager.resolve(name)), pkg, this)
+			const mod = new Wrapper(require(this.modManager.resolve(name)), pkg, this, hotswapProxy)
 			this.loadedMods.set(name, mod)
 			return mod.instance
 		}
@@ -176,7 +176,7 @@ class Dispatch extends EventEmitter {
 
 	unload(name, multiPass) {
 		const mod = this.loadedMods.get(name)
-		if(!mod || !mod.instance.destructor && !multiPass) return false
+		if(!mod) return false
 
 		this.unhookAll(name)
 
@@ -189,6 +189,25 @@ class Dispatch extends EventEmitter {
 		}
 
 		if(multiPass !== 1) this.loadedMods.delete(name)
+		return true
+	}
+
+	reload(name) {
+		if(!this.loadedMods.has(name)) throw Error(`Cannot reload unloaded mod: ${name}`)
+
+		const pkg = this.modManager.packages.get(name)
+		if(!pkg.reloadable) return false
+
+		const hotswapProxy = this.loadedMods.get(name).instance
+
+		this.unload(name)
+
+		const unloadDir = this.modManager.packages.get(name)._path + path.sep
+		for(let file in require.cache)
+			if(file.startsWith(unloadDir) && !file.endsWith('.node'))
+				delete require.cache[file]
+
+		if(!this.load(name, hotswapProxy)) throw Error(`Failed to reload ${name}`)
 		return true
 	}
 

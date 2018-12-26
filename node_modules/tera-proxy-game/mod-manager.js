@@ -247,13 +247,19 @@ class ModManager {
 			_path: _path,
 			name: strOrUndef(pkg.name) || safeName,
 			main: strOrUndef(pkg.main),
+			reloadable: Boolean(pkg.reloadable) || false,
 			update: strOrUndef(pkg.update),
 			conflicts: Array.isArray(pkg.conflicts) ? pkg.conflicts : [],
+			// UI stuff
 			title: strOrUndef(pkg.title) || baseName,
 			version: strOrUndef(pkg.version),
-			author: strOrUndef(pkg.author),
+			author: undefined,
+			authors: ((v) => Array.isArray(v) ? v : v != null ? [v] : [])(pkg.authors || pkg.author),
 			description: strOrUndef(pkg.description)
 		}
+
+		// Alias
+		pkg.author = pkg.authors[0]
 
 		let conflictPkg
 		checkConflict: {

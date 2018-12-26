@@ -352,7 +352,7 @@ class ModManager {
 }
 
 function getSafeName(name, isDir) {
-	if(!isDir) name = path.basename(name, path.extname(name))
+	name = isDir ? name.replace(/-master$/, '') : path.basename(name, path.extname(name))
 	name = name.replace(/\./g, '_').replace(/[^0-9a-zA-Z\-_]/g, '').slice(0, 50)
 	return name || 'bad-name'
 }

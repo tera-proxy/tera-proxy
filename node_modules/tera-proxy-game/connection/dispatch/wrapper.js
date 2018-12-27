@@ -116,16 +116,20 @@ class ModWrapper {
 	}
 
 	destroy(multiPass) {
-		// Clear all timers
-		for(let t of this[kTimers]) this.clearTimeout(t)
-
 		try {
-			// Call mod-defined destructor
-			if(multiPass !== 2)
+			if(multiPass !== 2) {
+				// Flush any changed settings to disk
+				this[kSettings].flush()
+
+				// Clear all timers
+				for(let t of this[kTimers]) this.clearTimeout(t)
+
+				// Call mod-defined destructor
 				if(this.instance.destructor) {
 					this.instance.destructor()
 					return true
 				}
+			}
 		}
 		finally {
 			// Attempt to dereference as much as possible, hopefully crashing any memory leaked functions

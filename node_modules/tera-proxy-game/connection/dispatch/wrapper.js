@@ -78,7 +78,7 @@ class ModWrapper {
 					if(this.settings._version !== settingsVersion) {
 						this.settings = require(
 							path.join(this.rootFolder, this.options.settingsMigrator || 'module_settings_migrator.js')
-						)(this.settings._version, settingsVersion, this.settings)
+						)(this.settings._version || null, settingsVersion, this.settings)
 						this.settings._version = settingsVersion
 					}
 				}

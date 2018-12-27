@@ -64,6 +64,11 @@ async function init() {
 	try { hosts.remove() }
 	catch(e) {
 		switch(e.code) {
+			case 'EBUSY':
+				log.error(`Hosts file is being locked by another application.
+
+* Completely uninstall any anti-virus software.`)
+				break
 			case 'EACCES':
 				log.error(`Hosts file is set to read-only.
 

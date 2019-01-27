@@ -261,6 +261,11 @@ class ModManager {
 		// Alias
 		pkg.author = pkg.authors[0]
 
+		if(isBlacklisted(pkg.name)) {
+			log.warn(`${pkg.name} is blacklisted and will not be loaded`)
+			return null
+		}
+
 		let conflictPkg
 		checkConflict: {
 			for(let name of [pkg.name, ...pkg.conflicts])
@@ -272,8 +277,7 @@ class ModManager {
 					break checkConflict
 		}
 
-		if(conflictPkg)
-		{
+		if(conflictPkg) {
 			log.error(`"${baseName}" conflicts with "${path.basename(conflictPkg._path)}"`)
 			return false
 		}
@@ -296,18 +300,19 @@ class ModManager {
 
 		let manifestUrl, defaultUrl
 
-		const github = parseGithubUrl(pkg.update)
+		const url = overrideUpdateUrl(pkg.update),
+			github = parseGithubUrl(url)
 		if(github) {
 			const [user, repo, branch = 'master'] = github
 			defaultUrl = `https://raw.githubusercontent.com/${user}/${repo}/${branch}/`
 			manifestUrl = `${defaultUrl}manifest.json`
 		}
 		else if(pkg._compat === 2) {
-			defaultUrl = pkg.update
+			defaultUrl = url
 			manifestUrl = `${defaultUrl}manifest.json${pkg._compatInfo.drmKey ? `?drmkey=${encodeURIComponent(pkg._compatInfo.drmKey)}` : ''}`
 		}
 		else {
-			manifestUrl = pkg.update
+			manifestUrl = url
 
 			defaultUrl = new URL(manifestUrl)
 			defaultUrl.pathname = defaultUrl.pathname.slice(0, defaultUrl.pathname.lastIndexOf('/') + 1)
@@ -384,6 +389,49 @@ async function ensureDirs(base, files) {
 				created.add(dir)
 			}
 	}
+}
+
+// TODO: Move to constructor options
+function isBlacklisted(name) {
+	return ['CaaliLogger', 'CaaliStateTracker'].includes(name)
+}
+
+function overrideUpdateUrl(url) {
+	const github = parseGithubUrl(url)
+	if(github) {
+		let [user, repo, branch = 'master'] = github
+
+		if(user.toLowerCase() === 'caali-hackerman') {
+			switch(repo.toLowerCase()) {
+				case 'no-custom-loadingscreens':
+					repo = 'default-load-screens'
+				case 'bugfix':
+				case 'command':
+				case 'instant-everything':
+					user = 'tera-mods'; break
+				case 'aaguide':
+				case 'achievements':
+				case 'alex-packet-id-finder':
+				case 'auto-nego':
+				case 'debug-logger':
+				case 'generic-box-opener-item-user':
+				case 'hh-p3-firewall-replacer':
+				case 'hh-p4-firewall-safespot-markers':
+				case 'no-more-trash-lootbeams':
+				case 'party_death_marker_pointers':
+				case 'rk9guide':
+				case 'talents_info':
+					user = 'Owyn'; break
+				default:
+					user = 'tera-mods-forks'; break
+			}
+			branch = 'master'
+		}
+
+		return `github:${user}/${repo}@${branch}`
+	}
+
+	return url
 }
 
 // TODO: Move these to a proper utilities library

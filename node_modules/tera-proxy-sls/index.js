@@ -106,9 +106,9 @@ class SlsProxy {
 		const slsUrl = opts.url || 'http://tera.nexon.com/launcher/sls/servers/list.xml'
 		const parsed = Object.assign(url.parse(slsUrl), opts)
 
-		this.https = parsed.https || parsed.protocol === 'https://'
+		this.https = parsed.https || parsed.protocol === 'https:'
 		this.host = parsed.hostname
-		this.port = Number(parsed.port) || (parsed.https ? 443 : 80)
+		this.port = Number(parsed.port) || (this.https ? 443 : 80)
 		this.path = parsed.pathname || '/'
 		this.paths = new Set(Array.isArray(this.path) ? this.path : [this.path])
 
@@ -203,7 +203,7 @@ class SlsProxy {
 		await this.resolve()
 
 		return new Promise((resolve, reject) => {
-			const proxied = proxy.createProxyServer({ target: `http://${this.address}:${this.port}` })
+			const proxied = proxy.createProxyServer({ target: `${this.https ? 'https' : 'http'}://${this.address}:${this.port}` })
 
 			proxied.on('proxyReq', proxyReq => {
 				const port = (this.port !== 80) ? `:${this.port}` : ''

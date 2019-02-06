@@ -207,14 +207,22 @@ If this does not work:
 
 	hosts.set(slsProxyIp, sls.host)
 	log.info('Added hosts file entry')
+
+	if(sls.https) {
+		sls.addRootCertificate()
+		log.info('Added SLS root certificate')
+	}
+
 	log.info('OK')
 
 	// Exit
 	function cleanExit() {
 		log.info('terminating...')
 
-		try { hosts.remove(sls.host) }
-		catch(_) {}
+		try { hosts.remove(sls.host) } catch(e) {}
+
+		if(sls.https)
+			try { sls.delRootCertificate() } catch(e) {}
 
 		sls.close()
 		for(let server of servers.values()) server.close()

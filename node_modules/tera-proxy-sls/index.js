@@ -1,5 +1,6 @@
 const path = require('path'),
 	fs = require('fs'),
+	cp = require('child_process'),
 	dns = require('dns'),
 	url = require('url'),
 	http = require('http'),
@@ -118,6 +119,14 @@ class SlsProxy {
 		this.proxy = null
 		this.server = null
 		this.fetches = new Map()
+	}
+
+	addRootCertificate() {
+		cp.execFileSync(path.join(__dirname, 'bin/certmgr.exe'), ['-add', path.join(__dirname, 'https/sls.cer'), '-s', '-r', 'localMachine', 'root', '-all'])
+	}
+
+	delRootCertificate() {
+		cp.execFileSync(path.join(__dirname, 'bin/certmgr.exe'), ['-del', '-c', '-n', 'Pinkie Pie', '-s', '-r', 'localMachine', 'root'])
 	}
 
 	async resolve() {
@@ -256,7 +265,7 @@ class SlsProxy {
 				})
 			}
 
-			const server = this.https ? https.createServer({key: fs.readFileSync(path.join(__dirname, 'https/key.pem')), cert: fs.readFileSync(path.join(__dirname, 'https/cert.pem'))}, cb) : http.createServer(cb)
+			const server = this.https ? https.createServer({key: fs.readFileSync(path.join(__dirname, 'https/sls.key')), cert: fs.readFileSync(path.join(__dirname, 'https/sls.cer'))}, cb) : http.createServer(cb)
 
 			this.proxy = proxied
 			this.server = server

@@ -123,7 +123,7 @@ async function init() {
 				socket.setNoDelay(true)
 
 				const dispatch = new Dispatch(modManager),
-					connection = new Connection(dispatch),
+					connection = new Connection(dispatch, { classic: settings.region.split('-')[1] === 'CLASSIC' }),
 					client = new RealClient(connection, socket),
 					srvConn = connection.connect(client, { host: target.ip, port: target.port })
 

@@ -37,7 +37,8 @@ function xorKey(tgt, key1, key2) {
 }
 
 class Session {
-	constructor() {
+	constructor(classic = false) {
+		this.classic = classic
 		this.encryptor = null
 		this.decryptor = null
 		this.clientKeys = [Buffer.alloc(128), Buffer.alloc(128)]
@@ -49,12 +50,12 @@ class Session {
 		const [s1, s2] = this.serverKeys
 		const t1 = Buffer.allocUnsafe(128)
 		const t2 = Buffer.allocUnsafe(128)
-		shiftKey(t1, s1, -67)
+		shiftKey(t1, s1, this.classic ? -31 : -67)
 		xorKey(t2, t1, c1)
-		shiftKey(t1, c2, 29)
+		shiftKey(t1, c2, this.classic ? 17 : 29)
 		xorKey(t2, t1, t2)
 		this.decryptor = getCrypto(t2)
-		shiftKey(t1, s2, -41)
+		shiftKey(t1, s2, this.classic ? -79 : -41)
 		this.decryptor.apply(t1)
 		this.encryptor = getCrypto(t1)
 	}
@@ -64,6 +65,7 @@ class Session {
 
 	cloneKeys() {
 		const session = new Session()
+		session.classic = this.classic
 		this.clientKeys[0].copy(session.clientKeys[0])
 		this.clientKeys[1].copy(session.clientKeys[1])
 		this.serverKeys[0].copy(session.serverKeys[0])

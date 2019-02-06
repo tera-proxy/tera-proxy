@@ -1,9 +1,9 @@
 module.exports = {
 	EU: {
 		index: 0,
-		url: 'http://web-sls.tera.gameforge.com:4566/',
-		address: '79.110.94.195',
-		pathname: ['/servers/list.uk', '/servers/list.de', '/servers/list.fr'],
+		url: 'https://serverlist.tera.gameforge.com/',
+		address: '79.110.94.196',
+		pathname: ['/serverlist/xml/default/uk', '/serverlist/xml/default/de', '/serverlist/xml/default/fr'],
 		tag: '[Proxy]'
 	},
 	'EU-TEST': {

@@ -122,7 +122,7 @@ class SlsProxy {
 	}
 
 	addRootCertificate() {
-		cp.execFileSync(path.join(__dirname, 'bin/certmgr.exe'), ['-add', path.join(__dirname, 'https/sls.cer'), '-s', '-r', 'localMachine', 'root', '-all'])
+		cp.execFileSync(path.join(__dirname, 'bin/certmgr.exe'), ['-add', path.join(__dirname, 'https/ca.cer'), '-s', '-r', 'localMachine', 'root', '-all'])
 	}
 
 	delRootCertificate() {

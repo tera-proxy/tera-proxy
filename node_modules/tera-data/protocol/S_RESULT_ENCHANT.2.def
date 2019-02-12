@@ -1,0 +1,7 @@
+# majorPatchVersion >= 79
+
+uint32 contract
+uint32 result # 1: success, 2: failure, 3: failure (downgraded), 4: failure (damaged), 5: failure (downgraded & damaged)
+uint64 dbid
+int32  id
+int32  enchant

@@ -47,6 +47,8 @@ class ModWrapper {
 				options: info._compatInfo.options,
 				niceName: info._compatInfo.options.niceName,
 				rootFolder: info._path,
+				isClassic: this.patchVersion < 28,
+				platform: this.patchVersion < 28 ? 'classic' : 'pc',
 
 				manager: {
 					get: name => dispatch.loadedMods.get(name),

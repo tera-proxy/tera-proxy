@@ -6,6 +6,13 @@ module.exports = {
 		pathname: ['/serverlist/xml/default/uk', '/serverlist/xml/default/de', '/serverlist/xml/default/fr'],
 		tag: '[Proxy]'
 	},
+	'EU-CLASSIC': {
+		index: 0,
+		url: 'https://serverlist.tera.gameforge.com/',
+		address: '79.110.94.196',
+		pathname: ['/serverlist/xml/classic/uk', '/serverlist/xml/classic/de', '/serverlist/xml/classic/fr'],
+		tag: '[Proxy]'
+	},
 	'EU-TEST': {
 		index: 1,
 		url: 'http://devt2-web-sls.tera.gfsrv.net:4566/',

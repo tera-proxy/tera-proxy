@@ -102,7 +102,21 @@ async function init() {
 	await modManager.init()
 
 	// Retrieve server list
-	const serverList = await sls.fetch()
+	let serverList
+	try {
+		serverList = await sls.fetch()
+	}
+	catch(e) {
+		switch(e.code) {
+			case 'ETIMEDOUT':
+				log.error(`Server list timed out. Please check your internet connection and try again.`)
+				break
+			default:
+				throw e
+		}
+
+		process.exit(1)
+	}
 
 	// Create game proxies for all servers
 	const customServers = sls.customServers = { tag: currentRegion.tag }

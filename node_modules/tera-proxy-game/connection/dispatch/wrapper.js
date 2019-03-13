@@ -65,9 +65,9 @@ class ModWrapper {
 				trySend(...args) { try { return this.send(...args) } catch(e) { return false } },
 
 				// Logging
-				log(msg, ...args) { console.log(`[${this.name}] ${msg}`, ...args) },
-				warn(msg, ...args) { console.log(`[${this.name}] Warning: ${msg}`, ...args) },
-				error(msg, ...args) { console.log(`[${this.name}] Error: ${msg}`, ...args) },
+				log(...msg) { log.info(msg.join(' ')) },
+				warn(...msg) { log.warn(msg.join(' ')) },
+				error(...msg) { log.error(msg.join(' ')) },
 
 				// Settings
 				saveSettings() {}

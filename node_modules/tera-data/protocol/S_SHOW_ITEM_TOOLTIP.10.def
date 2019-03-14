@@ -66,8 +66,6 @@ int32  liberationStatus           # See S_INVEN
 uint32 unk29
 byte   unk30
 bool   damaged
-byte   unk31
-byte   unk32
 
 array  crystals
 - int32 dbid

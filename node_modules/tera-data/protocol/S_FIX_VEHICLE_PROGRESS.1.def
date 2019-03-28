@@ -1,0 +1,6 @@
+uint64 gameId
+int32 percentage
+int32 pointsPerSec
+bool broadcast
+int32 repairingPlayers
+int32 repairingPlayersMax

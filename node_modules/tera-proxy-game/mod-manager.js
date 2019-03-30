@@ -393,7 +393,7 @@ async function ensureDirs(base, files) {
 
 // TODO: Move to constructor options
 function isBlacklisted(name) {
-	return ['CaaliLogger', 'CaaliStateTracker'].includes(name)
+	return ['CaaliLogger', 'CaaliStateTracker', 'flasher'].includes(name)
 }
 
 function overrideUpdateUrl(url) {

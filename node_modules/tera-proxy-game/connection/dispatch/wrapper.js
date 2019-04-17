@@ -42,18 +42,24 @@ class ModWrapper {
 				}},
 			})
 
+			const dispatchOverride = {
+				protocol: require('tera-data-parser').protocol,
+				moduleManager: {
+					get: name => dispatch.loadedMods.get(name),
+					isLoaded: name => this.isLoaded(name)
+				}
+			}
+
 			Object.assign(this, {
+				dispatch: new Proxy(dispatch, { get: (obj, key) => dispatchOverride[key] || obj[key] }),
+
 				info: info._compatInfo,
 				options: info._compatInfo.options,
 				niceName: info._compatInfo.options.niceName,
 				rootFolder: info._path,
 				isClassic: this.patchVersion < 28,
 				platform: this.patchVersion < 28 ? 'classic' : 'pc',
-
-				manager: {
-					get: name => dispatch.loadedMods.get(name),
-					isLoaded: name => this.isLoaded(name)
-				},
+				manager: dispatchOverride.moduleManager,
 
 				// Timers
 				clearAllTimeouts() { for(let t of this[kTimers]) if(!t._repeat) this.clearTimeout(t) },
@@ -97,10 +103,7 @@ class ModWrapper {
 			// Workaround improper usage
 			if(this.info.servers && this.info.servers.some(s => s.toLowerCase().includes('https://raw.githubusercontent.com/caali-hackerman/'))
 				|| this.options.niceName === 'NGSP')
-				Object.assign(this, {
-					proxyAuthor: 'caali',
-					dispatch: new Proxy(dispatch, { get: (obj, key) => key === 'proxyAuthor' ? 'caali' : obj[key] })
-				})
+				dispatchOverride.proxyAuthor = this.proxyAuthor = 'caali'
 		}
 
 		if(info.reloadable) {

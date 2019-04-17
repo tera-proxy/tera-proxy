@@ -5,7 +5,7 @@ if(['11.0.0', '11.1.0', '11.2.0', '11.3.0'].includes(process.versions.node)) {
 Please install a newer version or revert to 10.14.1 LTS.`)
 	process.exit()
 }
-if(typeof BigInt === 'undefined') {
+if(typeof BigInt === 'undefined' || require('module').createRequireFromPath === undefined) {
 	log.error(`Your version of Node.JS is outdated.
 Please install the latest Current from https://nodejs.org/`)
 	process.exit()

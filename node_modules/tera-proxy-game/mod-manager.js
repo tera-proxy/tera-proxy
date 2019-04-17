@@ -4,7 +4,8 @@ const log = require('log')('mod-manager'),
 	fs = require('fs'),
 	path = require('path'),
 	Updater = require('updater'),
-	yauzl = require('yauzl')
+	yauzl = require('yauzl'),
+	compat = require('./compat')
 
 class ModManager {
 	constructor(opts) {
@@ -344,7 +345,8 @@ class ModManager {
 	preloadMod(name) {
 		if(this.brokenMods.has(name)) return false
 		try {
-			if(typeof require(this.resolve(name)) !== 'function') throw Error('Mod does not export a constructor')
+			if(typeof (this.packages.get(name)._compat === 2 ? compat.require : require)(this.resolve(name)) !== 'function')
+				throw Error('Mod does not export a constructor')
 			return true
 		}
 		catch(e) {

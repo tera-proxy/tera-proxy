@@ -94,11 +94,12 @@ class ModWrapper {
 					for(let t of this[kTimers]) this.clearTimeout(t)
 				})
 
-			// Workaround improper usage in NextGenSP
-			if(this.name === 'skill-prediction' || this.options.niceName === 'SP')
+			// Workaround improper usage
+			if(this.info.servers && this.info.servers.some(s => s.toLowerCase().includes('https://raw.githubusercontent.com/caali-hackerman/'))
+				|| this.options.niceName === 'NGSP')
 				Object.assign(this, {
 					proxyAuthor: 'caali',
-					dispatch: new Proxy(dispatch, { get: (obj, key) => key === 'proxyAuthor' ? 'caali' : obj[key] }),
+					dispatch: new Proxy(dispatch, { get: (obj, key) => key === 'proxyAuthor' ? 'caali' : obj[key] })
 				})
 		}
 
@@ -238,6 +239,9 @@ class ModWrapper {
 
 	toClient(...args) { return this.dispatch.write(false, ...args) }
 	toServer(...args) { return this.dispatch.write(true, ...args) }
+
+	parse(...args) { return this.dispatch.parse(...args) }
+	serialize(...args) { return this.dispatch.serialize(...args) }
 
 	parseSystemMessage(...args) { return this.dispatch.parseSystemMessage(...args) }
 	buildSystemMessage(...args) { return this.dispatch.buildSystemMessage(...args) }

@@ -5,6 +5,7 @@ const EventEmitter = require('events'),
 	{ revisions, protocol, sysmsg } = require('tera-data-parser'),
 	types = Object.values(require('tera-data-parser').types),
 	log = require('../../logger'),
+	compat = require('../../compat'),
 	Wrapper = require('./wrapper')
 
 protocol.load(require.resolve('tera-data'))
@@ -155,13 +156,13 @@ class Dispatch extends EventEmitter {
 		log.info(`Loading ${log.color('1', name)}${(() => {
 			switch(pkg._compat) {
 				case 1: return ` ${log.color('90', '(legacy)')}`
-				case 2: return ` ${log.color('90', '(caali-compat)')}`
+				case 2: return ` ${log.color('90', '(compat)')}`
 				default: return ''
 			}
 		})()}`)
 
 		try {
-			const mod = new Wrapper(require(this.modManager.resolve(name)), pkg, this, hotswapProxy)
+			const mod = new Wrapper((pkg._compat === 2 ? compat.require : require)(this.modManager.resolve(name)), pkg, this, hotswapProxy)
 			this.loadedMods.set(name, mod)
 			return mod.instance
 		}
@@ -360,6 +361,16 @@ class Dispatch extends EventEmitter {
 	}
 
 	getPatchVersion() { return this.majorPatchVersion + this.minorPatchVersion/100 }
+
+	// parse(name, version, data)
+	parse(name, version, data) {
+		return protocol.parse(this.protocolVersion, name, version, data)
+	}
+
+	// serialize(name, version, data[, opcode])
+	serialize(name, version, data, opcode) {
+		return protocol.write(this.protocolVersion, name, version, data)
+	}
 
 	parseSystemMessage(message) {
 		if(message[0] !== '@') throw Error(`Invalid system message "${message}" (expected @)`)

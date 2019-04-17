@@ -1,0 +1,8 @@
+array optionEffects
+- uint32 group
+- uint32 id
+- bool active
+
+array levelEffects
+- uint32 group
+- uint32 id

@@ -18,6 +18,11 @@ namespace {
 	using namespace v8;
 	using namespace node;
 
+	// Shorthand function
+	__forceinline Local<String> NewString(Isolate* isolate, const char* data) {
+		return String::NewFromUtf8(isolate, data, NewStringType::kNormal).ToLocalChecked();
+	}
+
 	class TeraCrypto : public ObjectWrap {
 		unsigned int d1[55], d2[57], d3[58];
 
@@ -121,7 +126,7 @@ namespace {
 		static void Apply(const FunctionCallbackInfo<Value>& args) {
 			if(args.Length() < 1) return;
 
-			Local<Object> buf = args[0]->ToObject();
+			Local<Object> buf = args[0]->ToObject(args.GetIsolate()->GetCurrentContext()).ToLocalChecked();
 
 			if(!Buffer::HasInstance(buf)) return;
 
@@ -130,27 +135,25 @@ namespace {
 		}
 
 		static void New(const FunctionCallbackInfo<Value>& args) {
+			Isolate* isolate = args.GetIsolate();
+
 			if(!args.IsConstructCall()) {
-				Isolate* isolate = args.GetIsolate();
-				isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "Constructor cannot be be invoked without \"new\"")));
+				isolate->ThrowException(Exception::TypeError(NewString(isolate, "Constructor cannot be be invoked without \"new\"")));
 				return;
 			}
 			if(args.Length() < 1) {
-				Isolate* isolate = args.GetIsolate();
-				isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "key is required")));
+				isolate->ThrowException(Exception::TypeError(NewString(isolate, "key is required")));
 				return;
 			}
 
-			Local<Object> buf = args[0]->ToObject();
+			Local<Object> buf = args[0]->ToObject(isolate->GetCurrentContext()).ToLocalChecked();
 
 			if(!Buffer::HasInstance(buf)) {
-				Isolate* isolate = args.GetIsolate();
-				isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "key must be a buffer")));
+				isolate->ThrowException(Exception::TypeError(NewString(isolate, "key must be a buffer")));
 				return;
 			}
 			if(Buffer::Length(buf) != 680) {
-				Isolate* isolate = args.GetIsolate();
-				isolate->ThrowException(Exception::TypeError(String::NewFromUtf8(isolate, "key must be 680 bytes long")));
+				isolate->ThrowException(Exception::TypeError(NewString(isolate, "key must be 680 bytes long")));
 				return;
 			}
 
@@ -162,14 +165,15 @@ namespace {
 	public:
 		static void Init(Local<Object> module) {
 			Isolate* isolate = module->GetIsolate();
+			Local<Context> context = isolate->GetCurrentContext();
 
 			Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
-			tpl->SetClassName(String::NewFromUtf8(isolate, "TeraCrypto"));
+			tpl->SetClassName(NewString(isolate, "TeraCrypto"));
 			tpl->InstanceTemplate()->SetInternalFieldCount(1);
 
 			NODE_SET_PROTOTYPE_METHOD(tpl, "apply", Apply);
 
-			module->Set(String::NewFromUtf8(isolate, "exports"), tpl->GetFunction());
+			module->Set(context, NewString(isolate, "exports"), tpl->GetFunction(context).ToLocalChecked());
 		}
 	};
 

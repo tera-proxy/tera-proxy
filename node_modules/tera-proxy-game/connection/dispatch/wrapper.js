@@ -101,8 +101,9 @@ class ModWrapper {
 				})
 
 			// Workaround improper usage
-			if(this.info.servers && this.info.servers.some(s => s.toLowerCase().includes('https://raw.githubusercontent.com/caali-hackerman/'))
-				|| this.options.niceName === 'NGSP')
+			if(this.info.servers && this.info.servers.some(s =>
+				/^https:\/\/raw\.githubusercontent\.com\/(caali-hackerman|tera-toolbox)\//i.test(s.toLowerCase())
+			))
 				dispatchOverride.proxyAuthor = this.proxyAuthor = 'caali'
 		}
 

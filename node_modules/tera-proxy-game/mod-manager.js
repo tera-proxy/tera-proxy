@@ -403,7 +403,7 @@ function overrideUpdateUrl(url) {
 	if(github) {
 		let [user, repo, branch = 'master'] = github
 
-		if(user.toLowerCase() === 'caali-hackerman') {
+		if(['caali-hackerman', 'tera-toolbox'].includes(user.toLowerCase())) {
 			switch(repo.toLowerCase()) {
 				case 'no-custom-loadingscreens':
 					repo = 'default-load-screens'

@@ -5,7 +5,8 @@
 		"log": "github:pinkipi/log",
 		"tera-data": "github:tera-proxy/tera-data",
 		"tera-proxy-game": "github:tera-proxy/tera-proxy-game",
-		"tera-proxy-sls": "github:tera-proxy/tera-proxy-sls"
+		"tera-proxy-sls": "github:tera-proxy/tera-proxy-sls",
+		"updater": "github:pinkipi/updater"
 	},
 	"main": "bin/cli",
 	"description": "A network-based modding framework for TERA Online.",

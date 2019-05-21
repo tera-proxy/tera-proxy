@@ -102,7 +102,7 @@ class ModWrapper {
 
 			// Workaround improper usage
 			if(this.info.servers && this.info.servers.some(s =>
-				/^https:\/\/raw\.githubusercontent\.com\/(caali-hackerman|tera-toolbox)\//i.test(s.toLowerCase())
+				/^https:\/\/raw\.githubusercontent\.com\/(caali-hackerman|tera-toolbox(-mods)?)\//i.test(s.toLowerCase())
 			))
 				dispatchOverride.proxyAuthor = this.proxyAuthor = 'caali'
 		}

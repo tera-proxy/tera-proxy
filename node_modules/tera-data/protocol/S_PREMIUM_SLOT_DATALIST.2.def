@@ -1,0 +1,13 @@
+# majorPatchVersion >= 82
+
+array sets
+- int32 id
+- array inventory
+- - int32 slot
+- - int32 unk1
+- - int32 type                  # 1 = item, 3 = skill
+- - int32 id
+- - int32 amount                # -1 = infinite
+- - int64 cooldown              # milliseconds
+- - int64 cooldownRemaining     # milliseconds
+- - bool unk2

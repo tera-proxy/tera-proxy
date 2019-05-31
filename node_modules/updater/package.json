@@ -1,5 +1,6 @@
 {
 	"name": "updater",
+	"version": "0.1.0",
 	"author": "Pinkie Pie",
 	"dependencies": {
 		"log": "github:pinkipi/log"

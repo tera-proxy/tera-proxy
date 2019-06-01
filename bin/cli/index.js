@@ -1,4 +1,5 @@
-const log = require('log')('proxy')
+const logRoot = require('log'),
+	log = logRoot('proxy')
 
 if(['11.0.0', '11.1.0', '11.2.0', '11.3.0'].includes(process.versions.node)) {
 	log.error(`Node.JS ${process.versions.node} contains a critical bug preventing timers from working.
@@ -229,10 +230,9 @@ If this does not work:
 
 	log.info('OK')
 
-	// Exit
-	function cleanExit() {
-		log.info('terminating...')
+	// Exit/crash handlers
 
+	function cleanup() {
 		try { hosts.remove(sls.host) } catch(e) {}
 
 		if(sls.https)
@@ -240,13 +240,23 @@ If this does not work:
 
 		sls.close()
 		for(let server of servers.values()) server.close()
+	}
 
+	function cleanExit() {
+		log.info('Terminating...')
+		cleanup()
 		process.exit()
 	}
 
 	process.on('SIGHUP', cleanExit)
 	process.on('SIGINT', cleanExit)
 	process.on('SIGTERM', cleanExit)
+
+	process.on('uncaughtException', e => {
+		logRoot.error(e)
+		cleanup()
+		process.exitCode = 1
+	})
 }
 
 init()

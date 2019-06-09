@@ -47,7 +47,9 @@ class ModWrapper {
 				moduleManager: {
 					get: name => dispatch.loadedMods.get(name),
 					isLoaded: name => this.isLoaded(name)
-				}
+				},
+				fromRaw: dispatch.parse,
+				toRaw: dispatch.serialize
 			}
 
 			Object.assign(this, {

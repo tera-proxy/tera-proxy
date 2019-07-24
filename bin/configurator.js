@@ -36,14 +36,15 @@ const configDir = path.join(__dirname, '../settings'),
 	}]
 
 let config = {
-	region: '',
+	branch: 'master',
 	autoUpdate: true,
 	autoUpdateMods: true,
+	region: '',
 	devWarnings: false
 }
 
 try {
-	config = JSON.parse(fs.readFileSync(configFile))
+	config = Object.assign(config, JSON.parse(fs.readFileSync(configFile)))
 }
 catch(e) {
 	if(!fs.existsSync(configDir)) fs.mkdirSync(configDir)

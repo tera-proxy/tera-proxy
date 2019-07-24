@@ -24,10 +24,12 @@ async function init() {
 		log.info('Checking for updates')
 
 		try {
+			const branch = settings.branch || 'master'
+
 			if(await (new (require('updater'))).update({
 				dir: path.join(__dirname, '../..'),
-				manifestUrl: 'https://raw.githubusercontent.com/tera-proxy/tera-proxy/cli/manifest.json',
-				defaultUrl: 'https://raw.githubusercontent.com/tera-proxy/tera-proxy/cli/',
+				manifestUrl: `https://raw.githubusercontent.com/tera-proxy/tera-proxy/${branch}/manifest.json`,
+				defaultUrl: `https://raw.githubusercontent.com/tera-proxy/tera-proxy/${branch}/`,
 			})) {
 				log.info('TERA Proxy has been updated. Please restart it to apply changes.')
 				return

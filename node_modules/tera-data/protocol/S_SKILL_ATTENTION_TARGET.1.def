@@ -1,0 +1,6 @@
+uint64 sourceGameId
+uint32 sourceTemplateId
+skillid sourceSkillId
+uint32 sourceSkillStageId
+uint64 targetGameId
+uint32 targetHitCylinderId

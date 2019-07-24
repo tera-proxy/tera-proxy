@@ -1,0 +1,12 @@
+count inventory
+offset inventory
+
+int32 size
+
+array inventory
+- int32 slot
+- int32 type # 1 = item, 2 = skill
+- int32 skill
+- int32 item
+- int32 amount
+- int32 cooldown

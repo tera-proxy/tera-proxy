@@ -1,0 +1,10 @@
+uint64 id
+uint32 huntingZoneId
+uint32 templateId
+uint64 target
+int32  unk1
+float  hpDiff
+byte   unk2 # enrage?
+float  curHp
+float  maxHp
+byte   unk3 # always 1?

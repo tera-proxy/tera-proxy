@@ -1,0 +1,8 @@
+offset name
+offset message
+
+int32  id
+byte   unk
+byte   raid
+string name
+string message

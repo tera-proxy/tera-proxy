@@ -1,0 +1,18 @@
+uint32 type # 2, 4, 5, 6
+float posX
+float posY
+float posZ
+float destX
+float destY
+float destZ
+uint32 time
+
+# these are always 0 or 1 (but encoded as floats)
+float unk1X
+float unk1Y
+float unk1Z
+
+# these are always between -1 .. 1
+float unk2X
+float unk2Y
+float unk2Z

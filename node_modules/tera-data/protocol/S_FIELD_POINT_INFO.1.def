@@ -1,0 +1,4 @@
+uint32 points
+uint32 maxPoints
+int32 unk # 0xFFFFFFFF
+int32 unk2 # 0x00000000

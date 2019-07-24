@@ -1,0 +1,8 @@
+# MajorPatchVersion >= 74
+
+skillid skill
+uint64  projectile
+vec3    loc
+vec3    dest
+angle   w
+bool    unk # false?

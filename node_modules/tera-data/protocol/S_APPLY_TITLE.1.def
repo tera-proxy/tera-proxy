@@ -1,0 +1,4 @@
+uint64 cid
+int32 title
+int32 unk2
+int32 unk3

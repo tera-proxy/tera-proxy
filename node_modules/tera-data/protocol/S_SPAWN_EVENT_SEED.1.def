@@ -1,0 +1,5 @@
+uint64 gameId
+uint64 target #box ID
+uint32 itemId
+vec3 loc
+int32 unk #00000000

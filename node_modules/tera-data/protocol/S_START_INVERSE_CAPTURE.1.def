@@ -1,0 +1,8 @@
+uint64 source
+uint64 target
+int32 unk
+uint32 skill
+float x
+float y
+float z
+bool success #always true?

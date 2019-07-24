@@ -1,0 +1,7 @@
+int32 unk1 #20?
+int16 minLevel
+int16 maxLevel
+int32 unk3 #3?
+int32 unk4 #0?
+byte unk5 # 0?
+byte unk6 #0?

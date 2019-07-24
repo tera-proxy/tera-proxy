@@ -1,0 +1,5 @@
+uint64 id
+uint32 huntingZoneId
+uint32 templateId
+int32  type #Icon type on boss gage
+int32  duration

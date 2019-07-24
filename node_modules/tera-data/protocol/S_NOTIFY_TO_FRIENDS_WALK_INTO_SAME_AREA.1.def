@@ -1,0 +1,4 @@
+uint32 playerId
+uint32 worldMapWorldId
+uint32 campId
+uint32 worldMapSectionId

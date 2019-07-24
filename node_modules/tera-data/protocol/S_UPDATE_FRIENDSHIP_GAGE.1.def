@@ -1,0 +1,2 @@
+uint32 playerId
+uint32 amount

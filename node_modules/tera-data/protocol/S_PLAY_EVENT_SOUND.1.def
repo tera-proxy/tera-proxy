@@ -1,0 +1,3 @@
+uint32 id
+uint32 unk1 # always 1?
+byte unk2 # always 1?

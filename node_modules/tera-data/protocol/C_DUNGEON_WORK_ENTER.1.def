@@ -1,0 +1,11 @@
+int16 count       #number or challenges selected
+int16 unk1        # 0 - if random, 13 if any challenge selected
+int32 zone
+byte random
+
+# this part is empty if random byte is 1
+int16 unk2        # always 13?
+int16 unk3        # 0 if one challenge, 21 if two challenges
+int32 challenge1  # 1 - bam hits, 2 - time, 3 - combo
+int32 unk4        # always 21 ?
+int32 challenge2

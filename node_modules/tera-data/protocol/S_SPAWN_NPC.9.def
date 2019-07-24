@@ -1,0 +1,52 @@
+# MajorPatchVersion >= 72
+
+uint64 gameId
+uint64 target
+vec3   loc
+angle  w
+int32  relation
+uint32 templateId
+uint16 huntingZoneId
+int32  shapeId
+int16  walkSpeed
+int16  runSpeed
+int16  status                   # 0: idle/normal, 1: alert, 2: combat, 3: evade/leash, 4: dead
+int16  mode                     # 0: normal, 1: enraged
+int16  hpLevel                  # 0: 0% <= hp < 20%, 1: 20% <= hp < 40%, 2: 40% <= hp < 60%, 3: 60% <= hp < 80%, 4: 80% <= hp < 100%, 5: 100% hp
+int16  questInfo                # same as in S_QUEST_VILLAGER_INFO
+bool   visible
+bool   villager
+int32  spawnType
+uint64 replaceId                # despawns old NPC and spawns self, used for NPC transformation skills
+uint32 spawnScript              # ActionScriptID (run on self during spawn)
+uint32 replaceDespawnScript     # ActionScript (run on replaceId during despawn)
+bool   aggressive
+uint64 owner
+uint64 occupiedByPartyId
+uint64 occupiedByPlayerId
+bool   bomb                     # seems to be true only for those bomb NPCs in BGs
+bool   bySpawnEvent             # seems to be true only for NPCs spawned by special spawn events (that are not regularly spawned)
+uint16 bgTeam                   # used only for some NPCs in kumas BG
+uint32 activeCylinder           # sets active cylinder ID for collision/hit detection, added in majorPatchVersion 50 for Vergos
+bool   repairable               # used to mark repairable vehicle NPCs. Also seems to disable special NPC markers (effects above the heads of merchants, for example) if set to false
+uint32 flightInteractionType    # see NpcInteractionData in datacenter
+
+# Info seats of vehicle NPCs
+array  seats
+- uint32 id
+- uint64 passengerId
+- angle  pitch
+- angle  yaw
+- int64  passengerMaxHp
+- int32  passengerMaxMp
+- int64  passengerHp
+- int32  passengerMp
+
+# Info about dynamic NPC model parts. Added in majorPatchVersion 50 for Vergos. See NpcPartEffectData in datacenter
+array  parts
+- uint32 id
+- uint32 curStage
+- bool   active
+- uint32 lastStage
+
+string npcName                  # Internal name/description for debugging purposes

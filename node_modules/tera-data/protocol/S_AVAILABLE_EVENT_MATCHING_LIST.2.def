@@ -1,0 +1,52 @@
+uint32 unk1   # 0
+uint32 unk2   # 0
+uint32 unk3   # 0x4ffffff7
+uint32 unk4   # 16
+uint32 unk5   # 3
+uint32 unk6   # 0
+uint32 unk7   # 13
+uint32 unk8   # 16
+uint32 unk9   # 16
+uint32 unk10  # 8
+uint32 unk11  # 8
+uint32 unk12  # 1
+byte   unk_b1 # 1
+byte   unk_b2 # 1
+byte   unk_b3 # 1
+uint32 unk13  # 53177
+uint32 unk14  # 139577
+int32  vanguardCredits
+byte   unk_b4 # 0
+byte   unk_b5 # 0
+byte   unk_b6 # 0
+int32  limitAll
+int32  limitPvp
+int32  limitDungeon
+int32  limitSolo
+int32  level
+
+array   quests
+- int32  id
+- uint32 unk1   # 0
+- byte   unk_b1 # 0
+- uint32 unk2   # 1
+- byte   unk_b2 # 1
+- byte   unk_b3 # 1
+- uint32 unk3   # 0
+
+- array unkArray1
+- - uint32 unk1
+- - uint32 unk2
+
+- array rewards
+- - int32 dbid
+- - int32 amount
+
+- array unkArray2
+
+- array unkArray3
+
+- array unkArray4
+- - uint32 unk1 # 0
+- - uint32 unk2 # 2400
+- - uint32 unk3 # 0

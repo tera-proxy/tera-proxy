@@ -1,0 +1,5 @@
+# Changes shortcuts (hotbar)
+
+int32 huntingZoneId # Current zone the player is in (client seems to ignore this)
+int32 id            # Corresponds to entry in ShortcutSetList (DataCenter)
+bool  enable        # false = Default shortcut set (id is ignored)

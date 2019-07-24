@@ -1,0 +1,5 @@
+uint64 gameId
+float x
+float y
+float z
+int16 w

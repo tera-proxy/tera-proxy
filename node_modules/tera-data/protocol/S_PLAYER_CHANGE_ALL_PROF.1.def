@@ -1,0 +1,8 @@
+uint16 baseEnergy
+uint16 baseHerb
+uint16 baseBug
+uint16 baseMineral
+uint16 addEnergy
+uint16 addHerb
+uint16 addBug
+uint16 addMineral

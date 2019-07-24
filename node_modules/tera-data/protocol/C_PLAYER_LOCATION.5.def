@@ -1,0 +1,13 @@
+vec3   loc
+angle  w
+angle  lookDirection # Your w direction but while in an action that allows you to look around example: Gunner Blast/Arcane Barrage
+vec3   dest
+int32  type
+# 0 = running, 1 = walking, 2 = falling, 5 = jumping,
+# 6 = jump intersection and end when something is blocking the path and the player can't
+# travel in the X and Y axis(it will then wait and resume if possible)
+# # 7 = stop moving, landing
+# 8 = swimming, 9 = stop swimming, 10 = falling after jumping
+int16  jumpDistance # movement speed while jumping in a direction
+bool   inShuttle
+uint32 time # Operating System uptime (ms)

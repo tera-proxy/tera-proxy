@@ -1,0 +1,5 @@
+int32 zone
+float x
+float y
+float z
+bool  quick # true = no loading screen

@@ -1,0 +1,18 @@
+count  abnormals
+offset abnormals
+count  conditions
+offset conditions
+
+uint32 serverId
+uint32 playerId
+
+array abnormals
+- uint32 id
+- int32  duration
+- int32  unk
+- int32  stacks
+
+array conditions
+- uint32 id
+- int32  duration
+- byte   status

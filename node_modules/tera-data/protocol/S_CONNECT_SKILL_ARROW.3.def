@@ -1,0 +1,6 @@
+# majorPatchVersion >= 74
+
+uint32 templateId
+uint32 unk1 # 0?
+skillid skill
+byte unk2 # 1?

@@ -1,0 +1,5 @@
+offset sysmsg
+uint64 uniqueId
+int32 id
+uint32 amount
+string sysmsg

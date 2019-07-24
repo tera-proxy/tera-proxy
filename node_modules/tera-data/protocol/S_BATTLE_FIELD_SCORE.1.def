@@ -1,0 +1,5 @@
+int32 enemyScore #Used in Fraywind as enemy team score
+int32 score #Used in Fraywind as your teams score
+int32 maxScore #Used in Fraywind (5000)
+int32 roundTime # seconds, used in corsairs as time left in round. Not used in Fraywind (0xFFFFFFFF) 
+int32 totalTime # seconds, used in corsairs as your total time. Used in Fraywind as total time passed

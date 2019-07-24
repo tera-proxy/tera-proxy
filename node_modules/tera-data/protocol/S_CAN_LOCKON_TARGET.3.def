@@ -1,0 +1,6 @@
+# MajorPatchVersion >= 74
+
+uint64   target
+int32    unk
+skillid  skill
+bool     success

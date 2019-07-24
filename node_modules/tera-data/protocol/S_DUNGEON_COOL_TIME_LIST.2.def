@@ -1,0 +1,12 @@
+# majorPatchVersion >= 80
+
+array dungeons
+- uint32 id
+- uint32 type           # 0: regular dungeon, 1: dungeon with phases (e.g. HH), in that case entriesDay indicates the highest cleared phase
+- uint32 cooldown       # seconds
+- int16 entriesDay      # -1: no daily limit
+- int16 entriesWeek     # -1: no weekly limit
+
+array battlegrounds
+- uint32 id
+- uint16 entries

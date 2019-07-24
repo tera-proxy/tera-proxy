@@ -1,0 +1,9 @@
+int32 expDifference
+uint64 exp
+uint32 level
+uint32 dailyExp
+uint32 dailyExpMax
+bool levelUp
+uint32 totalPoints
+float baseRev
+float tsRev

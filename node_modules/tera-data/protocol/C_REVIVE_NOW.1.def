@@ -1,0 +1,2 @@
+uint32 type # 0 = safe haven, 1 = resurrect from healer
+uint32 unk # FF FF FF FF

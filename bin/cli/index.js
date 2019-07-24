@@ -1,71 +1,101 @@
-// TODO: Load this from settings/_tera-proxy.json
-require('log').level = 'dwarn'
-
-const log = require('log')('proxy')
+const logRoot = require('log'),
+	log = logRoot('proxy')
 
 if(['11.0.0', '11.1.0', '11.2.0', '11.3.0'].includes(process.versions.node)) {
 	log.error(`Node.JS ${process.versions.node} contains a critical bug preventing timers from working.
 Please install a newer version or revert to 10.14.1 LTS.`)
 	process.exit()
 }
-if(typeof BigInt === 'undefined') {
+if(typeof BigInt === 'undefined' || require('module').createRequireFromPath === undefined) {
 	log.error(`Your version of Node.JS is outdated.
 Please install the latest Current from https://nodejs.org/`)
 	process.exit()
 }
 
-const SlsProxy = require('tera-proxy-sls'),
-	{ ModManager, Dispatch, Connection, RealClient } = require('tera-proxy-game'),
-	{ protocol } = require('tera-data-parser'),
-	settings = require('../../settings/_tera-proxy_.json'),
-	regions = require('./regions'),
-	currentRegion = regions[settings.region]
+async function init() {
+	const path = require('path'),
+		settings = require('../../settings/_tera-proxy_.json')
 
-if(!currentRegion) {
-	log.error('Unsupported region: ' + settings.region)
-	return
-}
+	log.info(`Node version: ${process.versions.node}, game region: ${settings.region}`)
 
-const fs = require('fs'),
-	net = require('net'),
-	path = require('path'),
-	dns = require('dns'),
-	url = require('url'),
-	hosts = require('./hosts')
+	if(settings.devWarnings) require('log').level = 'dwarn'
 
-const sls = new SlsProxy(currentRegion),
-	slsProxyIp = '127.0.0.' + (10 + currentRegion.index)
+	if(settings.autoUpdate) {
+		log.info('Checking for updates')
 
-// Test if we're allowed to modify the hosts file
-try { hosts.remove() }
-catch(e) {
-	switch(e.code) {
-		case 'EACCES':
-			log.error(`Hosts file is set to read-only.
+		try {
+			const branch = settings.branch || 'master'
+
+			if(await (new (require('updater'))).update({
+				dir: path.join(__dirname, '../..'),
+				manifestUrl: `https://raw.githubusercontent.com/tera-proxy/tera-proxy/${branch}/manifest.json`,
+				defaultUrl: `https://raw.githubusercontent.com/tera-proxy/tera-proxy/${branch}/`,
+			})) {
+				log.info('TERA Proxy has been updated. Please restart it to apply changes.')
+				return
+			}
+			log.info('Proxy is up to date')
+		}
+		catch(e) {
+			log.error('Error checking for updates:')
+			if(e.request) log.error(e.message)
+			else log.error(e)
+		}
+	}
+
+	const SlsProxy = require('tera-proxy-sls'),
+		{ ModManager, Dispatch, Connection, RealClient } = require('tera-proxy-game'),
+		{ protocol } = require('tera-data-parser'),
+		regions = require('./regions'),
+		currentRegion = regions[settings.region]
+
+	if(!currentRegion) {
+		log.error('Unsupported region: ' + settings.region)
+		return
+	}
+
+	const fs = require('fs'),
+		net = require('net'),
+		dns = require('dns'),
+		url = require('url'),
+		hosts = require('./hosts')
+
+	const sls = new SlsProxy(currentRegion),
+		slsProxyIp = '127.0.0.' + (10 + currentRegion.index)
+
+	// Test if we're allowed to modify the hosts file
+	try { hosts.remove() }
+	catch(e) {
+		switch(e.code) {
+			case 'EBUSY':
+				log.error(`Hosts file is being locked by another application.
+
+* Completely uninstall any anti-virus software.`)
+				break
+			case 'EACCES':
+				log.error(`Hosts file is set to read-only.
 
 * Make sure no anti-virus software is running.
 * Locate "${e.path}", right click the file, click 'Properties', uncheck 'Read-only' then click 'OK'.`)
-			break
-		case 'EPERM':
-			log.error(`Insufficient permission to modify hosts file.
+				break
+			case 'EPERM':
+				log.error(`Insufficient permission to modify hosts file.
 
 * Make sure no anti-virus software is running.
 * Right click TeraProxy.bat and select 'Run as administrator'.`)
-			break
-		default:
-			throw e
+				break
+			default:
+				throw e
+		}
+
+		process.exit(1)
 	}
 
-	process.exit(1)
-}
+	const servers = new Map()
 
-const servers = new Map()
+	dns.setServers(['8.8.8.8', '8.8.4.4'])
 
-dns.setServers(['8.8.8.8', '8.8.4.4'])
-
-async function init() {
-	log.info(`Initializing. Node version: ${process.versions.node}, game region: ${settings.region}`)
-
+	// Init
 	const modManager = new ModManager({
 		modsDir: path.join(__dirname, '..', '..', 'mods'),
 		settingsDir: path.join(__dirname, '..', '..', 'settings'),
@@ -75,7 +105,21 @@ async function init() {
 	await modManager.init()
 
 	// Retrieve server list
-	const serverList = await sls.fetch()
+	let serverList
+	try {
+		serverList = await sls.fetch()
+	}
+	catch(e) {
+		switch(e.code) {
+			case 'ETIMEDOUT':
+				log.error(`Server list timed out. Please check your internet connection and try again.`)
+				break
+			default:
+				throw e
+		}
+
+		process.exit(1)
+	}
 
 	// Create game proxies for all servers
 	const customServers = sls.customServers = { tag: currentRegion.tag }
@@ -96,7 +140,7 @@ async function init() {
 				socket.setNoDelay(true)
 
 				const dispatch = new Dispatch(modManager),
-					connection = new Connection(dispatch),
+					connection = new Connection(dispatch, { classic: settings.region.split('-')[1] === 'CLASSIC' }),
 					client = new RealClient(connection, socket),
 					srvConn = connection.connect(client, { host: target.ip, port: target.port })
 
@@ -180,23 +224,41 @@ If this does not work:
 
 	hosts.set(slsProxyIp, sls.host)
 	log.info('Added hosts file entry')
+
+	if(sls.https) {
+		sls.addRootCertificate()
+		log.info('Added SLS root certificate')
+	}
+
 	log.info('OK')
+
+	// Exit/crash handlers
+
+	function cleanup() {
+		try { hosts.remove(sls.host) } catch(e) {}
+
+		if(sls.https)
+			try { sls.delRootCertificate() } catch(e) {}
+
+		sls.close()
+		for(let server of servers.values()) server.close()
+	}
+
+	function cleanExit() {
+		log.info('Terminating...')
+		cleanup()
+		process.exit()
+	}
+
+	process.on('SIGHUP', cleanExit)
+	process.on('SIGINT', cleanExit)
+	process.on('SIGTERM', cleanExit)
+
+	process.on('uncaughtException', e => {
+		logRoot.error(e)
+		cleanup()
+		process.exitCode = 1
+	})
 }
 
 init()
-
-function cleanExit() {
-	log.info('terminating...')
-
-	try { hosts.remove(sls.host) }
-	catch(_) {}
-
-	sls.close()
-	for(let server of servers.values()) server.close()
-
-	process.exit()
-}
-
-process.on('SIGHUP', cleanExit)
-process.on('SIGINT', cleanExit)
-process.on('SIGTERM', cleanExit)

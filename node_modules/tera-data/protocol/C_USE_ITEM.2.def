@@ -1,0 +1,19 @@
+uint64  ownerId
+uint32  id
+uint64  uniqueId
+uint64  targetId
+uint32  amount
+
+float targetX
+float targetY
+float targetZ
+
+float   x
+float   y
+float   z
+int16   w
+
+uint32  unk1
+uint32  unk2
+uint32  unk3
+byte    unk4  # 1?

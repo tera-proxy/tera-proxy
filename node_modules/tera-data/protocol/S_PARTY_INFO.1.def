@@ -1,0 +1,5 @@
+uint64 leader # cid
+uint32 unk1
+uint16 unk2
+uint16 unk3
+byte unk4

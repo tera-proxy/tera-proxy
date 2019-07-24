@@ -1,0 +1,4 @@
+uint64 source
+uint64 target
+vec3 loc # being pushed to this location
+float time # time it takes kinda like S_SHUTTLE_MOVE

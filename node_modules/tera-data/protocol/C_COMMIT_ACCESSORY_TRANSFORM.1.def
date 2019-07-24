@@ -1,0 +1,6 @@
+int32  id
+uint64 dbid
+float  scale
+vec3fa rotation
+vec3   translation
+vec3   translationDebug

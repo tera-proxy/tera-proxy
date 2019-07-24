@@ -1,0 +1,7 @@
+int32 methodLoot    # 0 = Free-for-All, 1 = Round Robin
+int32 rareGrade     # Grade or higher is rare
+int32 methodRare    # 0 = Auto Roll, 1 = Roll the Dice
+bool  rareEquipment # Equipment is rare
+bool  rareClass     # Class-restricted items are rare + only class can roll
+int32 methodBound   # 0 = Default, 1 = Roll the Dice
+bool  noCombat

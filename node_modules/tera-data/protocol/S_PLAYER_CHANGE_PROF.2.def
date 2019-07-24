@@ -1,0 +1,4 @@
+# majorPatchVersion >= 77
+
+uint32 type
+uint32 value

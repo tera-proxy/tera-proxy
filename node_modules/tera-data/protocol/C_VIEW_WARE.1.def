@@ -1,0 +1,3 @@
+int64 source
+int32 bankType #1 = bank, 12 = costume
+int32 bankTab #?

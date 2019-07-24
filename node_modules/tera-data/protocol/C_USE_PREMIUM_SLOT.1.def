@@ -1,0 +1,6 @@
+# majorPatchVersion >= 82
+
+int32 set
+int32 slot
+int32 type
+int32 id

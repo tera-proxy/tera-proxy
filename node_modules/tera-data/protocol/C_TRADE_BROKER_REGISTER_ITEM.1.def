@@ -1,0 +1,5 @@
+int64 uid
+uint32 item
+uint32 quantity
+int64 price #per unit
+int64 unk1

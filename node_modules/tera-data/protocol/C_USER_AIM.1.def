@@ -1,0 +1,6 @@
+angle yaw
+angle pitch
+angle toYaw
+angle toPitch
+int32 unk
+int32 unk2

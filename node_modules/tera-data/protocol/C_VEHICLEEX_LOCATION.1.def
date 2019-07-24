@@ -1,0 +1,10 @@
+int32 type
+float x1
+float y1
+float z1
+int16 w
+float x2
+float y2
+float z2
+int16 unk
+int32 time

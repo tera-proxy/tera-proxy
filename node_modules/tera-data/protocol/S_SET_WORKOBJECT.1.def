@@ -1,0 +1,2 @@
+uint64 id
+uint32 state	#0=at rest(un-interactable),1=in use,2=at rest(Interactable)

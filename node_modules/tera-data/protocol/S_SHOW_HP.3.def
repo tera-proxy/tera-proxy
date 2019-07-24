@@ -1,0 +1,8 @@
+uint64 gameId
+int64  curHp
+int64  maxHp
+byte   enemy
+int32  edgeD
+float  edgeF
+int32  edgeDuration
+int32  unk

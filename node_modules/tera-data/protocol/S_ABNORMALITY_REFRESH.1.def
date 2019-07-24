@@ -1,0 +1,5 @@
+uint64 target
+uint32 id
+int32  duration
+int32  unk
+int32  stacks

@@ -1,0 +1,6 @@
+array routes
+- uint32 id
+- uint32 price
+- uint32 from
+- uint32 to
+- uint32 reqLevel

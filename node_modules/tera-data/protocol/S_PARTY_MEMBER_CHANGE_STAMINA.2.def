@@ -1,0 +1,5 @@
+uint32 serverId
+uint32 playerId
+int32  currentRe
+int32  maxRe
+int32  unk

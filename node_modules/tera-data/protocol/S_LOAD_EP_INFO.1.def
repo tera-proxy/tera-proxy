@@ -1,0 +1,11 @@
+uint32 level
+uint64 exp
+uint32 totalPoints
+uint32 usedPoints
+uint32 dailyExp
+uint32 dailyExpMax
+uint32 prevLevel
+uint32 prevTotalPoints
+array perks
+- uint32 id
+- uint32 level

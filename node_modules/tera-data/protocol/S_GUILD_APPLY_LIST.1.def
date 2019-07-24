@@ -1,0 +1,10 @@
+count  apps
+offset apps
+array  apps
+- offset name
+- offset message
+- uint32 player
+- int32  time
+- int32  unk
+- string name
+- string message

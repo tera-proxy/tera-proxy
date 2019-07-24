@@ -1,0 +1,7 @@
+uint32 serverId
+uint32 playerId
+float  x
+float  y
+float  z
+uint32 location3
+int32  unk

@@ -1,0 +1,6 @@
+uint32 serverId
+uint32 playerId
+uint32 id
+int32  duration
+int32  unk
+int32  stacks

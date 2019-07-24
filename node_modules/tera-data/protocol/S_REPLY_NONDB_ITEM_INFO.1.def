@@ -1,0 +1,9 @@
+int32 item
+byte  unk # always 1, likely ok flag
+byte  unk1
+int32 unk2
+int32 unk3
+int32 unk4
+int32 unk5
+int32 unk6
+int32 unk7

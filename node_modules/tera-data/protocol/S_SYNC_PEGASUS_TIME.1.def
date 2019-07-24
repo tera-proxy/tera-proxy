@@ -1,0 +1,4 @@
+uint64 gameId
+uint32 id # dbid of route
+int32  unk
+int32  unk2

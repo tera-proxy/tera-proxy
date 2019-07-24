@@ -1,0 +1,2 @@
+int32 unk1 #always 20?
+byte mute # 1 if muted, 0 if muted is off

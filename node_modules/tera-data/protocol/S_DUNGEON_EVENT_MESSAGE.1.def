@@ -1,0 +1,6 @@
+offset message
+
+uint32 unk1 #42
+byte unk2   #0
+uint32 unk3 #27
+string message

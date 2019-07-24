@@ -1,0 +1,5 @@
+# majorPatchVersion >= 75
+
+uint64 gameId
+bool newbie
+uint32 unk # probably related to dungeon mentoring system introduced in patch 75

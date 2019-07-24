@@ -1,0 +1,3 @@
+array accountBenefits
+- uint32 packageId
+- int64 expirationDate # Unix time

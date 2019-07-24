@@ -1,0 +1,8 @@
+uint64 gameId
+int32 unk # 00000000
+angle yaw
+angle pitch
+angle toYaw
+angle toPitch
+int32 unk2 # 00000000
+int32 unk3 # 00000000

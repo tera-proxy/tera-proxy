@@ -1,0 +1,2 @@
+int32 guildId
+int32 type # 2 = details, 5 = members, 6 = quests

@@ -1,0 +1,5 @@
+uint64 gameId
+vec3   loc
+bool   alive
+bool   resItem
+bool   resPassive

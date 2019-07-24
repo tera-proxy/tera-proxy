@@ -1,0 +1,2 @@
+int32 totalPoints
+int32 gainedPoints # client compares this to 0 and shows the level up animation if it's greater

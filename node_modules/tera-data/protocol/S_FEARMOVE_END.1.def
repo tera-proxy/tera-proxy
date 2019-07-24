@@ -1,0 +1,8 @@
+uint64  target
+uint32  time
+float   x
+float   y
+float   z
+int16   w
+uint16  speed
+uint32  unk   # 25?

@@ -1,0 +1,5 @@
+array costs
+- uint32 id # just seems to be a unique id for each array entry
+- uint32 alkahestItemId
+- uint32 alkahestAmount
+- uint32 feedstockAmount

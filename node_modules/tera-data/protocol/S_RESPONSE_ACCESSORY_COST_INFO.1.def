@@ -1,0 +1,4 @@
+int32 response # 0 = One-time free restyle available, 1 = Default. Ignored if item or amount are 0.
+int32 item
+int32 unk # 0?
+int32 amount

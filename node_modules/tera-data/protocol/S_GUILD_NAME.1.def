@@ -1,0 +1,10 @@
+offset guild
+offset rank
+offset unk
+offset guildEmblem
+
+uint64 cid
+string guild
+string rank
+string unk
+string guildEmblem

@@ -1,0 +1,6 @@
+# MajorPatchVersion >= 74
+
+uint64  gameId
+skillid skill   # the enemy skill being blocked
+uint32  unk4    # always 0?
+bool    perfect # brawler perfect blocks

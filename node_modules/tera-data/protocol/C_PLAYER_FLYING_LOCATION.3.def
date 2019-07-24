@@ -1,0 +1,28 @@
+# 2 = fly forwards, 3 = fly backwards, 4 = boost forwards,
+# 5 = take off, 6 = ascend, 7 = descend, 8 = land
+uint32 type
+
+float posX
+float posY
+float posZ
+float destX
+float destY
+float destZ
+uint32 time
+
+# x = forwards/backwards direction keys (1, -1 respectively)
+# y = left/right direction keys (1, -1 respectively)
+# z = ascend key (1) (descend doesn't set this)
+# multiple of these components can be set at the same time, e.g.
+# you can be flying forwards and ascending. note that if you're
+# pressing two direction keys at the same time, you'll get
+# something like <0.7071067, 0.7071067, 0> for forwards + right
+# or <-0.7071067, -0.7071067, 0> for backwards + left.
+float controlsX
+float controlsY
+float controlsZ
+
+# -1 .. 1
+float directionX
+float directionY
+float directionZ

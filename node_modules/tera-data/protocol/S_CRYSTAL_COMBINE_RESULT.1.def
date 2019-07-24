@@ -1,0 +1,3 @@
+uint32 item
+bool success
+int32 effect # -1 = fail, 0 = regular success, 1 = blue dyad structure success, 2 = green dyad structure success

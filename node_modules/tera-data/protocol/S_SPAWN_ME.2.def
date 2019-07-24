@@ -1,0 +1,5 @@
+uint64 gameId
+vec3   loc
+angle  w
+bool   alive
+bool   unk # false?

@@ -1,0 +1,8 @@
+uint64 gameId
+vec3 loc
+angle  w
+int16  unk
+int16  speed
+vec3 dest
+int32  type # see C_PLAYER_LOCATION.type
+bool   unk2

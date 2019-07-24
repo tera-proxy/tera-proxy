@@ -1,0 +1,23 @@
+count skills
+offset skills
+offset guildName
+offset guildMaster
+
+uint32 guildId
+uint32 gmId
+int32 guildLevel
+int64 points
+int64 guildXp
+int64 guildXpForLevel
+int64 guildFunds
+int32 characters
+int32 accounts
+int32 size # 0 = small, 1 = medium, 2 = large
+int64 creationDate # unix time
+string guildName
+string guildMaster
+
+array skills
+-uint32 skill
+-bool type # 0 = Passive, 1 = Active (Guild Teleport)
+-bool disabled # if there is a newer tier of this skill, the old passive is disabled

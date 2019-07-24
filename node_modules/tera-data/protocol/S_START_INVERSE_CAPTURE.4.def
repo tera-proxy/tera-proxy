@@ -1,0 +1,8 @@
+# majorPatchVersion >= 74
+
+uint64 source
+uint64 target
+int32 unk # same as C_START_TARGETED_SKILL's unk
+skillid skill
+vec3 loc
+bool success

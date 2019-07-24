@@ -1,0 +1,83 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=EQ, ST=Ponyville, O=Pinkie Pie, CN=Pinkie Pie
+        Validity
+            Not Before: Feb  6 17:09:55 2019 GMT
+            Not After : Jan 24 17:09:55 2069 GMT
+        Subject: C=EQ, ST=Ponyville, O=TERA Proxy SLS, CN=TERA Proxy SLS
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:a9:71:12:52:97:48:3a:23:09:2c:81:39:69:cd:
+                    69:aa:4c:e4:c5:7e:db:92:eb:0b:23:45:52:d2:c5:
+                    84:fa:45:2c:87:a2:a5:f8:3b:eb:97:85:a7:06:af:
+                    0b:f7:af:39:04:b7:b0:33:d7:fb:62:8a:02:17:0b:
+                    6a:59:7e:91:af:07:61:3c:f7:90:74:fd:a3:92:af:
+                    eb:04:5a:af:09:85:fc:d1:00:f4:45:b7:9f:31:26:
+                    e2:f3:20:25:a8:29:ae:fd:c5:67:c0:dd:e6:d4:81:
+                    29:76:14:39:5e:d6:c9:0c:d6:c7:20:fd:7e:ce:8f:
+                    9a:c8:0c:ae:db:0b:4c:5f:14:9c:2b:e6:5c:08:f0:
+                    bd:30:e6:13:29:09:6a:4e:3f:5d:81:5e:d0:0c:5c:
+                    fc:c4:c3:34:b2:53:3c:49:11:59:2f:e7:03:90:a7:
+                    a2:ab:11:32:08:82:a6:99:60:89:62:a7:c7:89:72:
+                    64:02:0f:46:12:76:62:c3:91:dd:bd:79:a4:50:a2:
+                    b7:66:22:60:db:50:8c:0e:fd:9a:43:70:8d:b4:4f:
+                    80:2e:7d:06:91:0e:93:e7:10:a6:2c:30:92:77:e4:
+                    ed:20:98:69:c9:1e:30:c3:cf:39:9a:32:47:a8:8b:
+                    c7:1c:a9:0f:4e:8b:96:2a:72:96:8d:59:50:bc:0f:
+                    9f:17
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Key Identifier: 
+                ED:5B:C1:37:1A:AC:4E:93:21:CE:EE:2A:10:C9:5C:F7:8A:C6:14:35
+            X509v3 Authority Key Identifier: 
+                keyid:A3:DB:E3:0F:94:8C:AF:77:8A:A2:69:F8:3F:D2:B0:3C:F0:0F:0B:1C
+
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:serverlist.tera.gameforge.com, DNS:tera.pmang.jp
+    Signature Algorithm: sha256WithRSAEncryption
+         a3:2e:51:f5:7d:72:6f:1a:6a:08:2f:48:17:16:e7:35:40:81:
+         8c:12:39:bf:8b:1f:82:8b:b8:f7:f0:a0:44:83:0a:5b:70:cd:
+         1e:aa:ac:1e:38:44:10:5f:06:62:fa:2a:37:2a:b6:3a:b4:af:
+         03:8d:75:da:67:a3:80:cc:d1:d4:c7:7d:d7:49:ae:78:53:1e:
+         64:b8:eb:40:db:80:50:ee:2a:ce:fd:76:ae:7f:d0:e8:f4:6e:
+         e8:bd:99:bc:0d:92:19:93:18:d3:e4:77:97:85:75:38:51:b1:
+         7a:e2:09:ce:dd:2d:cf:b7:4d:39:ef:ee:6b:79:88:0a:29:64:
+         59:9d:85:ea:2d:cd:e8:4a:a5:7c:50:de:8b:e0:b2:b8:0e:ed:
+         fa:be:22:bd:94:51:f1:7f:62:d9:c8:f5:07:df:b9:e5:ee:bb:
+         9b:0d:33:a6:cf:16:3f:b8:7d:df:14:56:8a:aa:6b:35:da:a0:
+         2d:5d:05:a7:93:8a:35:d0:34:34:55:1b:dc:7b:87:df:16:d0:
+         3d:4f:89:eb:f3:6e:a6:cd:ca:56:02:a1:89:64:c2:40:b7:72:
+         5f:e7:ef:dc:ae:fc:e1:a7:35:d1:a2:46:c8:7a:35:be:c9:14:
+         fb:70:51:ae:96:78:ad:94:b2:41:27:4b:1e:8d:5c:0a:8b:d7:
+         ef:d1:fb:24
+-----BEGIN CERTIFICATE-----
+MIIDsDCCApigAwIBAgIBATANBgkqhkiG9w0BAQsFADBLMQswCQYDVQQGEwJFUTES
+MBAGA1UECAwJUG9ueXZpbGxlMRMwEQYDVQQKDApQaW5raWUgUGllMRMwEQYDVQQD
+DApQaW5raWUgUGllMCAXDTE5MDIwNjE3MDk1NVoYDzIwNjkwMTI0MTcwOTU1WjBT
+MQswCQYDVQQGEwJFUTESMBAGA1UECAwJUG9ueXZpbGxlMRcwFQYDVQQKDA5URVJB
+IFByb3h5IFNMUzEXMBUGA1UEAwwOVEVSQSBQcm94eSBTTFMwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQCpcRJSl0g6IwksgTlpzWmqTOTFftuS6wsjRVLS
+xYT6RSyHoqX4O+uXhacGrwv3rzkEt7Az1/tiigIXC2pZfpGvB2E895B0/aOSr+sE
+Wq8JhfzRAPRFt58xJuLzICWoKa79xWfA3ebUgSl2FDle1skM1scg/X7Oj5rIDK7b
+C0xfFJwr5lwI8L0w5hMpCWpOP12BXtAMXPzEwzSyUzxJEVkv5wOQp6KrETIIgqaZ
+YIlip8eJcmQCD0YSdmLDkd29eaRQordmImDbUIwO/ZpDcI20T4AufQaRDpPnEKYs
+MJJ35O0gmGnJHjDDzzmaMkeoi8ccqQ9Oi5YqcpaNWVC8D58XAgMBAAGjgZQwgZEw
+HQYDVR0OBBYEFO1bwTcarE6TIc7uKhDJXPeKxhQ1MB8GA1UdIwQYMBaAFKPb4w+U
+jK93iqJp+D/SsDzwDwscMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgWgMDcGA1UdEQQw
+MC6CHXNlcnZlcmxpc3QudGVyYS5nYW1lZm9yZ2UuY29tgg10ZXJhLnBtYW5nLmpw
+MA0GCSqGSIb3DQEBCwUAA4IBAQCjLlH1fXJvGmoIL0gXFuc1QIGMEjm/ix+Ci7j3
+8KBEgwpbcM0eqqweOEQQXwZi+io3KrY6tK8DjXXaZ6OAzNHUx33XSa54Ux5kuOtA
+24BQ7irO/Xauf9Do9G7ovZm8DZIZkxjT5HeXhXU4UbF64gnO3S3Pt0057+5reYgK
+KWRZnYXqLc3oSqV8UN6L4LK4Du36viK9lFHxf2LZyPUH37nl7rubDTOmzxY/uH3f
+FFaKqms12qAtXQWnk4o10DQ0VRvce4ffFtA9T4nr826mzcpWAqGJZMJAt3Jf5+/c
+rvzhpzXRokbIejW+yRT7cFGulnitlLJBJ0sejVwKi9fv0fsk
+-----END CERTIFICATE-----

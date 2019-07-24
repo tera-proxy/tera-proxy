@@ -1,0 +1,2 @@
+uint64 equipement_uid
+uint32 scroll_id #always 94002

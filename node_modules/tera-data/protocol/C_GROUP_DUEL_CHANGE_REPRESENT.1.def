@@ -1,0 +1,2 @@
+int64 target # cid of the represent
+int32 team # 0 = Team A, 1 = Team B

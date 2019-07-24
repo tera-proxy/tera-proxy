@@ -1,0 +1,4 @@
+uint64 target
+uint32 unk1 # skill tray id?
+uint32 skill
+byte unk2 # always 0?

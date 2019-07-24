@@ -1,0 +1,6 @@
+count skillList
+offset skillList
+
+array skillList
+- uint32 skill
+- byte type # 0 = passive, 1 = active

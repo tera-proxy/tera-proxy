@@ -1,0 +1,8 @@
+uint64 cid
+uint32 contract
+uint32 button
+array tabs
+- uint32 caption
+- array items
+- - uint32 id
+- - uint64 netPrice

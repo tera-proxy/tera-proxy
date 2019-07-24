@@ -1,0 +1,10 @@
+uint64 id
+int32  type
+int32  npc
+uint64 target
+int32  unk1
+float  hpDiff
+byte   unk2 # enrage?
+float  curHp
+float  maxHp
+byte   unk3 # always 1?

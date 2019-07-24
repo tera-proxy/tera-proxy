@@ -1,0 +1,17 @@
+float x1
+float y1
+float z1
+int16 w
+int16 unk2
+float x2
+float y2
+float z2
+
+# 0 = run, 1 = walk, 2 = fall, 5 = jump,
+# 6 = jump on steep terrain?, # 7 = stop moving,
+# 10 = fall w/ recovery
+int32 type
+
+int16 speed
+byte  unk # always 0?
+int32 time

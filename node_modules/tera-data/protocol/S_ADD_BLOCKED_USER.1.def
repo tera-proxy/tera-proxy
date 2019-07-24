@@ -1,0 +1,7 @@
+offset name
+offset myNote
+uint32 id
+int32  level
+int32  race
+string name
+string myNote

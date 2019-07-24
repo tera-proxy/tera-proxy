@@ -1,0 +1,5 @@
+int32 revivalTime # Seconds for type 3, minutes otherwise
+int32 regionId
+bool  unk1 # Displays "You can't do that." in popup
+int32 unk2 # type? 3 = different UI
+int32 resItemAmount

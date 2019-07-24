@@ -1,0 +1,9 @@
+count members
+offset members
+offset name
+
+uint16 password
+string name
+
+array members
+- uint32 playerId

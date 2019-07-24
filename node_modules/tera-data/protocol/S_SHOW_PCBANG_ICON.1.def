@@ -1,0 +1,2 @@
+uint64 player
+bool enabled

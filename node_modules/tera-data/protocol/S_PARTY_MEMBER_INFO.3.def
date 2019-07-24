@@ -1,0 +1,20 @@
+count  members
+offset members
+uint16 unk1
+
+array  members
+- offset name
+- uint32 playerId
+- uint16  class # class -1
+- uint16  race
+- uint16  gender # gender +1, 0 for baraka
+- uint16 level
+- byte  unk2 # status? 1 or 0
+- uint32 worldMapGuardId
+- uint32 areaNameId
+- uint16 unk3 # order ? 
+- byte unk4
+- byte unk5
+- byte canInvite # 0 - 1
+- uint16 unk6
+- string name

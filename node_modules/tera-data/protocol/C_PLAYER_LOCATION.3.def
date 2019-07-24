@@ -1,0 +1,8 @@
+vec3   loc
+angle  w
+int16  unk1 # 0?
+vec3   dest
+int32  type # 0 = Run, 1 = Walk, 2 = Fall, 5 = Jump, 6 = Jump End (Steep Terrain), 7 = Stop, 10 = Fall (Steep)
+int16  unk2 # 0?
+bool   unk3 # false?
+uint32 time # Operating System uptime (ms)

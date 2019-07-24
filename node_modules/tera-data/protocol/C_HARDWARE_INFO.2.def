@@ -1,0 +1,15 @@
+uint32 systemMemory
+uint32 videoMemory
+uint32 resWidth
+uint32 resHeight 
+bool isFullScreen
+uint32 resScreenWidth # Current Monitor res
+uint32 resScreenHeight # Current Monitor res
+uint32 numDisplays # Number of Monitors
+uint32 resVirtualWidth # Total Width of monitor('s) display
+uint32 resVirtualHeight # Total height of monitor('s) display
+uint32 physicalCores 
+uint32 logicalCores
+string os
+string cpu
+string gpu

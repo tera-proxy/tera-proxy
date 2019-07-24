@@ -1,0 +1,13 @@
+# majorPatchVersion >= 75
+
+uint64 gameId
+int32  templateId
+int32 unk1 # 0? (new)
+uint64 id
+skillid skill # requires type: 0, npc: false (implies huntingZoneId: 0), and reserved: 0 
+vec3   loc
+vec3   dest
+float  speed
+float  distance
+bool   curve
+float  projectileSpeed # (same as S_ACTION_STAGE's)

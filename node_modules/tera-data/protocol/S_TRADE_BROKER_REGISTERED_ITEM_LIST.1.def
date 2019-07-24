@@ -1,0 +1,18 @@
+count listings
+offset listings
+
+array listings
+- uint32 listing
+- int32 unk1
+- int32 unk2
+- int32 unk3
+- int32 item
+- int32 quantity
+- int32 unk4
+- int64 time
+- int64 price
+- int32 unk5
+- int32 unk6
+- int32 unk7
+- int32 unk8
+- int16 unk9

@@ -1,0 +1,5 @@
+uint32 uid
+bool group # toggle the whole group = 1, individual quest = 0
+uint32 show # 0 = hide, 1 = show
+byte unk
+uint32 type # 0 = zone quest, 1 = story quest, 3 = daily quest, 2 maybe purple(allaince) quest?

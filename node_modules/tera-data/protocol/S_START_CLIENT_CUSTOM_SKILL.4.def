@@ -1,0 +1,4 @@
+# majorPatchVersion >= 74
+
+uint64 gameId
+skillid skill

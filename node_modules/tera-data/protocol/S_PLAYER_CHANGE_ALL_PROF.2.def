@@ -1,0 +1,10 @@
+# majorPatchVersion >= 77
+
+uint32 baseEnergy
+uint32 baseHerb
+uint32 baseBug
+uint32 baseMineral
+uint32 addEnergy
+uint32 addHerb
+uint32 addBug
+uint32 addMineral

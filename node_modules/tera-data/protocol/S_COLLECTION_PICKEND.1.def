@@ -1,0 +1,4 @@
+uint64 playerId
+uint64 nodeId
+uint32 result
+uint32 productionPoints

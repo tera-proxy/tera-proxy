@@ -56,7 +56,7 @@ function parseSync(filepath) {
 		const line = data[i].replace(/#.*$/, '').trim()
 		if(!line) continue
 
-		const match = line.match(/^((?:-\s*)*)(\S+)\s+(\S+)$/)
+		const match = line.match(/^((?:-\s*)*)(\S+?)(?:<\s*(\S+)\s*>)?(?:\[\s*\S+\s*\])?\s+(\S+)$/)
 		if(!match) {
 			log.warn(`[parsers/def] parse error: malformed line\n    at "${filepath}", line ${i + 1}`)
 			continue
@@ -64,7 +64,8 @@ function parseSync(filepath) {
 
 		const depth = match[1].replace(/[^-]/g, '').length
 		const type = match[2]
-		const key = match[3]
+		const arrayType = match[3]
+		const key = match[4]
 
 		if(implicitMeta && (type === 'count' || type === 'offset')) {
 			log.debug(`[parsers/def] parse warning: "count" or "offset" encountered, disabling implicit metatypes\n    at "${filepath}", line ${i + 1}`)
@@ -99,7 +100,7 @@ function parseSync(filepath) {
 		// append the field to the current level
 		if(type === 'array' || type === 'object') {
 			const group = []
-			group.type = type
+			group.type = arrayType || type
 			group.name = key
 			group.up = top
 			group.meta = []

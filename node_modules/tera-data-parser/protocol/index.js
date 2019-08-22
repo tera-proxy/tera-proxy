@@ -330,7 +330,7 @@ class TeraProtocol {
 					}
 
 					next = reader.uint16()
-					array[index++] = this.parse(null, type, null, reader, `${displayName}.${keyPath}`)
+					array[index++] = type.type !== 'array' ? reader[type.type]() : this.parse(null, type, null, reader, `${displayName}.${keyPath}`)
 
 					if (next && index === length) {
 						throw new Error(`${displayName}.${keyPath}: found out of bounds element ${index} (expected length ${length})`)

@@ -12,6 +12,7 @@ class ModManager {
 		Object.assign(this, {
 			modsDir: opts.modsDir,
 			settingsDir: opts.settingsDir,
+			blacklist: opts.blacklist || (()=>{}),
 			autoUpdate: Boolean(opts.autoUpdate),
 			updater: new Updater(),
 			packages: new Map(),
@@ -262,9 +263,14 @@ class ModManager {
 		// Alias
 		pkg.author = pkg.authors[0]
 
-		if(isBlacklisted(pkg.name)) {
-			log.warn(`${pkg.name} is blacklisted and will not be loaded`)
-			return null
+		{
+			const blacklistReason = this.blacklist(pkg)
+			if(blacklistReason) {
+				log.warn(`${log.color('1', pkg.name)} is blacklisted and will not be loaded${
+					typeof blacklistReason === 'string' ? `. Reason: ${blacklistReason}` : ''
+				}`)
+				return null
+			}
 		}
 
 		let conflictPkg
@@ -394,10 +400,6 @@ async function ensureDirs(base, files) {
 }
 
 // TODO: Move to constructor options
-function isBlacklisted(name) {
-	return ['CaaliLogger', 'CaaliStateTracker', 'flasher'].includes(name)
-}
-
 function overrideUpdateUrl(url) {
 	const github = parseGithubUrl(url)
 	if(github) {
@@ -405,6 +407,7 @@ function overrideUpdateUrl(url) {
 
 		if(['caali-hackerman', 'tera-toolbox', 'tera-toolbox-mods'].includes(user.toLowerCase())) {
 			switch(repo.toLowerCase()) {
+				// Replace compat forks with originals
 				case 'no-custom-loadingscreens':
 					repo = 'default-load-screens'
 				case 'bugfix':
@@ -424,9 +427,17 @@ function overrideUpdateUrl(url) {
 				case 'rk9guide':
 				case 'talents_info':
 					user = 'Owyn'; break
+
+				// Forks with DRM/anti-features removed
 				default:
 					user = 'tera-mods-forks'; break
 			}
+			branch = 'master'
+		}
+
+		// Replace compat fork with original
+		if(user.toLowerCase() === 'saltymonkey' && repo.toLowerCase() === 'skill-prediction') {
+			user = 'tera-mods'
 			branch = 'master'
 		}
 

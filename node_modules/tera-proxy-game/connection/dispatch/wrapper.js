@@ -25,7 +25,7 @@ class ModWrapper {
 		this[kTimers] = new Set()
 		this[kSettings] = new Settings(path.join(dispatch.modManager.settingsDir, this.name + '.json'), this.name)
 
-		// Caali-proxy compatibility
+		// Toolbox compatibility
 		if(info._compat === 2) {
 			Object.defineProperties(this, {
 				activeTimeouts: {configurable: true, get() { return new Set([...this[kTimers]].filter(t => !t._repeat)) }},
@@ -36,7 +36,7 @@ class ModWrapper {
 						return dispatch.require['tera-game-state']
 					}
 					catch(e) {
-						log.error('Please install tera-game-state:\n    https://github.com/caali-hackerman/tera-game-state')
+						log.error('Please install tera-game-state:\n    https://github.com/tera-mods-forks/tera-game-state')
 						throw e
 					}
 				}},
@@ -50,6 +50,16 @@ class ModWrapper {
 				},
 				fromRaw: dispatch.parse,
 				toRaw: dispatch.serialize
+			}
+
+			let logAbuse = false
+			function checkLogAbuse(msg) {
+				if(logAbuse) return true
+				if(msg.includes('on an unsupported legacy version')) {
+					log.warn('This mod contains anti-features aimed at degrading user experience for tera-proxy users'
+						+ '\nPlease contact [ Pinkie Pie#7969 ] on Discord to report this issue')
+					return logAbuse = true
+				}
 			}
 
 			Object.assign(this, {
@@ -73,9 +83,9 @@ class ModWrapper {
 				trySend(...args) { try { return this.send(...args) } catch(e) { return false } },
 
 				// Logging
-				log(...msg) { log.info(msg.join(' ')) },
-				warn(...msg) { log.warn(msg.join(' ')) },
-				error(...msg) { log.error(msg.join(' ')) },
+				log(...msg) { msg = msg.join(' '); if(!checkLogAbuse(msg)) log.info(msg) },
+				warn(...msg) { msg = msg.join(' '); if(!checkLogAbuse(msg)) log.warn(msg) },
+				error(...msg) { msg = msg.join(' '); if(!checkLogAbuse(msg)) log.error(msg) },
 
 				// Settings
 				saveSettings() {}
@@ -93,7 +103,7 @@ class ModWrapper {
 					}
 				}
 				catch(e) {
-					console.log(`[caali-compat] Error migrating settings for "${this.name}"`)
+					console.log(`[compat] Error migrating settings for "${this.name}"`)
 					console.log(e)
 				}
 
@@ -104,7 +114,7 @@ class ModWrapper {
 
 			// Workaround improper usage
 			if(this.info.servers && this.info.servers.some(s =>
-				/^https:\/\/raw\.githubusercontent\.com\/(caali-hackerman|tera-toolbox(-mods)?)\//i.test(s.toLowerCase())
+				/^https:\/\/raw\.githubusercontent\.com\/(caali-hackerman|tera-toolbox(-mods)?|tera-shiraneko)\//i.test(s.toLowerCase())
 			))
 				dispatchOverride.proxyAuthor = this.proxyAuthor = 'caali'
 		}

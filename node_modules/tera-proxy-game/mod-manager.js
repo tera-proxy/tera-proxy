@@ -404,6 +404,7 @@ function overrideUpdateUrl(url) {
 	const github = parseGithubUrl(url)
 	if(github) {
 		let [user, repo, branch = 'master'] = github
+		const orig = {user, repo}
 
 		if(['caali-hackerman', 'tera-toolbox', 'tera-toolbox-mods'].includes(user.toLowerCase())) {
 			switch(repo.toLowerCase()) {
@@ -440,6 +441,8 @@ function overrideUpdateUrl(url) {
 			user = 'tera-mods'
 			branch = 'master'
 		}
+
+		if(user !== orig.user) log.info(`Switching to compatible fork: ${orig.user}/${orig.repo} > ${user}/${repo}`)
 
 		return `github:${user}/${repo}@${branch}`
 	}

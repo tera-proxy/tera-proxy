@@ -474,7 +474,7 @@ class TeraProtocol {
 
 						// recurse
 						if(type.type !== 'array')
-							writer[type.type](value)
+							writer[type.type](element)
 						else this.write(null, type, version, element, writer, `${displayName}.${keyPath}`)
 					}
 				}

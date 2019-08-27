@@ -468,7 +468,9 @@ class TeraProtocol {
 						writer.uint16(0)
 
 						// recurse
-						this.write(null, type, version, element, writer, `${displayName}.${keyPath}`)
+						if(type.type !== 'array')
+							writer[type.type](value)
+						else this.write(null, type, version, element, writer, `${displayName}.${keyPath}`)
 					}
 				}
 			// `type` is primitive

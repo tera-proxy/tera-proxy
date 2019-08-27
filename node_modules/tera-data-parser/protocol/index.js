@@ -158,7 +158,12 @@ class TeraProtocol {
 					}
 
 					default: {
-						// TODO warn/throw?
+						if (Array.isArray(val)) {
+							for (const elem of val) {
+								// here + next offsets + recurisve length
+								length += 4 + SIZES[type.type]
+							}
+						}
 						break
 					}
 				}

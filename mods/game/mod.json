@@ -1,0 +1,7 @@
+{
+	"name": "game",
+	"update": "github:tera-mods/game",
+	"title": "Game API",
+	"author": "Pinkie Pie",
+	"description": "State tracker library with events and helper functions."
+}

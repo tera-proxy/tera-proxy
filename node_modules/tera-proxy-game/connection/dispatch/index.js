@@ -3,7 +3,6 @@ const EventEmitter = require('events'),
 	util = require('util'),
 	binarySearch = require('binary-search'),
 	{ revisions, protocol, sysmsg } = require('tera-data-parser'),
-	types = Object.values(require('tera-data-parser').types),
 	log = require('../../logger'),
 	compat = require('../../compat'),
 	Wrapper = require('./wrapper')
@@ -565,16 +564,18 @@ class Dispatch extends EventEmitter {
 function deepClone(obj) {
 	if(obj instanceof Buffer) return Buffer.from(obj)
 
-	for(let t of types) // Custom parser types
-		if(obj instanceof t) return Object.assign(Object.create(t.prototype), obj)
+	if(Array.isArray(obj))
+		return obj.map(val => typeof val === 'object' ? deepClone(val) : val)
 
-	let copy = Array.isArray(obj) ? [] : {}
+	let copy = Object.create(obj.__proto__)
 
 	for(let key in obj) {
 		let val = obj[key]
 
-		if(typeof val === 'object') copy[key] = deepClone(val)
-		else copy[key] = val
+		if(typeof val === 'object')
+			copy[key] = deepClone(val)
+		else
+			copy[key] = val
 	}
 
 	return copy

@@ -1,4 +1,4 @@
-const PacketBuffer = require('../packetBuffer')
+const Packetizer = require('../packetizer')
 
 class RealClient {
 	constructor(connection, socket) {
@@ -6,7 +6,10 @@ class RealClient {
 		this.socket = socket
 
 		this.session = null
-		this.buffer = new PacketBuffer()
+		this.packetizer = new Packetizer(data => {
+			if(this.connection.dispatch) data = this.connection.dispatch.handle(data, false)
+			if(data) this.connection.sendServer(data)
+		})
 
 		socket.on('data', (data) => {
 			if(!this.connection) return
@@ -27,19 +30,7 @@ class RealClient {
 
 				case 2: {
 					this.session.decrypt(data)
-					this.buffer.write(data)
-
-					const { dispatch } = this.connection
-
-					while(data = this.buffer.read()) {
-						if(dispatch) {
-							data = dispatch.handle(data, false)
-						}
-						if(data) {
-							this.connection.sendServer(data)
-						}
-					}
-
+					this.packetizer.recv(data)
 					break
 				}
 
@@ -85,7 +76,7 @@ class RealClient {
 		}
 
 		this.session = null
-		this.buffer = null
+		this.packetizer = null
 	}
 }
 

@@ -17,7 +17,7 @@ class Connection {
 			if(this.dispatch) data = this.dispatch.handle(data, true)
 			if(data)
 				// Note: socket.write() is not thread-safe
-				this.sendClient(data.buffer === this.packetizer.buffer ? Buffer.from(data) : data)
+				this.sendClient(data.buffer === this.packetizer.buffer.buffer ? Buffer.from(data) : data)
 		})
 	}
 

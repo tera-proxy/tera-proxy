@@ -10,7 +10,7 @@ class RealClient {
 			if(this.connection.dispatch) data = this.connection.dispatch.handle(data, false)
 			if(data)
 				// Note: socket.write() is not thread-safe
-				this.connection.sendServer(data.buffer === this.packetizer.buffer ? Buffer.from(data) : data)
+				this.connection.sendServer(data.buffer === this.packetizer.buffer.buffer ? Buffer.from(data) : data)
 		})
 
 		socket.on('data', (data) => {

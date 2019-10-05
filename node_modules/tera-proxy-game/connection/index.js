@@ -15,7 +15,9 @@ class Connection {
 		this.session = new Encryption(this.info.classic)
 		this.packetizer = new Packetizer(data => {
 			if(this.dispatch) data = this.dispatch.handle(data, true)
-			if(data) this.sendClient(data)
+			if(data)
+				// Note: socket.write() is not thread-safe
+				this.sendClient(data.buffer === this.packetizer.buffer ? Buffer.from(data) : data)
 		})
 	}
 

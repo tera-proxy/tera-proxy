@@ -308,7 +308,7 @@ class TeraProtocol {
 
 			if (Array.isArray(type)) {
 				if (type.type === 'object') {
-					data[key] = {}
+					if(!data[key]) data[key] = {}
 					for (const f of type) {
 						parseField(f, data[key], keyPath)
 					}

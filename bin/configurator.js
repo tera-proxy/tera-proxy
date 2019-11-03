@@ -25,14 +25,14 @@ const configDir = path.join(__dirname, '../settings'),
 		name: ['TH', 'SE', 'ID'],
 		publisher: 'PlayWith / Lytogame'
 	}, {
-		name: ['NA'],
-		publisher: 'En Masse'
-	}, {
 		name: ['KR'],
 		publisher: 'Nexon'
 	}, {
 		name: ['KR-TEST'],
 		publisher: 'Nexon - Beta'
+	}, {
+		name: ['NA (unsupported)'],
+		publisher: 'https://codeload.github.com/tera-proxy/tera-proxy/zip/beta'
 	}]
 
 let config = {

@@ -25,17 +25,6 @@ class Customize {
 				tattoos:	Number(data.tattoos)	|| 0
 			})
 	}
-
-	write(s) {
-		s.byte(Number(this.unk))
-		s.byte(Number(this.skinColor))
-		s.byte(Number(this.faceStyle))
-		s.byte(Number(this.faceDecal))
-		s.byte(Number(this.hairStyle))
-		s.byte(Number(this.hairColor))
-		s.byte(Number(this.voice))
-		s.byte(Number(this.tattoos))
-	}
 }
 
 module.exports = Customize

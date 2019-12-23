@@ -26,7 +26,7 @@ class Inventory extends EventEmitter {
 					}
 				}
 
-				this[kInventory] = event.first ? event.items : this[kInventory].concat(event.items)
+				event.first ? this[kInventory] = event.items : this[kInventory].push(...event.items)
 
 				// Once we've received all the parts, re-calculate user-facing data & fire event
 				if(!event.more) {
@@ -67,10 +67,7 @@ class Inventory extends EventEmitter {
 						size: event.size,
 						items: event.items
 					})
-				else {
-					let pocket = inventory.get(event.pocket)
-					pocket.items = pocket.items.concat(event.items)
-				}
+				else inventory.get(event.pocket).items.push(...event.items)
 
 				// Once we've received all the parts, re-calculate user-facing data & fire event
 				if(!event.more && event.lastInBatch) {
@@ -84,7 +81,7 @@ class Inventory extends EventEmitter {
 							switch(i) {
 								case 0:
 									this.size += pocket.size
-									this.items = this.items.concat(pocket.items)
+									this.items.push(...pocket.items)
 									break
 								case 14:
 									if(p === 0)

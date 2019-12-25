@@ -16,7 +16,7 @@ const TERA_PROXY = {
 	PROXY_GLOBAL = new Proxy(global, { get: (obj, key) => key === 'TeraProxy' ? TERA_PROXY : obj[key] })
 
 function makeRequire(parent) {
-	const _require = Module.createRequireFromPath(parent.filename),
+	const _require = Module.createRequire(parent.filename),
 		dirname = path.join(parent.filename, '..')
 
 	return Object.assign(function require(filename) {

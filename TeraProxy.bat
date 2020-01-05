@@ -1,5 +1,5 @@
 @echo off
-title TERA
+title TERA Proxy
 cd /d "%~dp0"
 
 node -e "" 2> NUL

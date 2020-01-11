@@ -36,19 +36,13 @@ module.exports = {
 		url: 'https://tera.pmang.jp/game_launcher/server_list.xml?usn=0',
 		tag: '【プロキシ】'
 	},
-	TH: {
-		index: 5,
-		url: 'http://terasls.playwith.in.th/list.xml',
-		address: '103.80.216.189',
-		tag: '[Proxy]'
-	},
 	KR: {
-		index: 6,
+		index: 5,
 		url: 'http://tera.nexon.com/launcher/sls/servers/list.xml',
 		tag: '[프록시]'
 	},
 	'KR-TEST': {
-		index: 7,
+		index: 6,
 		url: 'http://tera.nexon.com/launcherOpenTest/sls/servers/list.xml',
 		tag: '[프록시]'
 	}

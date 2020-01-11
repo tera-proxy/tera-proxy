@@ -7,7 +7,7 @@ const fs = require('fs'),
 const configDir = path.join(__dirname, '../settings'),
 	configFile = path.join(configDir, '_tera-proxy_.json'),
 	regions = [{
-		name: ['EU'],
+		name: ['EU', 'SE'],
 		publisher: 'Gameforge'
 	}, {
 		name: ['EU-TEST'],
@@ -21,9 +21,6 @@ const configDir = path.join(__dirname, '../settings'),
 	}, {
 		name: ['JP'],
 		publisher: 'GameOn / Pmang'
-	}, {
-		name: ['TH', 'SE', 'ID'],
-		publisher: 'PlayWith / Lytogame'
 	}, {
 		name: ['KR'],
 		publisher: 'Nexon'

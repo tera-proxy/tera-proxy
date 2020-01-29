@@ -16,7 +16,7 @@ class Command {
 
 		mod.hook('S_LOGIN', 'raw', () => { this.loaded = false })
 
-		mod.hook('S_LOAD_CLIENT_USER_SETTING', 'raw', () => {
+		mod.hook(mod.patchVersion < 90 ? 'S_LOAD_CLIENT_USER_SETTING' : 'S_REPLY_CLIENT_CHAT_OPTION_SETTING', 'raw', () => {
 			if(!this.loaded && (this.loaded = true))
 				process.nextTick(() => {
 					mod.send('S_JOIN_PRIVATE_CHANNEL', 1, {

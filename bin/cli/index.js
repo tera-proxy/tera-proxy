@@ -2,20 +2,21 @@
 'use strict'
 require('module').wrapper[0] += `'use strict';`
 
-const logRoot = require('log'),
-	log = logRoot('proxy')
-
-if(Buffer.prototype.readBigInt64LE === undefined) {
-	log.error(`Your version of Node.JS is outdated.
+// Feature compatibility check
+try { eval('null ?? null') }
+catch(e) {
+	console.error(`Your version of Node.JS is outdated.
 Please install the latest Current from https://nodejs.org/`)
 	return
 }
 if(process.platform !== 'win32') {
-	log.error('TERA Proxy only supports Windows.')
+	console.error('TERA Proxy only supports Windows.')
 	return
 }
 
-const net = require('net'),
+const logRoot = require('log'),
+	log = logRoot('proxy'),
+	net = require('net'),
 	path = require('path'),
 	settings = require('../../settings/_tera-proxy_.json')
 

@@ -15,5 +15,5 @@ if not exist ./settings/_tera-proxy_.json (
 	cls
 )
 
-node --use-strict .
+node --use-strict --harmony .
 pause

@@ -1,5 +1,5 @@
 @echo off
-title TERA
+title TERA Proxy
 cd /d "%~dp0"
 
 node -e "" 2> NUL
@@ -15,5 +15,5 @@ if not exist ./settings/_tera-proxy_.json (
 	cls
 )
 
-node --use-strict .
+node --use-strict --harmony .
 pause

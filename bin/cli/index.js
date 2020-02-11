@@ -1,16 +1,21 @@
+// Hotfix for https://github.com/nodejs/node/issues/30039
+'use strict'
+require('module').wrapper[0] += `'use strict';`
+
+// Feature compatibility check
+try { eval('null ?? null') }
+catch(e) {
+	console.error(`Your version of Node.JS is outdated.
+Please install the latest Current from https://nodejs.org/`)
+	return
+}
+if(process.platform !== 'win32') {
+	console.error('TERA Proxy only supports Windows.')
+	return
+}
+
 const logRoot = require('log'),
 	log = logRoot('proxy')
-
-if(['11.0.0', '11.1.0', '11.2.0', '11.3.0'].includes(process.versions.node)) {
-	log.error(`Node.JS ${process.versions.node} contains a critical bug preventing timers from working.
-Please install a newer version or revert to 10.14.1 LTS.`)
-	process.exit()
-}
-if(typeof BigInt === 'undefined' || require('module').createRequireFromPath === undefined) {
-	log.error(`Your version of Node.JS is outdated.
-Please install the latest Current from https://nodejs.org/`)
-	process.exit()
-}
 
 async function init() {
 	const path = require('path'),

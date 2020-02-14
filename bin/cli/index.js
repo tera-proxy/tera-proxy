@@ -3,7 +3,7 @@
 require('module').wrapper[0] += `'use strict';`
 
 // Feature compatibility check
-try { eval('null ?? null') }
+try { eval('null?.() ?? null') }
 catch(e) {
 	console.error(`Your version of Node.JS is outdated.
 Please install the latest Current from https://nodejs.org/`)

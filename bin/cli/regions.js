@@ -31,18 +31,23 @@ module.exports = {
 		url: 'http://tera.mangot5.com/game/tera/serverList.xml',
 		tag: '[代理]'
 	},
-	JP: {
+	'TW-CLASSIC': {
 		index: 4,
+		url: 'http://terac.mangot5.com/game/terac/serverList.xml',
+		tag: '[代理]'
+	},
+	JP: {
+		index: 5,
 		url: 'https://tera.pmang.jp/game_launcher/server_list.xml?usn=0',
 		tag: '【プロキシ】'
 	},
 	KR: {
-		index: 5,
+		index: 6,
 		url: 'http://tera.nexon.com/launcher/sls/servers/list.xml',
 		tag: '[프록시]'
 	},
 	'KR-TEST': {
-		index: 6,
+		index: 7,
 		url: 'http://tera.nexon.com/launcherOpenTest/sls/servers/list.xml',
 		tag: '[프록시]'
 	}

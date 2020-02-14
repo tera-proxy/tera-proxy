@@ -19,6 +19,9 @@ const configDir = path.join(__dirname, '../settings'),
 		name: ['TW'],
 		publisher: 'HappyTuk / MangoT5'
 	}, {
+		name: ['TW-CLASSIC'],
+		publisher: 'HappyTuk / MangoT5'
+	}, {
 		name: ['JP'],
 		publisher: 'GameOn / Pmang'
 	}, {

@@ -17,5 +17,4 @@ Join us on Discord: [![Discord](https://discordapp.com/api/guilds/28131199876595
 * Download any mods you wish to use and place them in `tera-proxy/mods/`
 * * Many useful mods can be found on [tera-mods](https://github.com/tera-mods) or by searching for [tera-proxy](https://github.com/search?q=tera-proxy)
 * Right click TeraProxy.bat and select `Run as administrator`
-* Set your region when prompted
 * You may launch TERA when the console says OK

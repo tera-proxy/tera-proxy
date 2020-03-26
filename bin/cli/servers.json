@@ -1,0 +1,18 @@
+[
+	{ "region": "eu", "id": 28, "ip": "79.110.94.213", "port": 7803, "pvp": false, "name": "(DE) - Yurian" },
+	{ "region": "eu", "id": 29, "ip": "79.110.94.214", "port": 7804, "pvp": false, "name": "(FR) - Seren" },
+	{ "region": "eu", "id": 38, "ip": "79.110.94.211", "port": 7801, "pvp": false, "name": "(INT) - Mystel" },
+	{ "region": "eu", "id": 39, "ip": "104.215.148.89", "port": 7802, "pvp": false, "name": "(SEA) - Shen" },
+	{ "region": "eu", "id": 90, "ip": "79.110.95.37", "port": 7890, "pvp": true, "name": "W1 Baldrov (Beta)" },
+	{ "region": "eu", "id": 91, "ip": "79.110.95.37", "port": 7891, "pvp": false, "name": "W2 Atmorph (Internal)" },
+	{ "region": "na", "id": 4105, "ip": "208.67.49.53", "port": 10001, "pvp": false, "name": "Velika" },
+	{ "region": "na", "id": 4107, "ip": "208.67.49.52", "port": 10001, "pvp": true, "name": "Kaiator" },
+	{ "region": "ru", "id": 510, "ip": "91.225.237.5", "port": 7801, "pvp": false, "name": "Мистель" },
+	{ "region": "tw", "id": 2800, "ip": "113.196.245.170", "port": 7801, "pvp": true, "name": "提雅拉尼亞" },
+	{ "region": "tw", "id": 2801, "ip": "113.196.245.169", "port": 7801, "pvp": false, "name": "貝里克" },
+	{ "region": "tw", "type": "classic", "id": 3800, "ip": "113.196.245.191", "port": 7801, "pvp": false, "name": "CLASSIC" },
+	{ "region": "jp", "id": 5072, "ip": "203.141.240.219", "port": 7801, "pvp": false, "name": "ルーキー" },
+	{ "region": "jp", "id": 5081, "ip": "203.141.240.217", "port": 7801, "pvp": false, "name": "エリーヌ" },
+	{ "region": "kr", "id": 9, "ip": "183.110.3.6", "port": 7801, "pvp": true, "name": "아룬의 영광" },
+	{ "region": "kr", "type": "classic", "id": 7, "ip": "183.110.3.5", "port": 7801, "pvp": true, "name": "클래식 서버" }
+]

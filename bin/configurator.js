@@ -8,7 +8,7 @@ const configDir = path.join(__dirname, '../settings'),
 	configFile = path.join(configDir, '_tera-proxy_.json')
 
 let config = {
-	branch: '32bit',
+	branch: 'master',
 	autoUpdate: true,
 	autoUpdateMods: true,
 	devWarnings: false

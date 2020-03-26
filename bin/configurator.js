@@ -32,11 +32,11 @@ const configDir = path.join(__dirname, '../settings'),
 		publisher: 'Nexon - Beta'
 	}, {
 		name: ['NA (unsupported)'],
-		publisher: 'https://codeload.github.com/tera-proxy/tera-proxy/zip/beta'
+		publisher: 'https://codeload.github.com/tera-proxy/tera-proxy/zip/master'
 	}]
 
 let config = {
-	branch: 'master',
+	branch: 'sls',
 	autoUpdate: true,
 	autoUpdateMods: true,
 	region: '',

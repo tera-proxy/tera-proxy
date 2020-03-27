@@ -2,18 +2,10 @@
 title TERA Proxy
 cd /d "%~dp0"
 
-node -e "" 2> NUL
-if %errorlevel% NEQ 0 (
-	echo Node.JS not found.
-	echo Please install the latest Current from https://nodejs.org/
-	pause
-	exit
-)
-
-if not exist ./settings/_tera-proxy_.json (
-	node --use-strict bin/configurator
+if not exist .\settings\_tera-proxy_.json (
+	bin\node.exe --use-strict bin\configurator
 	cls
 )
 
-node --use-strict --harmony .
+bin\node.exe --use-strict --harmony .
 pause

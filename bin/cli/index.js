@@ -2,13 +2,6 @@
 'use strict'
 require('module').wrapper[0] += `'use strict';`
 
-// Feature compatibility check
-try { eval('null?.() ?? null') }
-catch(e) {
-	console.error(`Your version of Node.JS is outdated.
-Please install the latest Current from https://nodejs.org/`)
-	return
-}
 if(process.platform !== 'win32') {
 	console.error('TERA Proxy only supports Windows.')
 	return
@@ -35,9 +28,17 @@ async function init() {
 				dir: path.join(__dirname, '../..'),
 				manifestUrl: `https://raw.githubusercontent.com/tera-proxy/tera-proxy/${branch}/manifest.json`,
 				defaultUrl: `https://raw.githubusercontent.com/tera-proxy/tera-proxy/${branch}/`,
+				preUpdate(changed) {
+					let winDivertChanged = false
+					for(let file of changed)
+						if(file.startsWith('node_modules/proxy-game/bin/')) winDivertChanged = true
+
+					if(winDivertChanged) require('child_process').spawnSync('sc', ['stop', 'windivert'])
+					if(changed.has('bin/node.exe')) return true
+				}
 			})) {
 				log.info('TERA Proxy has been updated. Please restart it to apply changes.')
-				return
+				process.exit()
 			}
 			log.info('Proxy is up to date')
 		}

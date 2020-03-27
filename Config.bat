@@ -2,4 +2,4 @@
 title TERA Proxy Config
 cd /d "%~dp0"
 
-node --use-strict bin/configurator
+bin\node.exe --use-strict bin\configurator

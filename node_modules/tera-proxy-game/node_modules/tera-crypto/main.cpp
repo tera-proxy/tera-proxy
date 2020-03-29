@@ -163,9 +163,8 @@ namespace {
 		}
 
 	public:
-		static void Init(Local<Object> module) {
+		static void Init(Local<Object> exports, Local<Object> module, Local<Context> context) {
 			Isolate* isolate = module->GetIsolate();
-			Local<Context> context = isolate->GetCurrentContext();
 
 			Local<FunctionTemplate> tpl = FunctionTemplate::New(isolate, New);
 			tpl->SetClassName(NewString(isolate, "TeraCrypto"));
@@ -177,9 +176,7 @@ namespace {
 		}
 	};
 
-	void Init(Local<Object> exports, Local<Object> module) {
-		TeraCrypto::Init(module);
+	extern "C" NODE_MODULE_EXPORT void NODE_MODULE_INITIALIZER(Local<Object> exports, Local<Object> module, Local<Context> context) {
+		TeraCrypto::Init(exports, module, context);
 	}
-
-	NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
 }

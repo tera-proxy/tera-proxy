@@ -5,7 +5,18 @@
 	{ "region": "eu", "id": 39, "ip": "104.215.148.89", "port": 7802, "pvp": false, "name": "(Asia) - Shen" },
 	{ "region": "eu", "id": 90, "ip": "79.110.95.37", "port": 7890, "pvp": true, "name": "W1 Baldrov (Beta)" },
 	{ "region": "eu", "id": 91, "ip": "79.110.95.37", "port": 7891, "pvp": false, "name": "W2 Atmorph (Internal)" },
+
 	{ "region": "na", "id": 4105, "ip": "65.52.54.165", "port": 10001, "pvp": false, "name": "Velika" },
+
+	{ "region": "na", "id": 4105, "ip": "20.41.144.129", "port": 10001, "pvp": false, "name": "Velika" },
+	{ "region": "na", "id": 4105, "ip": "23.100.236.230", "port": 10001, "pvp": false, "name": "Velika" },
+	{ "region": "na", "id": 4105, "ip": "52.141.169.226", "port": 10001, "pvp": false, "name": "Velika" },
+	{ "region": "na", "id": 4105, "ip": "52.141.174.152", "port": 10001, "pvp": false, "name": "Velika" },
+	{ "region": "na", "id": 4105, "ip": "52.252.248.121", "port": 10001, "pvp": false, "name": "Velika" },
+	{ "region": "na", "id": 4105, "ip": "52.252.248.223", "port": 10001, "pvp": false, "name": "Velika" },
+	{ "region": "na", "id": 4105, "ip": "52.252.249.168", "port": 10001, "pvp": false, "name": "Velika" },
+	{ "region": "na", "id": 4105, "ip": "52.252.250.228", "port": 10001, "pvp": false, "name": "Velika" },
+
 	{ "region": "na", "id": 4107, "ip": "23.100.72.28", "port": 10001, "pvp": true, "name": "Kaiator" },
 	{ "region": "ru", "id": 510, "ip": "91.225.237.5", "port": 7801, "pvp": false, "name": "Мистель" },
 	{ "region": "tw", "id": 2800, "ip": "113.196.245.170", "port": 7801, "pvp": true, "name": "提雅拉尼亞" },

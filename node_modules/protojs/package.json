@@ -1,0 +1,6 @@
+{
+	"name": "protojs",
+	"version": "0.1.0",
+	"description": "Fast binary protocol parser/serializer for Node.JS.",
+	"author": "Pinkie Pie"
+}

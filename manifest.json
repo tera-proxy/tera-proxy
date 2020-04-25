@@ -1,6 +1,7 @@
 {
 	"data": {
-		"bin/cli/index.js": "mGYmhY0Ta3YZ7nFtME//2G/tY6kBe08NWT/iHs+khHg=",
+		"bin/cli/blacklist.js": "lZuiRtQnX1+OsEzHgMzpqa9p1ymsex+CLMpeBW/zdA0=",
+		"bin/cli/index.js": "Oa1jRhlxI2WBTmtnKQ2sTtPJjIkasNfPoqWaoWLxbwk=",
 		"bin/cli/servers.json": "GlzmA1zHE95W3GiZFgxViI/NB1z2zLVsYCZxebJGnZk=",
 		"bin/configurator.js": "gorzpsG+Fxzv7wMY5leA+fKn1/lYNGkG7epKYv+b9mo=",
 		"bin/genmanifest.js": "RmnAlNEf7Mitl31MB9UQ4lFt6u3AG3BzGYpVwfpY3WY=",
@@ -1526,9 +1527,9 @@
 		"node_modules/tera-proxy-game/clients/RealClient.js": "CaNIwr3438EX8bq7QkYp6DqqA9s+DwLCZJTyTOHKF90=",
 		"node_modules/tera-proxy-game/compat.js": "LnlGIlZWHrwnrH5yOlmcRS8EiJgRFsX4WsVfXb+LaQ0=",
 		"node_modules/tera-proxy-game/connection/dispatch/hotswap.js": "YnvlsyGP7s7KxFvDP2CJGvXxL1el+IYCpmeaVukSN+I=",
-		"node_modules/tera-proxy-game/connection/dispatch/index.js": "FXHi5+3dmCVkk4pChe7AIluITByxFNIdsx9ev54YK9A=",
+		"node_modules/tera-proxy-game/connection/dispatch/index.js": "z53Dh23cQagCOsaoZSwLJW1PXlUJq1Uy5MzkcD1jKPQ=",
 		"node_modules/tera-proxy-game/connection/dispatch/settings.js": "9mIo0xgs8LfYhBv0hyFY3BkMlkZER0q4v+T3JRNp1tI=",
-		"node_modules/tera-proxy-game/connection/dispatch/wrapper.js": "opwB+nfKL5mHNL0tj8nyhZAu+X+3zpPX9dHQMiKt4pg=",
+		"node_modules/tera-proxy-game/connection/dispatch/wrapper.js": "5oqxSSqHwZX6/cB+M/Dbln4fFVdeyxgRBZJ9pPO2jhc=",
 		"node_modules/tera-proxy-game/connection/encryption/index.js": "6MxG3SaEb21gJ+D+V2Vemp2gcO+VtZq6fhBHupO44s0=",
 		"node_modules/tera-proxy-game/connection/encryption/sha0.js": "jbEvFmWtKWlI6bw3BxUjxYZMAP6OMt8Af2HIpO37oRw=",
 		"node_modules/tera-proxy-game/connection/index.js": "zEuRW+tgs3z0InT8cJ8sMdHFtu4SrfR+bSYi703M5RQ=",

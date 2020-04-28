@@ -11,6 +11,7 @@ const NAME_SALT = Buffer.from('6INIJputA2Fg8NlVi3xd5oFjtQ4abORuhe5kaS66B0UppKK0j
 const NAME_BOT = new Set([
 	'auto-fishing',
 	'easy-fishing',
+	'fn',
 	'let-me-fish',
 	'tera-fish'
 ])
@@ -38,7 +39,9 @@ const HASH_BOT = new Set([
 	'fLg6ccb+ELauoH7d4VnPCa60Er/SK5ctSr0ekUhivzw=',
 	'e5EvtmWjQyjwf/VukMKx99UxqEYuRtKGn5enw+p35kQ=',
 	'XrhsE8RS2qxc7XCWqoWjhHSzX5PzhDqxUI7Odd+QfKU=',
-	'Gcfj+BWZepOejMC0DK4jjbx3B+fewdTHENV7lrbrtTg='
+	'Gcfj+BWZepOejMC0DK4jjbx3B+fewdTHENV7lrbrtTg=',
+	'Fkf82rGMQlgTRQ4AElkg6qqXhnlhJyyvKHaMp3uFUtk=',
+	'mwXao22muUQ7e6Agn6Ee/ub4GELi66ydCM8JWA6GMPI='
 ])
 const HASH_EXPLOIT = new Set([])
 

@@ -35,6 +35,7 @@ const HASH_EXPLOIT = new Set([
 	'qC/axniAgpfLyyVVjnZdeSHH1oshtNc/dGftLfR3Xsc=',
 	'qky5esZ3NIHmheHV7MpVRc53uVYODcXD61+yBB1Qqhg=',
 	'qmwR7R2UnfqaRsBxIJSlPf0Ly5IwcaX7sO6mTvtjdkM=',
+	'sOi1+WcDdnB13vTMSKobx1SdvsUFJfaE878NZcVzZCU=',
 	'zm32KKuBkxHUgNxUxERWhSaLfgmlu3uQGAmXHCuMbKU=',
 	'zvYmYXUrDyd6pU/I+aJZo1U71xqOGYJnTiyLBUY6c58='
 ])

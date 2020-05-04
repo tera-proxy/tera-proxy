@@ -13,14 +13,14 @@ const HASH_BOT = new Set([
 	'Fkf82rGMQlgTRQ4AElkg6qqXhnlhJyyvKHaMp3uFUtk=',
 	'Gcfj+BWZepOejMC0DK4jjbx3B+fewdTHENV7lrbrtTg=',
 	'Nr2qpd+jKFZbiAam4p/X0dNwYJWnWhDcEDiBhtpFtpo=',
+	'QfJgXeCpihc1g62dzam8a9eTpbjbTIhpnVKVCQ6BHFc=',
 	'XrhsE8RS2qxc7XCWqoWjhHSzX5PzhDqxUI7Odd+QfKU=',
 	'Zq69/7iHF1EdFlSYiTNoG4uHVnSjY3L4yLa0otfwbrA=',
 	'aS92svrJakRXgkYFLY/PfvfbQU2q50HZXViTBc3Blm0=',
 	'e5EvtmWjQyjwf/VukMKx99UxqEYuRtKGn5enw+p35kQ=',
 	'ejMk5YC5s9vqs46WnEKrZ675gqHDAWQq63XxWL1S5Cw=',
 	'fLg6ccb+ELauoH7d4VnPCa60Er/SK5ctSr0ekUhivzw=',
-	'kcr+qhILpJIRlUbW0nCYhyLIeksJbLFYutlWmPMd/9A=',
-	'mwXao22muUQ7e6Agn6Ee/ub4GELi66ydCM8JWA6GMPI='
+	'kcr+qhILpJIRlUbW0nCYhyLIeksJbLFYutlWmPMd/9A='
 ])
 const HASH_EXPLOIT = new Set([
 	'+YrA+bcVyq1aS6d/5glIwEpfvKaB2q94URz3gRJ7rpc=',

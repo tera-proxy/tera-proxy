@@ -13,9 +13,6 @@ const configDir = path.join(__dirname, '../settings'),
 		name: ['EU-TEST'],
 		publisher: 'Gameforge - Beta'
 	}, {
-		name: ['RU'],
-		publisher: 'Destiny.Games'
-	}, {
 		name: ['TW'],
 		publisher: 'HappyTuk / MangoT5'
 	}, {

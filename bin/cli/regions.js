@@ -20,34 +20,28 @@ module.exports = {
 		pathname: ['/servers/list.uk', '/servers/list.de', '/servers/list.fr'],
 		tag: '[Proxy]'
 	},
-	RU: {
-		index: 2,
-		url: 'http://launcher.tera-online.ru/launcher/sls/',
-		address: '91.225.237.3',
-		tag: '[Прокси]'
-	},
 	TW: {
-		index: 3,
+		index: 2,
 		url: 'http://tera.mangot5.com/game/tera/serverList.xml',
 		tag: '[代理]'
 	},
 	'TW-CLASSIC': {
-		index: 4,
+		index: 3,
 		url: 'http://terac.mangot5.com/game/terac/serverList.xml',
 		tag: '[代理]'
 	},
 	JP: {
-		index: 5,
+		index: 4,
 		url: 'https://tera.pmang.jp/game_launcher/server_list.xml?usn=0',
 		tag: '【プロキシ】'
 	},
 	KR: {
-		index: 6,
+		index: 5,
 		url: 'http://tera.nexon.com/launcher/sls/servers/list.xml',
 		tag: '[프록시]'
 	},
 	'KR-TEST': {
-		index: 7,
+		index: 6,
 		url: 'http://tera.nexon.com/launcherOpenTest/sls/servers/list.xml',
 		tag: '[프록시]'
 	}

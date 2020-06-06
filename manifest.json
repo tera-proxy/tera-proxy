@@ -8,6 +8,7 @@
 		"bin/node.exe": "Wu/hSXOj7XKtp8/F6PNYx3sbHghNJb1SdnyD06Wa8II=",
 		"bin/wait-for-exit.js": "yjnUBgqy/AZ3KTSkake31uPyATAN7Dli0IsmWVVA9Co=",
 		"Config.bat": "J0GwrYxgKaqPwDC5vrQTStRGc6aKJab/4XcHbP7nOtI=",
+		"doc/getting-started.md": "wN4oYwM5TQExYHJNDQ2XaqMZ7DrriAAZ8pYLhtDvC4w=",
 		"mods/bugfix/chat-sanitizer.js": "hvoZ5qpwI6SsN/kANW/kYT/T2yY9NE4GzI4JW2xDoPc=",
 		"mods/bugfix/index.js": "XKp/svIJRC8H0tXA7SXuBpSA9ABrFo4MwBcRQOBWG+c=",
 		"mods/bugfix/manifest.json": "qDmV2AW+4oSpFdPiORuX6yRjZ5vHIdDyj4215rd0nMQ=",
@@ -1579,7 +1580,7 @@
 		"node_modules/updater/index.js": "pgyazWRGKBcCYthP3Yys5PRFQCJEDGjI1d1HcRproqY=",
 		"node_modules/updater/package.json": "CilS25rKqWhEJmuv4crgxEpHa94pBhKHLWM3vRigQSE=",
 		"package.json": "RZhBLbBfXailywB81t+nTKwfdlA4gwPg9NrmXanFPx8=",
-		"README.md": "VEN2mo9LEukFrs3CgNlcCBbL9FEjOysHNTvrf2MWU0k=",
+		"README.md": "jyJbnoOP/CSL1AihXvZi+cRYMAYcKnX3AJrYPNNMyIQ=",
 		"TeraProxy.bat": "oPgefQz4RhaZFWerpfTBv+9uXYrnVc4Gt6WI0nUhtug=",
 		"Uninstall.bat": "OdpJJjueZqZ1zboXZLe9mqRIsAp3eK8tEDwI66gFDeg="
 	}

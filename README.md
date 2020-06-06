@@ -7,7 +7,7 @@ Join us on Discord: [![Discord](https://discordapp.com/api/guilds/28131199876595
 * Fast, lightweight and secure with a focus on minimal dependencies
 * Compatible with hundreds of mods (including TERA Toolbox mods)
 * (Optional) Automatic updates for proxy & mods
-* Simple JavaScript API to make creating your own mods easy
+* Simple JavaScript API to make creating your own mods easy (see our [Getting Started guide](doc/getting-started.md))
 * Fully open-source
 
 # Installation

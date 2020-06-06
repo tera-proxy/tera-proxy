@@ -30,7 +30,7 @@ module.exports = function HelloWorld(mod) {
 }
 ```
 
-Once the user selects a server, our mod is passed a single variable called `mod`, which allows us to access the TERA Proxy API. The above example simply logs an info message to the console, letting us know it's working.
+Once the user selects a server, our mod is passed a single variable called `mod`, which allows us to access the [Mod API](mod-api.md). The above example simply logs an info message to the console, letting us know it's working.
 
 ## Hooking network packets
 The main feature of TERA Proxy is its ability to hook, modify, block and inject new network packets. These are parsed into readable objects by Protocol Definitions, which can be found in `tera-proxy/node_modules/tera-data/protocol/`.

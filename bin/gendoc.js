@@ -39,20 +39,20 @@ for(let i = 0, blockComment = false, obj = null; i < lines.length; i++) {
 		else obj.body += `\n${line.startsWith('/') ? line.slice(1) : line}`
 }
 
-let doc = `#${meta.title}${meta.body}`
+let doc = `# ${meta.title}${meta.body}`
 
 if(properties.size) {
-	doc += `\n##Properties`
+	doc += `\n## Properties`
 	for(let [name, { body }] of [...properties].sort((a, b) => a[0].localeCompare(b[0]))) {
-		doc += `\n###\`${name}\``
+		doc += `\n### \`${name}\``
 		doc += replaceRefs(body)
 	}
 }
 
 if(methods.size) {
-	doc += `\n##Methods`
+	doc += `\n## Methods`
 	for(let [name, { args, body }] of [...methods].sort((a, b) => a[0].localeCompare(b[0]))) {
-		doc += `\n###\`${name}()\``
+		doc += `\n### \`${name}()\``
 		if(args) doc += `\n**Arguments:** \`${args}\``
 		doc += replaceRefs(body)
 	}

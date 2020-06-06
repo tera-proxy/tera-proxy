@@ -54,7 +54,7 @@ if(methods.size) {
 	for(let [name, { args, body }] of [...methods].sort((a, b) => a[0].localeCompare(b[0]))) {
 		doc += `\n### \`${name}()\``
 		if(args) doc += `\n**Arguments:** \`${args}\``
-		doc += replaceRefs(body)
+		if(body) doc += `\n${replaceRefs(body)}`
 	}
 }
 

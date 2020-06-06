@@ -7,13 +7,12 @@ Join us on Discord: [![Discord](https://discordapp.com/api/guilds/28131199876595
 * Fast, lightweight and secure with a focus on minimal dependencies
 * Compatible with hundreds of mods (including TERA Toolbox mods)
 * (Optional) Automatic updates for proxy & mods
-* Simple JavaScript API to make creating your own mods easy
+* Simple JavaScript API to make creating your own mods easy (see our [Getting Started guide](doc/getting-started.md))
 * Fully open-source
 
 # Installation
 * [Download](https://github.com/tera-proxy/tera-proxy/archive/master.zip) the current version from GitHub (`Clone or Download > Download ZIP`)
 * Extract to anywhere (ie. your desktop) using an archive manager such as [7-Zip](https://sourceforge.net/projects/sevenzip/files/latest/download)
-* [Download and install the **Current** version of Node.JS](https://nodejs.org)
 * Download any mods you wish to use and place them in `tera-proxy/mods/`
 * * Many useful mods can be found on [tera-mods](https://github.com/tera-mods) or by searching for [tera-proxy](https://github.com/search?q=tera-proxy)
 * Right click TeraProxy.bat and select `Run as administrator`

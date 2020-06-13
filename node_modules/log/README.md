@@ -28,8 +28,20 @@ log.debug('This is a debug message')
 #### *this*(options)
 Returns a child instance. `options` may be either a String (name) or an object containing optional properties.
 
-#### color(id, string)
-Returns a colored string if `process.stdout` supports TTY output. `id` is an ANSI.SYS escape string (for example `'97'`), a semi-complete list of which can be found [here](https://stackoverflow.com/a/38617204).
+#### color(colors, string)
+Returns a colored string if the current output supports it, otherwise returns an un-modified string. `colors` is a comma-separated list of styles, which may contain one or more of the following:
+```
+text    # default text color
+bg      # default background color
+gray
+red
+green
+blue
+yellow
+magenta
+cyan
+```
+Strong colors are preceded by `s`, while background colors are preceded by `bg-` (ex. `'stext,bg-sred'`).
 
 ### Default log levels
 All functions take a single argument, which may be of any type (Objects and Errors are handled specially).

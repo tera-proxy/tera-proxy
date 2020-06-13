@@ -106,6 +106,7 @@ async function init() {
 		modsDir: path.join(__dirname, '..', '..', 'mods'),
 		settingsDir: path.join(__dirname, '..', '..', 'settings'),
 		blacklist: require('./blacklist'),
+		publicKeys: require('./public-keys'),
 		autoUpdate: settings.autoUpdateMods
 	})
 

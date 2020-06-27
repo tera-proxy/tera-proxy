@@ -149,6 +149,13 @@ const logRoot = require('log'),
 					'Open an administrator command prompt and enter \'sc stop windivert1.4\'.'
 				]
 				break
+			case 3:
+				msg = [
+					'Windows kernel cannot read the specified drive.',
+					'Install TERA Proxy on a local drive instead of a network drive.',
+					'Right click Uninstall.bat and select \'Run as administrator\', then try again.'
+				]
+				break
 			case 5:
 				msg = [
 					'Access denied.',

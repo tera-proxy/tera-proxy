@@ -1,5 +1,9 @@
-const mods = ['chat-sanitizer', 'swim-fix'].map(mod => require('./' + mod))
+const fs = require('fs'),
+	path = require('path')
 
-module.exports = function Bugfix(dispatch) {
-	for(let mod of mods) mod(dispatch)
+const fixesDir = path.join(__dirname, 'fixes'),
+	fixes = fs.readdirSync(fixesDir).map(name => require(path.join(fixesDir, name)))
+
+module.exports = function Bugfix(mod) {
+	for(let SubMod of fixes) new SubMod(mod)
 }

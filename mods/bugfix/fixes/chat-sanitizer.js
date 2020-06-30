@@ -1,9 +1,22 @@
 // Removes potentially malicious injected HTML content from other users' chat messages ~Pinkie Pie
 
+const HTML_ESCAPED = { '<': '&lt;', '>': '&gt;', '&': '&amp;' }
+
 module.exports = function ChatSanitizer(mod) {
+	// Chat
 	mod.hook('S_CHAT', 2, { order: 10 }, sanitize)
 	mod.hook('S_WHISPER', 2, { order: 10 }, sanitize)
 	mod.hook('S_PRIVATE_CHAT', 1, { order: 10 }, sanitize)
+
+	// LFG messages
+	mod.hook('S_SHOW_PARTY_MATCH_INFO', 1, { order: 10 }, event => {
+		let res = undefined
+		for(let listing of event.listings)
+			if(listing.message !== (listing.message = escapeHtml(listing.message)))
+				res = true
+
+		return res
+	})
 
 	function sanitize(event) {
 		const sanitized = event.message.replace(/<(.+?)>/g, (str, tag) => validateTag(tag) ? str : '')
@@ -41,4 +54,6 @@ module.exports = function ChatSanitizer(mod) {
 		return /^1#####\d+@\d+@[^#@]+$/.test(param)
 			|| /^3#####\d+_\d+_\d+@\d+@-?\d+(\.\d+)?,-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(param)
 	}
+
+	function escapeHtml(str) { return str.replace(/[<>&]/g, m => HTML_ESCAPED[m]) }
 }

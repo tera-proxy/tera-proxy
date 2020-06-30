@@ -11,23 +11,26 @@ class Command {
 	constructor(mod) {
 		this.mod = mod
 
-		this.loaded = false
+		this.loginHook = false
 		this.hooks = {}
 
-		mod.hook('S_LOGIN', 'raw', () => { this.loaded = false })
+		mod.hook('S_LOGIN', 'raw', () => { this.loginHook = true })
 
-		mod.hook(mod.patchVersion < 90 ? 'S_LOAD_CLIENT_USER_SETTING' : 'S_REPLY_CLIENT_CHAT_OPTION_SETTING', 'raw', () => {
-			if(!this.loaded && (this.loaded = true))
-				process.nextTick(() => {
-					mod.send('S_JOIN_PRIVATE_CHANNEL', 1, {
-						index: PRIVATE_CHANNEL_INDEX,
-						id: PRIVATE_CHANNEL_ID,
-						unk: [],
-						name: PRIVATE_CHANNEL_NAME
-					})
+		mod.hook(mod.patchVersion < 90 ? 'S_LOAD_CLIENT_USER_SETTING' : 'S_REPLY_CLIENT_CHAT_OPTION_SETTING', 'raw',
+			{ order: 50, filter: { fake: null } }, () => {
+			if(!this.loginHook) return
 
-					if(LOGIN_MESSAGE) this.message(`TERA Proxy enabled. Client version: ${mod.patchVersion} r${mod.protocolVersion}`)
+			process.nextTick(() => {
+				mod.send('S_JOIN_PRIVATE_CHANNEL', 1, {
+					index: PRIVATE_CHANNEL_INDEX,
+					id: PRIVATE_CHANNEL_ID,
+					unk: [],
+					name: PRIVATE_CHANNEL_NAME
 				})
+
+				if(LOGIN_MESSAGE) this.message(`TERA Proxy enabled. Client version: ${mod.patchVersion} r${mod.protocolVersion}`)
+			})
+			this.loginHook = false
 		})
 
 		mod.hook('S_JOIN_PRIVATE_CHANNEL', 1, event => event.index === PRIVATE_CHANNEL_INDEX ? false : undefined)
@@ -137,7 +140,7 @@ class Command {
 		if(typeof cmd !== 'string') throw new Error('Command must be a string or array of strings')
 		if(cmd === '') throw new Error('Command must not be an empty string')
 
-		if(this.hooks[cmd = cmd.toLowerCase()]) throw new Error('Command already registered:', cmd)
+		if(this.hooks[cmd = cmd.toLowerCase()]) throw new Error(`Command already registered: ${cmd}`)
 
 		this.hooks[cmd] = cb
 	}

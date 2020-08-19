@@ -25,7 +25,6 @@ const HASH_BOT = new Set([
 const HASH_EXPLOIT = new Set([
 	'+YrA+bcVyq1aS6d/5glIwEpfvKaB2q94URz3gRJ7rpc=',
 	'2fQAUkAe4aKE6VaWMZivQTfpN2KauMQY4o0vb1br4x0=',
-	'7lvtjqVun1n2oy/9Zhaj+MC/Ar93HBwydYpZDCTblNY=',
 	'CXHKsur2YvjoKKfciQ35B1D06lshP9lk/Lj7OFdpyW0=',
 	'GzdSVULcH0f+d31Q1J0/fhsF4BEQOxzYPK0zEBxDkK8=',
 	'HLVYloyzNL68zhRFJQdzVHWkROw5odQBk3C7JQDP/3Y=',

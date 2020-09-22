@@ -72,7 +72,15 @@ class Command {
 				}
 
 				try {
-					if(!this.exec(args)) {
+					if (stripOuterHTML(message) == '?' || stripOuterHTML(message) == 'help') {
+						if (typeof this.hooks !== 'undefined') {
+							for(var key in this.hooks) {
+								this.message('CMD: ' + key)
+							}
+						} else {
+							this.message('No commands registered.')
+						}
+					} else if(!this.exec(args)) {
 						lastError = `Unknown command "${args[0]}".`
 						return
 					}
